@@ -15,7 +15,7 @@ body{
 
 /* container */
 .container{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     max-width: 132rem;
     height: 165rem;
     padding: 0;
