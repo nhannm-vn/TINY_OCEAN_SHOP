@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi" style="scroll-behavior: smooth;">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +31,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="./about_page.css">
 </head>
+
 <body>
     <!-- <header>
         <div class="navbar">
@@ -73,13 +75,13 @@
                         <a class="header-shop-link" href="#">Shop</a>
                     </li>
                     <li class="header-shop-item">
-                        <a class="header-shop-link" href="#">About</a>
+                        <a class="header-shop-link" href="./about_page.html" onclick="event.preventDefault(); transitionToPage('./about_page.html')">About</a>
                     </li>
                     <li class="header-shop-item">
                         <a class="header-shop-link" href="#">Customer Care</a>
                     </li>
                     <li class="header-shop-item">
-                        <a class="header-shop-link" href="#">Contact</a>
+                        <a class="header-shop-link" href="./contact_page.html" onclick="event.preventDefault(); transitionToPage('./contact_page.html')">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -114,21 +116,22 @@
         <div class="content">
             <h1>ABOUT US</h1>
             <p>
-                I'm a paragraph. 
-                Click here to add your own text and edit me. 
-                It’s easy. 
-                Just click “Edit Text” or double click me to add your own content and make changes to the font. 
-                Feel free to drag and drop me anywhere you like on your page. 
+                I'm a paragraph.
+                Click here to add your own text and edit me.
+                It’s easy.
+                Just click “Edit Text” or double click me to add your own content and make changes to the font.
+                Feel free to drag and drop me anywhere you like on your page.
                 I’m a great place for you to tell a story and let your users know a little more about you.
             </p>
             <p>
-                This is a great space to write long text about your company and your services. 
-                You can use this space to go into a little more detail about your company. 
-                Talk about your team and what services you provide. 
-                Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors. 
+                This is a great space to write long text about your company and your services.
+                You can use this space to go into a little more detail about your company.
+                Talk about your team and what services you provide.
+                Tell your visitors the story of how you came up with the idea for your business and what makes you
+                different from your competitors.
                 Make your company stand out and show your visitors who you are.
             </p>
-            <button>Contact Us</button>
+            <button  onclick="event.preventDefault(); transitionToPage('./contact_page.html')">Contact Us</button>
         </div>
         <div class="image">
             <img src="./img-about.webp" alt="Fish tank">
@@ -188,5 +191,8 @@
         </div>
     </footer>
 
+    <!-- js -->
+    <script src="./about_page.js"></script>
 </body>
+
 </html>

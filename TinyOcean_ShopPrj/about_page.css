@@ -92,6 +92,8 @@ html{
 body{
     /* cho mặc định là 16px cho dễ chơi */
     font-size: 1.6rem;
+    transition: opacity 1s ease; /* Hiệu ứng chuyển mờ trong 1.5 giây */
+    opacity: 1;
 }
 
 /* header */
