@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiny Ocean Shop</title>
-    <!-- link boostrap -->
+    <title>About Page</title>
+    <!-- Font and Icon Imports -->
+    <link rel="stylesheet" href="https://static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css">
+    <link rel="stylesheet" href="https://static.parastorage.com/unpkg/@wix/wix-fonts@1.14.0/madefor.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -26,12 +29,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./contact_page.css">
+    <link rel="stylesheet" href="./about_page.css">
 </head>
 
 <body>
-    <!-- code here -->
-    <!-- header -->
+    <!-- <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="icon-fish-header.png" alt="Tiny Ocean Logo">
+                <span class="logo-text">TINY OCEAN</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Customer Care</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="icons">
+                <a href="#"><i class="fas fa-user"></i> <span class="login-text">Log In</span></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </header> -->
     <header>
         <!-- header -->
         <div class="header-shop">
@@ -50,13 +75,15 @@
                         <a class="header-shop-link" href="#">Shop</a>
                     </li>
                     <li class="header-shop-item">
-                        <a class="header-shop-link" href="./about_page.html" onclick="event.preventDefault(); transitionToPage('./about_page.html')">About</a>
+                        <a class="header-shop-link" href="./about_page.html"
+                            onclick="event.preventDefault(); transitionToPage('./about_page.html')">About</a>
                     </li>
                     <li class="header-shop-item">
                         <a class="header-shop-link" href="#">Customer Care</a>
                     </li>
                     <li class="header-shop-item">
-                        <a class="header-shop-link" href="./contact_page.html" onclick="event.preventDefault(); transitionToPage('./contact_page.html')">Contact</a>
+                        <a class="header-shop-link" href="./contact_page.html"
+                            onclick="event.preventDefault(); transitionToPage('../Contact/contact_page.html')">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -86,60 +113,56 @@
             </div>
         </div>
     </header>
+
     <div class="container">
-        <!-- body -->
-        <div class="body-shop">
-            <div class="body-shop-left">
-                <div class="body-shop-left-content">
-                    <h1>
-                        TINY OCEAN
-                    </h1>
-                    <p class="body-shop-left-content_1">
-                        500 Terry Francine Street <br />
-                        San Francisco, CA 94158 <br />
-                        123-456-7890 <br />
-                        info@my-domain.com <br />
-                    </p>
-                    <p class="body-shop-left-content_1">
-                        <strong>Customer service</strong> <br />
-                        123-456-7890 <br />
-                        info@my-domain.com <br />
-                    </p>
-                    <form novalidate>
-                        <div class="mb-2">
-                            <input class="form-control input-name input-check" type="text" placeholder="Name" id="name">
-                        </div>
-                        <div class="mb-2">
-                            <input class="form-control input-email input-check" type="email" placeholder="Email"
-                                id="email">
-                        </div>
-                        <div class="mb-2">
-                            <input class="form-control input-phone input-check" type="text" placeholder="Phone"
-                                id="phone">
-                        </div>
-                        <div class="form-group mb-2">
-                            <textarea id="message" class="form-control input-message input-check"
-                                placeholder="Type your message here..."></textarea>
-                        </div>
-                        <button class="btn-submit">Submit</button>
-                    </form>
-                </div>
-            </div>
-            <div class="body-shop-right">
-                <img src="https://static.wixstatic.com/media/ea71bb_73b9d6873f724e18a374ec5eb19e31d6~mv2_d_2037_2265_s_2.jpg/v1/fill/w_459,h_839,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ea71bb_73b9d6873f724e18a374ec5eb19e31d6~mv2_d_2037_2265_s_2.jpg"
-                    alt="Ảnh bị lỗi rồi">
-            </div>
-            <div class="body-map">
-                <h1 class="content-map">
-                    Map <i class="fa-solid fa-map-location-dot"></i>
-                </h1>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.6307606886553!2d106.77812697480584!3d10.839543189313076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752723b2e81e0f%3A0x38d0377c8363f549!2zVHJ1bmcgdMOibSDEkcOgbyB04bqhbyBs4bqtcCB0csOsbmggUGllZFRlYW0!5e0!3m2!1svi!2s!4v1727088354399!5m2!1svi!2s"
-                    width="1050" height="380" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+        <div class="content">
+            <h1>ABOUT US</h1>
+            <p>
+                I'm a paragraph.
+                Click here to add your own text and edit me.
+                It’s easy.
+                Just click “Edit Text” or double click me to add your own content and make changes to the font.
+                Feel free to drag and drop me anywhere you like on your page.
+                I’m a great place for you to tell a story and let your users know a little more about you.
+            </p>
+            <p>
+                This is a great space to write long text about your company and your services.
+                You can use this space to go into a little more detail about your company.
+                Talk about your team and what services you provide.
+                Tell your visitors the story of how you came up with the idea for your business and what makes you
+                different from your competitors.
+                Make your company stand out and show your visitors who you are.
+            </p>
+            <button onclick="event.preventDefault(); transitionToPage('../Contact/contact_page.html')">Contact
+                Us</button>
+        </div>
+        <div class="image">
+            <img src="./img-about.webp" alt="Fish tank">
         </div>
     </div>
+
+    <!-- <footer>
+        <div class="footer-container">
+            <div class="footer-section follow">
+                <h3>Follow</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact</h3>
+                <p>info@my-domain.com</p>
+                <p>123-456-7890</p>
+            </div>
+            <div class="footer-section address">
+                <h3>Address</h3>
+                <p>500 Terry Francine Street</p>
+                <p>San Francisco, CA 94158</p>
+            </div>
+        </div>
+    </footer> -->
     <!-- end -->
     <footer>
         <!-- end -->
@@ -171,10 +194,8 @@
         </div>
     </footer>
 
-    <!--------------->
-    <!-- <div style="height: 100vh;"></div> -->
-    <!-- link js -->
-    <script src="./contact_page.js"></script>
+    <!-- js -->
+    <script src="./about_page.js"></script>
 </body>
 
 </html>
