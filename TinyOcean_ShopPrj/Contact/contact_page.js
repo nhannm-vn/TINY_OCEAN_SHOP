@@ -71,12 +71,12 @@ const createMsg = (parentNode, controlNodes, msg) => {
 //hẳn luôn để không nó hiện nhiều quá. Và nếu lỗi thì trả ra cái lỗi đó, còn không lỗi
 //thì mình trả ra "" cho nó => nhằm giúp mình check khi nào thì form valid toàn bộ
 
-const isValid = ({value, funcs, parentNode, controlNodes}) => {
+const isValid = ({ value, funcs, parentNode, controlNodes }) => {
     //chạy qua các hàm coi có lỗi gì không
     //nhưng chạy for-of vì vậy mới dừng được
     for (const funcCheck of funcs) {
         let msg = funcCheck(value);
-        if(msg){
+        if (msg) {
             createMsg(parentNode, controlNodes, msg);
             return msg;
         };
@@ -119,10 +119,12 @@ document.querySelector("form").addEventListener("submit", (event) => {
     let messageNode = document.querySelector("#message");
 
     let formValid = [
-        isValid({value: nameNode.value,
-                funcs: [isRequired, isName],
-                parentNode: nameNode.parentElement,
-                controlNodes: [nameNode],}),
+        isValid({
+            value: nameNode.value,
+            funcs: [isRequired, isName],
+            parentNode: nameNode.parentElement,
+            controlNodes: [nameNode],
+        }),
         isValid({
             value: emailNode.value,
             funcs: [isRequired, isEmail],
@@ -148,7 +150,7 @@ document.querySelector("form").addEventListener("submit", (event) => {
 document.querySelectorAll(".input-check").forEach((inputNode) => {
     inputNode.addEventListener("blur", (event) => {
         // nếu như cái ô input không có giá trị đồng thời chưa có đỏ thì làm
-        if(event.target.value == "" && !event.target.classList.contains("is-invalid")){
+        if (event.target.value == "" && !event.target.classList.contains("is-invalid")) {
             //tạo ra lỗi
             createMsg(event.target.parentElement, [event.target], "That field is required!");
         }
@@ -158,7 +160,7 @@ document.querySelectorAll(".input-check").forEach((inputNode) => {
 //viết sự kiện xóa khi đã có nhập gì vào thì xóa mấy lỗi của ô đó đi
 document.querySelectorAll(".input-check").forEach((inputNode) => {
     inputNode.addEventListener("input", (event) => {
-        if(event.target != ""){
+        if (event.target != "") {
             //xóa hết lỗi đi
             event.target.classList.remove("is-invalid");
             //nhìn xuống thằng dưới xóa nó luôn
@@ -168,13 +170,23 @@ document.querySelectorAll(".input-check").forEach((inputNode) => {
 });
 
 //**Giúp cho trang web chuyển mượt hơn
-window.transitionToPage = function(href) {
+window.transitionToPage = function (href) {
     document.querySelector('body').style.opacity = 0
-    setTimeout(function() { 
+    setTimeout(function () {
         window.location.href = href
     }, 1000)
 };
 
-document.addEventListener('DOMContentLoaded', function(event) {
+document.addEventListener('DOMContentLoaded', function (event) {
     document.querySelector('body').style.opacity = 1
 });
+
+//-------------------------------------------------------------
+//**Hàm giúp biết đang đứng ở trang nào thì nút trang đó sáng lên
+document.querySelectorAll(".link-pop-up").forEach((link) => {
+    if(link.getAttribute("id") == "pop"){
+        link.classList.add("actived");
+    };
+});
+
+

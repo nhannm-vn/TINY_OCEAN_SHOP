@@ -104,7 +104,12 @@ body{
 .item-hover-spec:hover .linksub-customer {
     display: block;
 }
-/*-------------------------------*/
+/* ----------------------------- */
+/* Bấm ở trang nào thì nút trên header sẽ có màu đó */
+.actived{
+    color: rgb(252, 152, 35);
+}
+/* -----------------------------*/
 
 /* header-shop-right */
 .header-shop-right{

@@ -145,6 +145,12 @@ body{
 .header-shop-link:hover{
     color: rgb(252, 152, 35);
 }
+/* ----------------------------- */
+/* Bấm ở trang nào thì nút trên header sẽ có màu đó */
+.actived{
+    color: rgb(252, 152, 35);
+}
+/* -----------------------------*/
 /* linksub-customer: phân tử ẩn cho link */
 .linksub-customer{
     display: none;
@@ -247,6 +253,14 @@ body{
     margin-bottom: 20px;
     color: #000769;
 }
+
+/* ------------------ */
+/* giúp cho cai nút hiện dần lên khi scroll */
+.show{
+    opacity: 1;
+}
+/* ------------------ */
+
 
 .content button {
     background-color: #FC9823;
