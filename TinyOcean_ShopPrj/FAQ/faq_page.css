@@ -73,6 +73,40 @@ body{
 .header-shop-link:hover{
     color: rgb(252, 152, 35);
 }
+/* linksub-customer: phân tử ẩn cho link */
+.linksub-customer{
+    display: none;
+    text-align: center;
+    /* border: 2px solid chartreuse; */
+    width: 16rem;
+    height: 7.5rem;
+    position: absolute;
+    padding-top: 1.7rem;
+    padding-bottom: 0;
+    background-color: rgb(0, 7, 105);
+    /* combo dịch chuyển qua phân nữa so với nó cho đúng chỗ */
+    right: 50%;
+    transform: translateX(50%);
+    top: 100%;
+    z-index: 1000;
+}
+.linksub-customer a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: "Roboto", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 350;
+    transition: 0.4s;
+}
+.linksub-customer a:hover{
+    color: rgb(252, 152, 35);
+    
+}
+/* khi hover vào cái này thì cái kia bị cái gì */
+.item-hover-spec:hover .linksub-customer {
+    display: block;
+}
+/*-------------------------------*/
 /* header-shop-right */
 .header-shop-right{
     display: flex;
