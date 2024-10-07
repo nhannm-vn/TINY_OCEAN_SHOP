@@ -175,7 +175,7 @@ body{
 .container {
     display: flex;
     max-width: 1200px;
-    margin: 50px auto;
+    margin: 0 auto;
     justify-content: space-between;
     align-items: center;
     gap: 40px;
@@ -233,7 +233,7 @@ body{
 }
 
 .image img {
-    width: 100%;
+    width: 125%;
     height: auto;
 }
 

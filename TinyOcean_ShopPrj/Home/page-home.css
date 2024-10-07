@@ -325,32 +325,38 @@ body{
     opacity: 0; /* Bắt đầu mờ */
     z-index: 1; /* Đảm bảo chữ ở lớp trên */
     transition: opacity 2s ease-in-out; /* Hiệu ứng chuyển mượt */
+    
 }
 
+.overlay-text h2{
+    font-size: 3rem;
+}
 
 /* Định dạng đoạn văn bản và nút dưới 3 hình nè */
 .section-text {
     text-align: center;
     margin-top: 3rem;
-    opacity: 0; 
+    opacity: 0; /* Bắt đầu mờ */
     animation: fadeInText 2s forwards; 
     max-width: 800px; 
     width: 90%; 
     margin-left: auto; 
     margin-right: auto; 
     padding-bottom: 5rem; 
+    transition: opacity 2s ease-in-out; /* Hiệu ứng chuyển mượt */
+
 }
 
 .section-text h2 {
     font-family: 'Oswald', sans-serif;
-    font-size: 3rem; 
+    font-size: 4.5rem; 
     color: #ff902b; 
     margin-bottom: 1.5rem;
 }
 
 .section-text p {
     font-family: 'Raleway', sans-serif;
-    font-size: 1.4rem; 
+    font-size: 1.6rem; 
     color: #333;
     line-height: 1.8; 
     max-width: 100%; 
@@ -359,7 +365,7 @@ body{
 }
 
 .section-text .description {
-    font-size: 1.2rem; 
+    font-size: 1.4rem; 
     color: #666;
     line-height: 1.6;
     max-width: 100%; 
@@ -368,15 +374,17 @@ body{
 
 .read-more-btn {
     background-color: #ff902b;
-    color: white;
+    color: rgb(0, 7, 105);
     border: none;
     padding: 1rem 2rem;
     font-size: 1.6rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    transition: color 0.3s ease;
     margin-top: 2rem; 
 }
 
 .read-more-btn:hover {
-    background-color: #d57d25;
+    color: #f5efef;
+    background-color: rgb(84, 121, 197);
 }

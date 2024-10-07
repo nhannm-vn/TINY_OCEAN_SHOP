@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Thêm hiệu ứng hiện dần cho mỗi phần tử
     overlayTexts.forEach((overlay) => {
         overlay.style.opacity = 0; // Đặt opacity ban đầu là 0
-        overlay.style.transition = 'opacity 2s'; // Tạo hiệu ứng chuyển dần opacity trong 2 giây
+        overlay.style.transition = 'opacity 4'; // Tạo hiệu ứng chuyển dần opacity trong 2 giây
         
         // Kích hoạt hiệu ứng hiện dần lên
         setTimeout(() => {
@@ -47,5 +47,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // Kích hoạt hiệu ứng hiện dần lên sau khi load trang
     setTimeout(() => {
         textSection.style.opacity = 1; // Tăng opacity lên 1 để chữ hiện dần
-    }, 500); // Thời gian delay ngắn để chắc chắn trang đã load xong
+    }, 550); // Thời gian delay ngắn để chắc chắn trang đã load xong
 });
