@@ -36,7 +36,7 @@ body{
 /* ----------------------------- */
 /* header */
 .header-shop{
-    border: 2px solid darkmagenta;
+    /* border: 2px solid darkmagenta; */
     width: 100%;
     background-color: rgb(0, 7, 105);
     display: flex;
