@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap">
-    <link rel="stylesheet" href="./shipping.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -48,9 +47,20 @@
                         <a class="header-shop-link link-pop-up" href="../Home/page-home.html"
                             onclick="event.preventDefault(); transitionToPage('../Home/page-home.html')">Home</a>
                     </li>
-                    <li class="header-shop-item">
+                    <li class="header-shop-item item-hover-spec" style="position: relative;">
                         <a id="pop" class="header-shop-link link-pop-up" href="./page_shop.html"
                             onclick="event.preventDefault(); transitionToPage('./page_shop.html')">Shop</a>
+                        <div class="linksub-shop">
+                            <a class="link-pop-up" href=""
+                                onclick="event.preventDefault(); transitionToPage('')">Aquariums &
+                                Fish Bolws</a><br />
+                            <a class="link-pop-up" href=""
+                                onclick="event.preventDefault(); transitionToPage('')">Aquarium
+                                & Equipment</a>
+                            <a class="link-pop-up" href=""
+                                onclick="event.preventDefault(); transitionToPage('')">Plants &
+                                Decorations</a>
+                        </div>
                     </li>
                     <li class="header-shop-item">
                         <a class="header-shop-link link-pop-up" href="../About/about_page.html"
@@ -108,7 +118,7 @@
 
     <div class="products-container">
         <!-- First product -->
-        <div class="product-card">
+        <!-- <div class="product-card">
             <div class="card-img-wrapper">
                 <img src="https://static.wixstatic.com/media/ea71bb_4904b16a73cf47f7a5e81aaf65236280~mv2_d_1920_1920_s_2.jpg"
                     class="card-img-top" alt="Product Image">
@@ -117,15 +127,15 @@
                 <h5 class="card-title">I'm a product</h5>
                 <p class="card-text">$12.00</p>
                 <div class="input-group">
-                    <button class="btn-decrease" type="button">−</button>
+                    <button class="btn-decrease" type="button">-</button>
                     <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
                     <button class="btn-increase" type="button">+</button>
                 </div>
                 <button class="btn-primary">Add to Cart</button>
             </div>
-        </div>
+        </div> -->
         <!-- Second product -->
-        <div class="product-card">
+        <!-- <div class="product-card">
             <div class="card-img-wrapper">
                 <img src="https://static.wixstatic.com/media/ea71bb_4904b16a73cf47f7a5e81aaf65236280~mv2_d_1920_1920_s_2.jpg"
                     class="card-img-top" alt="Product Image">
@@ -140,9 +150,9 @@
                 </div>
                 <button class="btn-primary">Add to Cart</button>
             </div>
-        </div>
+        </div> -->
         <!-- Third product -->
-        <div class="product-card">
+        <!-- <div class="product-card">
             <div class="card-img-wrapper">
                 <img src="https://static.wixstatic.com/media/ea71bb_4904b16a73cf47f7a5e81aaf65236280~mv2_d_1920_1920_s_2.jpg"
                     class="card-img-top" alt="Product Image">
@@ -157,7 +167,7 @@
                 </div>
                 <button class="btn-primary">Add to Cart</button>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <footer>
