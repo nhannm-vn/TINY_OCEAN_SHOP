@@ -192,7 +192,7 @@ body{
 }
 .header-shop-right-login{
     padding-right: 5rem;
-    padding-top: 0.5;
+    padding-top: 0.6rem;
 }
 .header-shop-right-login a{
     text-decoration: none;
@@ -232,6 +232,7 @@ body{
     align-items: center;
     gap: 40px;
     padding: 0 40px;
+
 }
 
 .content {

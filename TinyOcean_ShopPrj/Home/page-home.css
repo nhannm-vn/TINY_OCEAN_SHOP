@@ -41,6 +41,7 @@ body{
     background-color: rgb(0, 7, 105);
     display: flex;
     justify-content: space-between;
+    
 }
 /* header-shop-left */
 .header-shop-left{
@@ -62,7 +63,10 @@ body{
 }
 /* header-shop-middle */
 .header-shop-middle{
-    padding: 4.3rem 0 2.5rem 40rem;
+    padding-top: 4.3rem;
+    padding-bottom: 2.5rem;
+    padding-right: auto;
+    padding-left: 25%;
 }
 .header-shop-middle-nav{
     list-style-type: none;
@@ -79,6 +83,7 @@ body{
     font-size: 1.6rem;
     font-weight: 350;
     transition: 0.4s;
+    display: block;
 }
 .header-shop-link:hover{
     color: rgb(252, 152, 35);
@@ -131,7 +136,8 @@ body{
 }
 .header-shop-right-login{
     padding-right: 5rem;
-    padding-top: 0.5;
+    padding-top: 0.6rem;
+    
 }
 .header-shop-right-login a{
     text-decoration: none;
