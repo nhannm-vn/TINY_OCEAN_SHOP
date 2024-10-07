@@ -1,18 +1,13 @@
-/* reset css */
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-html{
-    /* 10px */
+html {
     font-size: 62.5%;
 }
-body{
-    /* cho mặc định là 16px cho dễ chơi */
+body {
     font-size: 1.6rem;
-    transition: opacity 1s ease; /* Hiệu ứng chuyển mờ trong 1.5 giây */
-    opacity: 1;
 }
 
 /* container */
@@ -168,76 +163,6 @@ body{
 .header-shop-right-buy a{
     color: rgb(255, 255, 255);
 }
-
-
-
-/*  */
-.container {
-    display: flex;
-    max-width: 1200px;
-    margin: 50px auto;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-    padding: 0 40px;
-
-}
-
-.content {
-    max-width: 45%;
-}
-
-.content h1 {
-    color: #FC9823;
-    font-family: 'Oswald', sans-serif;
-    font-size: 50px;
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-
-.content p {
-    font-family: 'Raleway', sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: #000769;
-}
-
-/* ------------------ */
-/* giúp cho cai nút hiện dần lên khi scroll */
-.show{
-    opacity: 1;
-}
-/* ------------------ */
-
-
-.content button {
-    background-color: #FC9823;
-    color: #000769;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 15px;
-    font-family: 'Raleway', sans-serif;
-    border-radius: 0;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.content button:hover {
-    background-color: #6586EE;
-    color: #FFFFFF;
-}
-
-.image {
-    max-width: 50%;
-}
-
-.image img {
-    width: 100%;
-    height: auto;
-}
-
-
 /* end-shop */
 .end-shop{
     border: 2px solid darkmagenta;
@@ -277,4 +202,130 @@ body{
     font-size: 1.8rem;
     text-align: center;
     padding: 3.5rem 0 3.5rem 0;
+}
+.products-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background-color: #ffffff;
+    width: 285.98px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.card-img-wrapper {
+    width: 285.98px;
+    height: 381px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img-top {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    text-align: center;
+    padding: 16px;
+}
+
+.card-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px; 
+    color: #000769; 
+    padding-bottom: 10px;
+}
+
+.card-text {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 14px; 
+    color: #000769; 
+    vertical-align: baseline;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #000769;
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 285.98px;
+    height: 37px;
+    border: 1px solid #000;
+    margin-bottom: 15px;
+}
+
+.btn-decrease, .btn-increase {
+    width: 30px;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.quantity-input {
+    width: 200px;
+    text-align: center;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.btn-decrease {
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity 0.3s;
+}
+
+.btn-decrease.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.shop-all {
+    text-align: center;
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+}
+
+.shop-all h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 5rem; 
+    color: #FC9823; 
+    line-height: 7.5rem; 
 }

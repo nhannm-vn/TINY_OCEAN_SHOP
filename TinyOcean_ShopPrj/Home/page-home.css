@@ -23,7 +23,7 @@ body{
     height: 140rem;
     padding: 0;
     /* background-color: #fafafa; */
-    border: 2.5px solid red;
+    /* border: 2.5px solid red; */
 }
 /* main */
 .main{
@@ -265,6 +265,118 @@ body{
 }
 
 
+/* phần hình dới văn dới cái button nè  */
+
+/* container styling chỉ dành cho phần chứa 3 hình */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Để khi màn hình hẹp, các hình sẽ tự xuống hàng */
+    margin-top: 3rem;
+    max-width: 1360px;; /* Giới hạn chiều rộng tổng của container */
+    margin-left: auto;
+    margin-right: auto;
+    gap: 2rem; /* Tạo khoảng cách giữa các hình */
+}
+
+/* Cấu trúc hình với phần chữ */
+.flex-box {
+    position: relative;
+    flex: 1; /* Cho phép các hình co giãn chiếm toàn bộ không gian có sẵn */
+    min-width: 300px; /* Đảm bảo các hình không quá nhỏ */
+    overflow: hidden;
+}
+
+.flex-box img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Giữ tỉ lệ ảnh và cắt bỏ phần dư */
+}
+
+/* Điều chỉnh cho các màn hình nhỏ hơn */
+@media (max-width: 1024px) {
+    .flex-container {
+        padding: 0 1rem;
+    }
+
+    .flex-box {
+        flex: 0 1 calc(50% - 1rem); /* Hiển thị 2 hình trên một hàng ở màn hình vừa */
+    }
+}
+
+@media (max-width: 768px) {
+    .flex-box {
+        flex: 0 1 100%; /* Một hình mỗi hàng khi màn hình rất nhỏ */
+        min-width: 100%; /* Đảm bảo ảnh chiếm toàn bộ chiều ngang màn hình */
+    }
+}
 
 
 
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Màu chữ là trắng để hiện rõ */
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    opacity: 0; /* Bắt đầu mờ */
+    z-index: 1; /* Đảm bảo chữ ở lớp trên */
+    transition: opacity 2s ease-in-out; /* Hiệu ứng chuyển mượt */
+}
+
+
+/* Định dạng đoạn văn bản và nút dưới 3 hình nè */
+.section-text {
+    text-align: center;
+    margin-top: 3rem;
+    opacity: 0; 
+    animation: fadeInText 2s forwards; 
+    max-width: 800px; 
+    width: 90%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    padding-bottom: 5rem; 
+}
+
+.section-text h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem; 
+    color: #ff902b; 
+    margin-bottom: 1.5rem;
+}
+
+.section-text p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.4rem; 
+    color: #333;
+    line-height: 1.8; 
+    max-width: 100%; 
+    margin: 0 auto;
+    margin-bottom: 2rem; 
+}
+
+.section-text .description {
+    font-size: 1.2rem; 
+    color: #666;
+    line-height: 1.6;
+    max-width: 100%; 
+    margin: 2rem auto;
+}
+
+.read-more-btn {
+    background-color: #ff902b;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 2rem; 
+}
+
+.read-more-btn:hover {
+    background-color: #d57d25;
+}

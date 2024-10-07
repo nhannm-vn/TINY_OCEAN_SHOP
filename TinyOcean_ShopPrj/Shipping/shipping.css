@@ -16,15 +16,14 @@ body{
 }
 
 /* container */
-.container{
-    /* border: 2px solid red; */
-    /* width: 132rem; */
-    max-width: initial;
-    height: 140rem;
-    padding: 0;
-    /* background-color: #fafafa; */
-    /* border: 2.5px solid red; */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 8rem; /* Khoảng cách với header */
+    padding-bottom: 8rem; /* Khoảng cách với footer */
 }
+
+
 /* main */
 .main{
     /* border: 5px solid greenyellow; */
@@ -32,6 +31,33 @@ body{
     margin: 5.5rem auto;
     max-width: 1360px;
     position: relative;
+}
+
+/* Content */
+.content h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    color: #FC9823; /* Orange color */
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    padding-top: 50px;
+}
+
+.content h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #000769; /* Dark blue color */
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #000769;
+    margin-bottom: 20px;
 }
 /* ----------------------------- */
 /* header */
@@ -169,75 +195,6 @@ body{
     color: rgb(255, 255, 255);
 }
 
-
-
-/*  */
-.container {
-    display: flex;
-    max-width: 1200px;
-    margin: 50px auto;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-    padding: 0 40px;
-
-}
-
-.content {
-    max-width: 45%;
-}
-
-.content h1 {
-    color: #FC9823;
-    font-family: 'Oswald', sans-serif;
-    font-size: 50px;
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-
-.content p {
-    font-family: 'Raleway', sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: #000769;
-}
-
-/* ------------------ */
-/* giúp cho cai nút hiện dần lên khi scroll */
-.show{
-    opacity: 1;
-}
-/* ------------------ */
-
-
-.content button {
-    background-color: #FC9823;
-    color: #000769;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 15px;
-    font-family: 'Raleway', sans-serif;
-    border-radius: 0;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.content button:hover {
-    background-color: #6586EE;
-    color: #FFFFFF;
-}
-
-.image {
-    max-width: 50%;
-}
-
-.image img {
-    width: 100%;
-    height: auto;
-}
-
-
 /* end-shop */
 .end-shop{
     border: 2px solid darkmagenta;
@@ -277,4 +234,21 @@ body{
     font-size: 1.8rem;
     text-align: center;
     padding: 3.5rem 0 3.5rem 0;
+}
+
+
+/* container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 3rem; /* Khoảng cách với header */
+    padding-bottom: 3rem; /* Khoảng cách với footer */
+}
+
+/* main */
+.main {
+    width: 95%;
+    margin: 5.5rem auto;
+    max-width: 1360px;
+    position: relative;
 }

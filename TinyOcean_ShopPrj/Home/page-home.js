@@ -20,3 +20,32 @@ document.querySelectorAll(".link-pop-up").forEach((link) => {
         // link.parentElement.previousElementSibling.classList.add("actived");
     };
 });
+
+
+// hiệu ứng của ba cái hình nè 
+document.addEventListener('DOMContentLoaded', function() {
+    // Lấy tất cả các phần tử chứa chữ trong hình
+    const overlayTexts = document.querySelectorAll('.overlay-text');
+    
+    // Thêm hiệu ứng hiện dần cho mỗi phần tử
+    overlayTexts.forEach((overlay) => {
+        overlay.style.opacity = 0; // Đặt opacity ban đầu là 0
+        overlay.style.transition = 'opacity 2s'; // Tạo hiệu ứng chuyển dần opacity trong 2 giây
+        
+        // Kích hoạt hiệu ứng hiện dần lên
+        setTimeout(() => {
+            overlay.style.opacity = 1; // Tăng opacity lên 1 để chữ hiện dần
+        }, 500); // Thời gian delay ngắn để chắc chắn trang đã load xong
+    });
+});
+
+//hiệu ứng của bà đoạn văn với bà nút nè :))))))
+document.addEventListener('DOMContentLoaded', function() {
+    // Lấy tất cả các phần tử chứa chữ cần hiện dần
+    const textSection = document.querySelector('.section-text');
+    
+    // Kích hoạt hiệu ứng hiện dần lên sau khi load trang
+    setTimeout(() => {
+        textSection.style.opacity = 1; // Tăng opacity lên 1 để chữ hiện dần
+    }, 500); // Thời gian delay ngắn để chắc chắn trang đã load xong
+});
