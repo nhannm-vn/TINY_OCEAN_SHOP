@@ -80,6 +80,7 @@ body{
 }
 /* ------------------------------------- */
 /* phẩn tử khi đưa vào thì xuất hiển */
+/* phẩn tử khi đưa vào thì xuất hiển */
 .linksub-shop{
     display: none;
     text-align: center;
@@ -115,6 +116,7 @@ body{
 .item-hover-spec:hover .linksub-shop {
     display: block;
 }
+
 
 /* linksub-customer: phân tử ẩn cho link */
 .linksub-customer{
