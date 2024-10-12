@@ -19,6 +19,22 @@ document.querySelectorAll(".link-pop-up").forEach((link) => {
     };
 });
 
+// ------------------------------------------------------------
+// Hiệu ứng mờ dần cho sản phẩm khi xuất hiện trong viewport
+function lazyLoadProducts() {
+    document.querySelectorAll('.product-card').forEach(item => {
+        new IntersectionObserver((entries, observer) => {
+            if (entries[0].isIntersecting) {
+                item.classList.add('show');
+                observer.unobserve(item); // Ngừng theo dõi khi đã hiển thị
+            }
+        }).observe(item);
+    });
+};
+
+// Gọi hàm lazyLoadProducts sau khi render sản phẩm
+// ------------------------------------------------------------
+
 //cần phải bọc cái hàm vậy để sự kiện click phù hợp
 //vì sẽ có bug nên mình cần khi render thì cho chức năng bấm nhảy số diễn ra
 /*
@@ -57,7 +73,22 @@ document.addEventListener("DOMContentLoaded", function () {
             ui.renderProducts(products);
         })
 
+        // ----------------------------------------------------------------
+        let isLoading = false;
 
+        // Observer theo dõi khi 'load-more-trigger' vào viewport
+        let observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !isLoading) {
+                isLoading = true;
+                ui.renderProducts(productListFirst); // Hàm render sản phẩm của bạn
+                isLoading = false;
+            }
+        }, { threshold: 1.0 });
+
+        // Bắt đầu theo dõi phần tử trigger
+        observer.observe(document.getElementById('load-more-trigger'));
+        ///// --------------------/////----------------------------------/////
+        
         // ----------------------------------------------------------------
         const quantityInputs = document.querySelectorAll('.quantity-input');
         const decreaseButtons = document.querySelectorAll('.btn-decrease');
@@ -210,6 +241,9 @@ class RenderUI {
         //sau đó lấy tất cả hiển thị lên ui
         document.querySelector(".products-container").innerHTML = htmlContent;
 
+        //thử nghiệm công nghệ
+        //-------------------
+        lazyLoadProducts();
     };
 };
 

@@ -259,6 +259,16 @@ body {
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+
+    /*  */
+}
+/* thử nghiệm */
+#load-more-trigger {
+    height: 1px; /* Phần tử nhỏ để làm dấu */
+}
+.product-card.show{
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .product-card {
@@ -268,6 +278,11 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 20px 0;
+
+    /* thử nghiệm */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2s ease, transform 2s ease;
 }
 
 .card-img-wrapper {
