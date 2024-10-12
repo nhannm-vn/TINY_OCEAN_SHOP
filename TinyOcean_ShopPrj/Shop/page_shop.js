@@ -36,11 +36,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const store = new Store();
     const ui = new RenderUI();
     store.getProducts().then((products) => {
+        // sau khi lấy dữ liệu xong thì tắt cái loader đi
+        document.querySelector(".loader").style.display = "none";
+        // ----------------------------------------------------------------
         ui.renderProducts(products);
         const quantityInputs = document.querySelectorAll('.quantity-input');
         const decreaseButtons = document.querySelectorAll('.btn-decrease');
         const increaseButtons = document.querySelectorAll('.btn-increase');
-
+        // ----------------------------------------------------------------
         decreaseButtons.forEach((button, index) => {
             button.addEventListener('click', () => {
                 let input = quantityInputs[index];

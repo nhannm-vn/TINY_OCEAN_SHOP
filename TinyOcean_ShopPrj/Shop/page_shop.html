@@ -57,8 +57,8 @@
                             <a class="link-pop-up" href=""
                                 onclick="event.preventDefault(); transitionToPage('')">Aquarium
                                 & Equipment</a>
-                            <a class="link-pop-up" href=""
-                                onclick="event.preventDefault(); transitionToPage('')">Plants &
+                            <a class="link-pop-up" href="" onclick="event.preventDefault(); transitionToPage('')">Plants
+                                &
                                 Decorations</a>
                         </div>
                     </li>
@@ -113,7 +113,13 @@
     </header>
 
     <div class="shop-all">
-        <h1>SHOP ALL</h1>
+        <h1 style="position: relative;">
+            SHOP ALL
+            <!-- load -->
+            <!-- nó sẽ hiện và load cho đến khi render sản phẩm ra xong -->
+            <div class="loader"></div>
+        </h1>
+
     </div>
 
     <div class="products-container">
