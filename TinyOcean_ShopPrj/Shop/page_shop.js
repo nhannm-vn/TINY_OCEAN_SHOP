@@ -38,8 +38,27 @@ document.addEventListener("DOMContentLoaded", function () {
     store.getProducts().then((products) => {
         // sau khi lấy dữ liệu xong thì tắt cái loader đi
         document.querySelector(".loader").style.display = "none";
+        // hiển thị cái nút load more
+        document.querySelector(".btn-more").style.display = "block";
         // ----------------------------------------------------------------
-        ui.renderProducts(products);
+        //mình hiển thị 21 sản phẩm đầu trước. Rồi nếu bấm vào nút load more thì hiện tiếp
+        //lấy cái mảng 21 sp thôi
+        let productListFirst = products.slice(0, 21);
+        ui.renderProducts(productListFirst);
+        // ----------------------------------------------------------------
+        //khi bấm vào cá nút load more thì hiển thị thêm các sản phẩm ở dưới
+        //đồng thời tắt luôn cái nút
+        document.querySelector("#button-more").addEventListener("click", (event) => {
+            event.preventDefault();
+            // tắt cái nút load more đi
+            document.querySelector(".btn-more").style.display = "none";
+            //**chúng ra cần hiện thị lại toàn bộ danh sách, chứ nếu chỉ hiển thị một đoạn dưới
+            //thì bên trên sẽ bị mất
+            ui.renderProducts(products);
+        })
+
+
+        // ----------------------------------------------------------------
         const quantityInputs = document.querySelectorAll('.quantity-input');
         const decreaseButtons = document.querySelectorAll('.btn-decrease');
         const increaseButtons = document.querySelectorAll('.btn-increase');
@@ -88,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
 
 
 

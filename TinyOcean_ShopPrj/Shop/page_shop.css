@@ -20,7 +20,7 @@ body {
     /* border: 2px solid red; */
     /* width: 132rem; */
     max-width: initial;
-    height: 140rem;
+    height: 150rem;
     padding: 0;
     /* background-color: #fafafa; */
     /* border: 2.5px solid red; */
@@ -379,6 +379,28 @@ input[type=number] {
     line-height: 7.5rem;
 }
 
+/* nút bấm vào sẽ hiển thị thêm sản phẩm */
+.btn-more{
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-more button{
+    width: 22rem;
+    height: 4.5rem;
+    background-color: #fff;
+    color: #000769;
+    border: 1.5px solid #000769;
+    transition: 0.25s ease-in-out;
+}
+
+.btn-more button:hover{
+    transform: translateY(-4px);
+    background-color: #FC9823;
+}
+
 /* ---------------------------------------- */
 /* end-shop */
 .end-shop {
@@ -386,7 +408,7 @@ input[type=number] {
     width: 100%;
     background-color: rgb(0, 7, 105);
     display: flex;
-    margin-top: 3rem;
+    margin-top: 8rem;
     height: 16rem;
     justify-content: space-around;
     padding: 0 28rem;
