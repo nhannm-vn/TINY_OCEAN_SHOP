@@ -71,7 +71,85 @@ document.addEventListener("DOMContentLoaded", function () {
             //**chúng ra cần hiện thị lại toàn bộ danh sách, chứ nếu chỉ hiển thị một đoạn dưới
             //thì bên trên sẽ bị mất
             ui.renderProducts(products);
-        })
+            //***Lưu ý phải có sản phẩm thì mới biến tấu được
+            // -------------------------------------------------------------------------------------------
+            document.querySelectorAll(".product-card").forEach((cardElement, cardIndex) => {
+                if (cardIndex == 23) {
+                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>Best Seller</p>
+                                                       </div>`;
+                } else if (cardIndex == 25) {
+                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>New</p>
+                                                       </div>`;
+                } else if (cardIndex == 31) {
+                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>Sale 5%</p>
+                                                       </div>`;
+                    cardElement.children[1].innerHTML = `<h5 class="card-title">I'm a product</h5>
+                                                    <p class="card-text"><del>$8.00</del> $7.60</p>
+                                                    <div class="input-group">
+                                                        <button class="btn-decrease" type="button">-</button>
+                                                        <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
+                                                        <button class="btn-increase" type="button">+</button>
+                                                    </div>
+                                                    <button class="btn-primary">Add to Cart</button>
+                                                    `;
+                }
+            });
+            // -------------------------------------------------------------------------------------------
+
+            //Vì thằng này render lại từ đầu nên mình cũng xài công nghệ lại
+            //***Lưu ý phải có sản phẩm thì mới biến tấu được
+            // -------------------------------------------------------------------------------------------
+            document.querySelectorAll(".product-card").forEach((cardElement, cardIndex) => {
+                if (cardIndex == 2) {
+                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>Best Seller</p>
+                                                       </div>`;
+                } else if (cardIndex == 3) {
+                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>New</p>
+                                                       </div>`;
+                } else if (cardIndex == 5) {
+                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>Sale 10%</p>
+                                                       </div>`;
+                    cardElement.children[1].innerHTML = `<h5 class="card-title">I'm a product</h5>
+                                                    <p class="card-text"><del>$12.00</del> 10.80</p>
+                                                    <div class="input-group">
+                                                        <button class="btn-decrease" type="button">-</button>
+                                                        <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
+                                                        <button class="btn-increase" type="button">+</button>
+                                                    </div>
+                                                    <button class="btn-primary">Add to Cart</button>
+                                                    `;
+                } else if (cardIndex == 7) {
+                    cardElement.children[0].innerHTML += ` <div style="background-color: red;" class="specicalPosition">
+                                                             <p>Sale 50%</p>
+                                                           </div>`;
+                    cardElement.children[1].innerHTML = `
+                                                    <h5 class="card-title">I'm a product</h5>
+                                                    <p class="card-text"><del>$18.00</del> $9.00</p>
+                                                    <div class="input-group">
+                                                        <button class="btn-decrease" type="button">-</button>
+                                                        <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
+                                                        <button class="btn-increase" type="button">+</button>
+                                                    </div>
+                                                    <button class="btn-primary">Add to Cart</button>
+                                                    `;
+                } else if (cardIndex == 10) {
+                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                            <p>New</p>
+                                                           </div>`;
+                } else if (cardIndex == 15) {
+                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                              <p>Best Seller</p>
+                                                           </div>`;
+                }
+            });
+            // -------------------------------------------------------------------------------------------
+        });
 
         // ----------------------------------------------------------------
         let isLoading = false;
@@ -88,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Bắt đầu theo dõi phần tử trigger
         // observer.observe(document.getElementById('load-more-trigger'));
         ///// --------------------/////----------------------------------/////
-        
+
         // ----------------------------------------------------------------
         const quantityInputs = document.querySelectorAll('.quantity-input');
         const decreaseButtons = document.querySelectorAll('.btn-decrease');
@@ -136,6 +214,56 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         });
+
+        //***Lưu ý phải có sản phẩm thì mới biến tấu được
+        // -------------------------------------------------------------------------------------------
+        document.querySelectorAll(".product-card").forEach((cardElement, cardIndex) => {
+            if (cardIndex == 2) {
+                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>Best Seller</p>
+                                                       </div>`;
+            } else if (cardIndex == 3) {
+                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>New</p>
+                                                       </div>`;
+            } else if (cardIndex == 5) {
+                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>Sale 10%</p>
+                                                       </div>`;
+                cardElement.children[1].innerHTML = `<h5 class="card-title">I'm a product</h5>
+                                                    <p class="card-text"><del>$12.00</del> 10.80</p>
+                                                    <div class="input-group">
+                                                        <button class="btn-decrease" type="button">-</button>
+                                                        <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
+                                                        <button class="btn-increase" type="button">+</button>
+                                                    </div>
+                                                    <button class="btn-primary">Add to Cart</button>
+                                                    `;
+            } else if (cardIndex == 7) {
+                cardElement.children[0].innerHTML += ` <div style="background-color: red;" class="specicalPosition">
+                                                         <p>Sale 50%</p>
+                                                       </div>`;
+                cardElement.children[1].innerHTML = `
+                                                <h5 class="card-title">I'm a product</h5>
+                                                <p class="card-text"><del>$18.00</del> $9.00</p>
+                                                <div class="input-group">
+                                                    <button class="btn-decrease" type="button">-</button>
+                                                    <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
+                                                    <button class="btn-increase" type="button">+</button>
+                                                </div>
+                                                <button class="btn-primary">Add to Cart</button>
+                                                `;
+            } else if (cardIndex == 10) {
+                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>New</p>
+                                                       </div>`;
+            } else if (cardIndex == 15) {
+                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                          <p>Best Seller</p>
+                                                       </div>`;
+            }
+        });
+        // -------------------------------------------------------------------------------------------
     });
 });
 
