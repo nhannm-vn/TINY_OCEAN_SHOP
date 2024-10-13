@@ -124,6 +124,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         });
+
+        //***Lưu ý phải có sản phẩm thì mới biến tấu được
+        // -------------------------------------------------------------------------------------------
+        document.querySelectorAll(".product-card").forEach((cardElement, cardIndex) => {
+            if (cardIndex == 6) {
+                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>Best Seller</p>
+                                                       </div>`;
+            } else if (cardIndex == 1) {
+                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>New</p>
+                                                       </div>`;
+            } 
+        });
+        // -------------------------------------------------------------------------------------------
     });
 });
 
