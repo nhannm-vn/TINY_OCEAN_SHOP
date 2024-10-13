@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Bắt đầu theo dõi phần tử trigger
         // observer.observe(document.getElementById('load-more-trigger'));
         ///// --------------------/////----------------------------------/////
-        
+
         // ----------------------------------------------------------------
         const quantityInputs = document.querySelectorAll('.quantity-input');
         const decreaseButtons = document.querySelectorAll('.btn-decrease');
@@ -124,6 +124,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         });
+        // ---------------------------------------------------------------------------------------
+        //hiện ra các position đặc biệt
+        document.querySelectorAll(".product-card").forEach((cardElement, cardIndex) => {
+            if (cardIndex == 2) {
+                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>Best Seller</p>
+                                                       </div>`;
+            }else if(cardIndex == 4){
+                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>New</p>
+                                                       </div>`;
+            }else if(cardIndex == 10){
+                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>Sale 5%</p>
+                                                       </div>`;
+                cardElement.children[1].innerHTML = `<h5 class="card-title">I'm a product</h5>
+                                                    <p class="card-text"><del>$8.00</del> $7.60</p>
+                                                    <div class="input-group">
+                                                        <button class="btn-decrease" type="button">-</button>
+                                                        <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
+                                                        <button class="btn-increase" type="button">+</button>
+                                                    </div>
+                                                    <button class="btn-primary">Add to Cart</button>
+                                                    `;
+            }
+        });
+        // ------------------------------------------------------------------------------------------
     });
 });
 
