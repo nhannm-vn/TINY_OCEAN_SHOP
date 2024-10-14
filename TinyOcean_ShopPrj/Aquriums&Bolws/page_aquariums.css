@@ -266,6 +266,7 @@ body {
     height: 1px; /* Phần tử nhỏ để làm dấu */
 }
 .product-card.show{
+    /* khi sự kiện diễn ra thêm cho nó hiện dần ra đồng thời đưa nó về chỗ cũ */
     opacity: 1;
     transform: translateY(0);
 }
@@ -278,11 +279,43 @@ body {
     align-items: center;
     padding: 20px 0;
 
-    /* thử nghiệm */
+    /* thử nghiệm giúp vật thể hiện lên nhẹ khi load trang*/
     opacity: 0;
-    transform: translateY(20px);
+    /* lúc đầu cho nó lệch xuống dưới một tí */
+    transform: translateY(7rem);
     transition: opacity 2s ease, transform 2s ease;
 }
+
+/* ------------------------------------------------------------------ */
+.product-card:hover .quickView{
+    /* đụng vào thì cho kích thước tăng lên đồng thời cho chữ có màu  */
+    height: 14%;
+    color: #000769;
+}
+
+/* quick view */
+.quickView{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 400;
+    z-index: 10;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+
+    /* lúc đầu cho vật thể không có chiều cao đồng thời cho không có màu*/
+    height: 0%;
+    color: transparent;
+    transition: 0.3s;
+}
+
+
 
 .specicalPosition{
     width: auto;

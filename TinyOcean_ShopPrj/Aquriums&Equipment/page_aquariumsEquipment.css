@@ -269,6 +269,35 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+/* ------------------------------------------------------------------ */
+.product-card:hover .quickView{
+    /* đụng vào thì cho kích thước tăng lên đồng thời cho chữ có màu  */
+    height: 14%;
+    color: #000769;
+}
+
+/* quick view */
+.quickView{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 400;
+    z-index: 10;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+
+    /* lúc đầu cho vật thể không có chiều cao đồng thời cho không có màu*/
+    height: 0%;
+    color: transparent;
+    transition: 0.3s;
+}
+
 
 .product-card {
     background-color: #ffffff;
@@ -280,7 +309,7 @@ body {
 
     /* thử nghiệm */
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(5rem);
     transition: opacity 2s ease, transform 2s ease;
 }
 

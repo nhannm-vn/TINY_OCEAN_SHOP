@@ -252,6 +252,7 @@ class RenderUI {
                         <div class="card-img-wrapper">
                             <img src=${img}
                                 class="card-img-top" alt="Product Image">
+                            <p class="quickView">Quick View</p>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">${name}</h5>
