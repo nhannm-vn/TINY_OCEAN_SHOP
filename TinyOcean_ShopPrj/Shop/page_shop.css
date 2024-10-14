@@ -275,7 +275,7 @@ body {
     top: 0;
     right: 0;
     z-index: 7;
-    /* hiệu ứng chuyển cho nó mượt */
+    /* hiệu ứng chuyển cho nó mượt: tuy nhiên nó không hiệu quả nên mình phải xài cách khác */
     transition: width 1s ease; /* Thiết lập transition cho width */
 }
 
@@ -304,6 +304,116 @@ body {
     font-weight: 350;
     font-family: "Roboto", sans-serif;
     display: block;
+}
+
+.cart-tab-body{
+    /* border: 2px solid red; */
+    width: 100%;
+    height: 79%;
+    overflow: auto;
+    /* giúp xóa đi thanh scroll ngang */
+    overflow-x: hidden;
+}
+
+.cart-item{
+    padding: 2rem 2rem;
+    display: flex;
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: #e9e6e6;
+    position: relative;
+}
+
+.cart-item-right{
+    border: 2px solid #FC9823;
+    border: none;
+    width: 20rem;
+    margin-left: 1rem;
+    color: #000769;
+    display: flex;
+    flex-direction: column;   
+    justify-content: space-between;
+    /* để cho khi đóng cart thì nội dung không bị bóp */
+    /* xài absolute thì nó sẽ luôn canh theo thằng cha, vì vậy mà khi bóp vào cũng không bị mất */
+    position: absolute;
+    margin-left: 12rem;
+}
+
+.cart-item-count{
+    width: 2.7em;
+    height: 2.7rem;
+    border-radius: 50%;
+    background-color: #000769;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cart-item-count p{
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+/* ------------------------------ */
+
+.cart-item-x{
+    margin-left: 20rem;
+    background-color: transparent;
+    /* ban đầu ẩn nó đi, nên hạn chế dùng display, thay thế bằng opacity sẽ hay hơn */
+    opacity: 0;
+    transition: opacity .4s ease-in-out;
+}
+
+/* khi hover vào thì nút tắt lúc ẩn lúc hiện */
+.cart-item:hover .cart-item-x{
+    opacity: 1;
+}
+
+.cart-item-x-btn{
+    background-color: transparent;
+    border: none;
+    color: #000769;
+}
+
+
+
+/* --------------------------------- */
+.cart-tab-end{
+    margin: 0.2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+}
+
+.cart-tab-end button{
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    width: 49.5%;
+    height: 5rem;
+    /* border: 2px solid black; */
+    border-radius: 5px;
+    border: none;
+    text-shadow: 1px 1px 1px #6d6969;
+}
+
+.cart-tab-end_1{
+    background-color: #949292;
+    transition: .3s ease-in-out;
+}
+
+.cart-tab-end_1:hover{
+    transform: translateY(-5px);
+}
+
+.cart-tab-end_2{
+    background-color: #000769;
+    transition: .3s ease-in-out;
+}
+
+.cart-tab-end_2:hover{
+    transform: translateY(-5px);
 }
 
 

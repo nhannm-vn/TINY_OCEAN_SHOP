@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                                        </div>`;
             }
         });
-        
+
     });
 });
 
@@ -273,22 +273,75 @@ document.querySelector(".header-shop-right-buy").addEventListener("click", (even
     document.querySelector(".block-cart").style.display = "block";
     // đồng thời cho độ dài của cái tab tăng lên theo %
     let cartTab = document.querySelector(".cart-tab");
-    let width = 0; // Chiều rộng ban đầu
-    const targetWidth = 25; // Chiều rộng mong muốn (20%)
+    let width = 0; //chiều rộng ban đầu
+    const targetWidth = 25; // Chiều rộng mong muốn (25%)
     const step = 0.5; // Bước tăng (0.5%)
-    
     // Thiết lập interval để tăng chiều rộng từng bước
     const interval = setInterval(() => {
-        if (width < targetWidth) {
-            width += step; // Tăng chiều rộng
-            cartTab.style.width = width + "%"; // Cập nhật chiều rộng
-        } else {
-            clearInterval(interval); // Dừng interval khi đạt chiều rộng mong muốn
+        if(width < targetWidth){
+            //nó sẽ tăng lên dần dần
+            width += step;// Tăng chiều rộng
+            //cập nhật chiều rộng
+            cartTab.style.width = width + "%";
+        }else{//nếu vượt quá thì dừng lại nhé, **Lưu ý setInterVal muốn dừng thì phải hứng
+            clearInterval(interval);
         }
-    }, 4); // Thay đổi mỗi 4ms
-})
+    }, 4);//mỗi 4ms thì cứ tăng dần lên
+});
+
+//sự kiện bấm vào cái nút muỗi tên thì tắt hết và thu dần cái cart lại
+document.querySelector(".cart-tab-header-btn").addEventListener("click", (event) => {
+    //thu dần cái cart lại xong đó mới tắt thằng mờ
+    let cartTab = document.querySelector(".cart-tab");
+    let width = 25; // chiều rộng ban đầu
+    const targetWidth = 0;//chiều rộng mong muốn 0%
+    const step = 0.5; //bước giảm 0.5%
+    //thiết lập interval để cho nó giảm dần
+    const interval = setInterval(() => {
+        if(width >= targetWidth){
+            width -= step;
+            //cập nhật
+            cartTab.style.width = width + "%";
+        }else{
+            clearInterval(interval);
+        }
+    }, 4);//mỗi 4ms thì cứ giảm
+
+    //sau khi giảm dần cái cart rồi thì tắt cái mờ đi
+    setTimeout(() => {
+        document.querySelector(".block-cart").style.display = "none";
+    }, 1500);
+    
+});
+
+//sự kiện bấm vào cái nút close trong cart thì thu dần cái cart và tắt luôn hiệu ứng
+document.querySelector(".cart-tab-end_1").addEventListener("click", (event) => {
+    //thu dần cái cart lại xong đó mới tắt thằng mờ
+    let cartTab = document.querySelector(".cart-tab");
+    let width = 25; // chiều rộng ban đầu
+    const targetWidth = 0;//chiều rộng mong muốn 0%
+    const step = 0.5; //bước giảm 0.5%
+    //thiết lập interval để cho nó giảm dần
+    const interval = setInterval(() => {
+        if(width >= targetWidth){
+            width -= step;
+            //cập nhật
+            cartTab.style.width = width + "%";
+        }else{
+            clearInterval(interval);
+        }
+    }, 4);//mỗi 4ms thì cứ giảm
+
+    //sau khi giảm dần cái cart rồi thì tắt cái mờ đi
+    setTimeout(() => {
+        document.querySelector(".block-cart").style.display = "none";
+    }, 1500);
+    
+});
 
 
+
+//--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
 
 // Giao tiếp với server
