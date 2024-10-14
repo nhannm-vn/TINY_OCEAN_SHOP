@@ -285,6 +285,19 @@ body {
 }
 
 /* ------------------------------------------------------------------ */
+/* khi đụng vào thì cái hình scale ra giúp cho nhìn như zoom ra */
+.card-img-top:hover{
+    /* đụng vào thì cho kích thước tăng lên đồng thời cho chữ có màu  */
+    display: block;
+    transform: scale(1.1);
+}
+
+.card-img-top{
+    /* nghĩa là khi có hiệu ứng diễn ra thì sẽ chuyển động nhẹ  */
+    transition: 0.3s;
+}
+
+/* ------------------------------------------------------------------ */
 .product-card:hover .quickView{
     /* đụng vào thì cho kích thước tăng lên đồng thời cho chữ có màu  */
     height: 14%;

@@ -38,7 +38,7 @@ body {
 /* ----------------------------- */
 /* header */
 .header-shop {
-    border: 2px solid darkmagenta;
+    /* border: 2px solid darkmagenta; */
     width: 100%;
     background-color: rgb(0, 7, 105);
     display: flex;
@@ -250,6 +250,66 @@ body {
 }
 
 /* ------------------------------ */
+/* cart */
+.block-cart{
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    display: none;
+}
+
+.cart-sub{
+    width: 100%;
+    height: 100%;
+    background-color: #6b6e83;
+    opacity: .3;
+}
+
+.cart-tab{
+    /* lúc đầu cho width = 0% rồi tăng lên cho nó đẹp khi mình bấm vào icon buy */
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    background-color: #FFFFFF;
+    top: 0;
+    right: 0;
+    z-index: 7;
+    /* hiệu ứng chuyển cho nó mượt */
+    transition: width 1s ease; /* Thiết lập transition cho width */
+}
+
+.cart-tab-header{
+    color: #FFFFFF;
+    width: 100%;
+    height: 10rem;
+    background-color: #000769;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+}
+
+.cart-tab-header h1{
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    margin-left: 12rem;
+}
+
+.cart-tab-header-btn{
+    font-size: 2.5rem;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 350;
+    font-family: "Roboto", sans-serif;
+    display: block;
+}
+
+
+/* ------------------------------ */
+
+
 /* body */
 .products-container {
     display: flex;
@@ -283,6 +343,19 @@ body {
     opacity: 0;
     transform: translateY(5rem);
     transition: opacity 2s ease, transform 2s ease;
+}
+
+/* ------------------------------------------------------------------ */
+/* khi đụng vào thì cái hình scale ra giúp cho nhìn như zoom ra */
+.card-img-top:hover{
+    /* đụng vào thì cho kích thước tăng lên đồng thời cho chữ có màu  */
+    display: block;
+    transform: scale(1.1);
+}
+
+.card-img-top{
+    /* nghĩa là khi có hiệu ứng diễn ra thì sẽ chuyển động nhẹ  */
+    transition: 0.3s;
 }
 
 /* ------------------------------------------------------------------ */

@@ -263,11 +263,30 @@ document.addEventListener("DOMContentLoaded", function () {
                                                        </div>`;
             }
         });
-        // -------------------------------------------------------------------------------------------
+        
     });
 });
 
-
+// -------------------------------------------------------------------------------------------
+//bắt sự kiện khi click vào icon buy thì hiện ra cái cart
+document.querySelector(".header-shop-right-buy").addEventListener("click", (event) => {
+    document.querySelector(".block-cart").style.display = "block";
+    // đồng thời cho độ dài của cái tab tăng lên theo %
+    let cartTab = document.querySelector(".cart-tab");
+    let width = 0; // Chiều rộng ban đầu
+    const targetWidth = 25; // Chiều rộng mong muốn (20%)
+    const step = 0.5; // Bước tăng (0.5%)
+    
+    // Thiết lập interval để tăng chiều rộng từng bước
+    const interval = setInterval(() => {
+        if (width < targetWidth) {
+            width += step; // Tăng chiều rộng
+            cartTab.style.width = width + "%"; // Cập nhật chiều rộng
+        } else {
+            clearInterval(interval); // Dừng interval khi đạt chiều rộng mong muốn
+        }
+    }, 4); // Thay đổi mỗi 4ms
+})
 
 
 //--------------------------------------------------------------------------------
