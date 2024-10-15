@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         // -----------------------------------------------------------------------------------
         // -----------------------------------------------------------------------------------
-        //phần việc xử lí với cart
+        const listCart = [];
         //Đầu tiên dom tới danh sách chứa các product trên ui, nếu bấm nhằm vào phần tử là cái nút
         //thì mình sẽ làm việc gì đó
         document.querySelector(".products-container").addEventListener("click", (event) => {
@@ -273,8 +273,21 @@ document.addEventListener("DOMContentLoaded", function () {
             //mình sẽ kiểm tra bằng classList
             if(event.target.classList.contains("btn-add-to-cart")){
                 // alert(1);: dùng để test thử coi có dính sự kiện chưa
-            }
+                //lấy data-id của nó
+                let dataId = event.target.dataset.id;
+                //tìm trong products xem thằng nào có id = data-id của cái nút bấm
+                let cartItem = products.find((product) => (product.id == dataId));
+                //thêm một thuộc tính cho object cartItem đó chính là quantity(sl) rồi đã nhét vào mảng listCart
+                //phải lấy bằng cách nhìn từ button dính sự kiện
+                cartItem.quantity = event.target.previousElementSibling.children[1].value;
+                // console.log(event.target.previousElementSibling.children[1].value);
                 
+                //**nhét cartItem đó vào mảng chứa những thằng để hiển thị và làm việc bên cart
+                listCart.push(cartItem);
+                //tạo instance của ui và nhờ hiển thị ra màn hình
+                let ui = new RenderUI();
+                ui.renderCarts(listCart);
+            };
         })
         
     });
@@ -425,6 +438,7 @@ class Store {
     getProducts() {
         return this.http.get(baseURL);
     };
+
 }
 
 //class RenderUI chuyên đúc ra những instance có method render ra ui
@@ -458,6 +472,36 @@ class RenderUI {
         //thử nghiệm công nghệ
         //-------------------
         lazyLoadProducts();
+    };
+
+    //hàm renderCarts(cartList): nhận vào cartList và từ đó hiển thị ra màn hình
+    renderCarts(cartList){
+        let htmlContent = cartList.reduce((total, {id, name, price, cartImg, quantity}) => {
+            return total +=  
+            `   <div class="cart-item">
+                    <div class="cart-item-left">
+                        <img src=${cartImg}
+                            alt="File error">
+                    </div>
+                    <div class="cart-item-right">
+                        <p>${name}
+                        </p>
+                        <h4>
+                            $${price}
+                        </h4>
+                        <div class="cart-item-count">
+                            <p>${quantity}</p>
+                        </div>
+                    </div>
+                    <div class="cart-item-x">
+                        <button data-id=${id} class="cart-item-x-btn">
+                            <i class="fa-regular fa-circle-xmark"></i>
+                        </button>
+                    </div>
+                </div>`
+        }, "");
+        //dom tới và hiển thị lên ui
+        document.querySelector(".cart-tab-body").innerHTML = htmlContent;
     };
 };
 
