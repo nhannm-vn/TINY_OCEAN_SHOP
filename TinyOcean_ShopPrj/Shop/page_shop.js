@@ -271,25 +271,43 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".products-container").addEventListener("click", (event) => {
             //nếu sự kiện nổ ra ngay trúng cái nút add-to-cart thì làm gì đó
             //mình sẽ kiểm tra bằng classList
-            if(event.target.classList.contains("btn-add-to-cart")){
+            if (event.target.classList.contains("btn-add-to-cart")) {
                 // alert(1);: dùng để test thử coi có dính sự kiện chưa
                 //lấy data-id của nó
                 let dataId = event.target.dataset.id;
-                //tìm trong products xem thằng nào có id = data-id của cái nút bấm
-                let cartItem = products.find((product) => (product.id == dataId));
-                //thêm một thuộc tính cho object cartItem đó chính là quantity(sl) rồi đã nhét vào mảng listCart
-                //phải lấy bằng cách nhìn từ button dính sự kiện
-                cartItem.quantity = event.target.previousElementSibling.children[1].value;
-                // console.log(event.target.previousElementSibling.children[1].value);
-                
-                //**nhét cartItem đó vào mảng chứa những thằng để hiển thị và làm việc bên cart
-                listCart.push(cartItem);
+
+                //kiểm tra thử xem trong listCart đã có item trùng chưa
+                //nếu chưa có thì thêm mới hoàn toàn, nếu có rồi thì cộng dồn quantity
+                let checkDuplicate = listCart.every((item) => item.id != dataId);
+                if (checkDuplicate) {//nếu đúng thì thêm vào như không có gì xảy ra
+                    //tìm trong products xem thằng nào có id = data-id của cái nút bấm
+                    let cartItem = products.find((product) => (product.id == dataId));
+                    //thêm một thuộc tính cho object cartItem đó chính là quantity(sl) rồi đã nhét vào mảng listCart
+                    //phải lấy bằng cách nhìn từ button dính sự kiện
+                    cartItem.quantity = event.target.previousElementSibling.children[1].value;
+                    // console.log(event.target.previousElementSibling.children[1].value);
+                    //**nhét cartItem đó vào mảng chứa những thằng để hiển thị và làm việc bên cart
+                    listCart.push(cartItem);
+
+                    //**Sau khi móc dữ liệu update đồ hết rồi thì quay lại cho cái ô kia về value là 1
+                    //  để chuẩn bị cho những lần tiếp theo
+                    event.target.previousElementSibling.children[1].value = "1";
+                }else{//trường hợp đã rồi rồi thì update quantity
+                    let cartUpdate = listCart.find((item) => (item.id == dataId));
+                    //sau đó update phần tử đó
+                    cartUpdate.quantity = Number.parseInt(event.target.previousElementSibling.children[1].value) + Number.parseInt(cartUpdate.quantity) + "";
+                    //**Sau khi móc dữ liệu update đồ hết rồi thì quay lại cho cái ô kia về value là 1
+                    //  để chuẩn bị cho những lần tiếp theo
+                    event.target.previousElementSibling.children[1].value = "1";
+                };
+
+
                 //tạo instance của ui và nhờ hiển thị ra màn hình
                 let ui = new RenderUI();
                 ui.renderCarts(listCart);
             };
         })
-        
+
     });
 });
 
@@ -304,12 +322,12 @@ document.querySelector(".header-shop-right-buy").addEventListener("click", (even
     const step = 0.5; // Bước tăng (0.5%)
     // Thiết lập interval để tăng chiều rộng từng bước
     const interval = setInterval(() => {
-        if(width < targetWidth){
+        if (width < targetWidth) {
             //nó sẽ tăng lên dần dần
             width += step;// Tăng chiều rộng
             //cập nhật chiều rộng
             cartTab.style.width = width + "%";
-        }else{//nếu vượt quá thì dừng lại nhé, **Lưu ý setInterVal muốn dừng thì phải hứng
+        } else {//nếu vượt quá thì dừng lại nhé, **Lưu ý setInterVal muốn dừng thì phải hứng
             clearInterval(interval);
         }
     }, 4);//mỗi 4ms thì cứ tăng dần lên
@@ -324,11 +342,11 @@ document.querySelector(".cart-tab-header-btn").addEventListener("click", (event)
     const step = 0.5; //bước giảm 0.5%
     //thiết lập interval để cho nó giảm dần
     const interval = setInterval(() => {
-        if(width >= targetWidth){
+        if (width >= targetWidth) {
             width -= step;
             //cập nhật
             cartTab.style.width = width + "%";
-        }else{
+        } else {
             clearInterval(interval);
         }
     }, 4);//mỗi 4ms thì cứ giảm
@@ -337,7 +355,7 @@ document.querySelector(".cart-tab-header-btn").addEventListener("click", (event)
     setTimeout(() => {
         document.querySelector(".block-cart").style.display = "none";
     }, 1500);
-    
+
 });
 
 //sự kiện bấm vào cái nút close trong cart thì thu dần cái cart và tắt luôn hiệu ứng
@@ -349,11 +367,11 @@ document.querySelector(".cart-tab-end_1").addEventListener("click", (event) => {
     const step = 0.5; //bước giảm 0.5%
     //thiết lập interval để cho nó giảm dần
     const interval = setInterval(() => {
-        if(width >= targetWidth){
+        if (width >= targetWidth) {
             width -= step;
             //cập nhật
             cartTab.style.width = width + "%";
-        }else{
+        } else {
             clearInterval(interval);
         }
     }, 4);//mỗi 4ms thì cứ giảm
@@ -362,7 +380,7 @@ document.querySelector(".cart-tab-end_1").addEventListener("click", (event) => {
     setTimeout(() => {
         document.querySelector(".block-cart").style.display = "none";
     }, 1500);
-    
+
 });
 
 
@@ -475,10 +493,10 @@ class RenderUI {
     };
 
     //hàm renderCarts(cartList): nhận vào cartList và từ đó hiển thị ra màn hình
-    renderCarts(cartList){
-        let htmlContent = cartList.reduce((total, {id, name, price, cartImg, quantity}) => {
-            return total +=  
-            `   <div class="cart-item">
+    renderCarts(cartList) {
+        let htmlContent = cartList.reduce((total, { id, name, price, cartImg, quantity }) => {
+            return total +=
+                `   <div class="cart-item">
                     <div class="cart-item-left">
                         <img src=${cartImg}
                             alt="File error">
