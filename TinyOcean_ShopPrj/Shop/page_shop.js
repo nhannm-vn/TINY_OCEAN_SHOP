@@ -266,6 +266,16 @@ document.addEventListener("DOMContentLoaded", function () {
         // -----------------------------------------------------------------------------------
         // -----------------------------------------------------------------------------------
         //phần việc xử lí với cart
+        //Đầu tiên dom tới danh sách chứa các product trên ui, nếu bấm nhằm vào phần tử là cái nút
+        //thì mình sẽ làm việc gì đó
+        document.querySelector(".products-container").addEventListener("click", (event) => {
+            //nếu sự kiện nổ ra ngay trúng cái nút add-to-cart thì làm gì đó
+            //mình sẽ kiểm tra bằng classList
+            if(event.target.classList.contains("btn-add-to-cart")){
+                // alert(1);: dùng để test thử coi có dính sự kiện chưa
+            }
+                
+        })
         
     });
 });
@@ -437,7 +447,7 @@ class RenderUI {
                                 <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
                                 <button class="btn-increase" type="button">+</button>
                             </div>
-                            <button data-id=${id} class="btn-primary">Add to Cart</button>
+                            <button data-id=${id} class="btn-primary btn-add-to-cart">Add to Cart</button>
                         </div>
                     </div>
                     `;
