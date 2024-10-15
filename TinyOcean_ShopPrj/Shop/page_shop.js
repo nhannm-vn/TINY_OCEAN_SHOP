@@ -263,7 +263,10 @@ document.addEventListener("DOMContentLoaded", function () {
                                                        </div>`;
             }
         });
-
+        // -----------------------------------------------------------------------------------
+        // -----------------------------------------------------------------------------------
+        //phần việc xử lí với cart
+        
     });
 });
 
@@ -434,7 +437,7 @@ class RenderUI {
                                 <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
                                 <button class="btn-increase" type="button">+</button>
                             </div>
-                            <button class="btn-primary">Add to Cart</button>
+                            <button data-id=${id} class="btn-primary">Add to Cart</button>
                         </div>
                     </div>
                     `;
