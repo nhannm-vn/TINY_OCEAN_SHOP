@@ -290,7 +290,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 let dataId = event.target.getAttribute("data-id");
                 //kiểm tra thử xem trong listCart đã có item trùng chưa
                 //nếu chưa có thì thêm mới hoàn toàn, nếu có rồi thì cộng dồn quantity
-                let checkDuplicate = listCart.every((item) => item.id != dataId);
+                let checkDuplicate = listCart.every((item) => item.diff != dataId);
                 console.log(checkDuplicate);
                 
                 if (checkDuplicate) {//nếu đúng thì thêm vào như không có gì xảy ra
@@ -504,7 +504,7 @@ class Store {
 class RenderUI {
     renderProducts(products) {
         //dồn tất cả bằng reduce sau đó hiển thị ra ui
-        let htmlContent = products.reduce((total, { id, name, price, img }) => {
+        let htmlContent = products.reduce((total, { id, name, price, img, diff }) => {
             return total += `
                     <div class="product-card">
                         <div class="card-img-wrapper">
@@ -520,7 +520,7 @@ class RenderUI {
                                 <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
                                 <button class="btn-increase" type="button">+</button>
                             </div>
-                            <button data-id=${id} class="btn-primary btn-add-to-cart">Add to Cart</button>
+                            <button data-id=${diff} class="btn-primary btn-add-to-cart">Add to Cart</button>
                         </div>
                     </div>
                     `;
@@ -563,7 +563,7 @@ class RenderUI {
 
     //hàm renderCarts(cartList): nhận vào cartList và từ đó hiển thị ra màn hình
     renderCarts(cartList) {
-        let htmlContent = cartList.reduce((total, { id, name, price, cartImg, quantity }) => {
+        let htmlContent = cartList.reduce((total, { id, name, price, cartImg, quantity, diff }) => {
             return total +=
                 `   <div class="cart-item">
                     <div class="cart-item-left">
@@ -581,7 +581,7 @@ class RenderUI {
                         </div>
                     </div>
                     <div class="cart-item-x">
-                        <button data-id=${id} class="cart-item-x-btn">
+                        <button data-id=${diff} class="cart-item-x-btn">
                             <i class="fa-regular fa-circle-xmark"></i>
                         </button>
                     </div>
