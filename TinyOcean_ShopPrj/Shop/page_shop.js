@@ -19,6 +19,19 @@ document.querySelectorAll(".link-pop-up").forEach((link) => {
     };
 });
 
+//*****Vì server load là sự kiện cuối cùng nên phải chuẩn bị hàm trên này trước
+//=> chứ nếu bthg ở sự kiện khác thì để đâu cũng được
+// -------------------------------------------------------------------------------------------
+//hàm tính tiền các sản phẩm: nhận vào mảng các sản phẩm và tính tiền chúng
+//mỗi sản phẩm bằng số lượng * giá tiền
+const totalPay = (dataCartLast) => {
+    let total = 0;
+    dataCartLast.forEach((cartItem, cartIndex) => {
+        total += Number.parseInt(cartItem.quantity) * Number.parseInt(cartItem.price);
+    });
+    return total;
+}
+
 // ------------------------------------------------------------
 // Hiệu ứng mờ dần cho sản phẩm khi xuất hiện trong viewport
 function lazyLoadProducts() {
@@ -91,7 +104,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                                                         <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
                                                         <button class="btn-increase" type="button">+</button>
                                                     </div>
-                                                    <button class="btn-primary">Add to Cart</button>`
+                                                    <button data-id="f" class="btn-primary btn-add-to-cart">Add to Cart</button>`
             } else if (cardIndex == 7) {
                 cardElement.children[0].innerHTML += ` <div style="background-color: red;" class="specicalPosition">
                                                             <p>Sale 50%</p>
@@ -104,7 +117,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                                                     <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
                                                     <button class="btn-increase" type="button">+</button>
                                                 </div>
-                                                <button class="btn-primary">Add to Cart</button>
+                                                <button data-id="h" class="btn-primary btn-add-to-cart">Add to Cart</button>
                                                 `;
             } else if (cardIndex == 10) {
                 cardElement.children[0].innerHTML += ` <div class="specicalPosition">
@@ -152,7 +165,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                                                         <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
                                                         <button class="btn-increase" type="button">+</button>
                                                     </div>
-                                                    <button class="btn-primary">Add to Cart</button>
+                                                    <button data-id="f" class="btn-primary btn-add-to-cart">Add to Cart</button>
                                                     `;
                 } else if (cardIndex == 7) {
                     cardElement.children[0].innerHTML += ` <div style="background-color: red;" class="specicalPosition">
@@ -166,7 +179,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                                                         <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
                                                         <button class="btn-increase" type="button">+</button>
                                                     </div>
-                                                    <button class="btn-primary">Add to Cart</button>
+                                                    <button data-id="h" class="btn-primary btn-add-to-cart">Add to Cart</button>
                                                     `;
                 } else if (cardIndex == 10) {
                     cardElement.children[0].innerHTML += ` <div class="specicalPosition">
@@ -199,10 +212,61 @@ document.addEventListener("DOMContentLoaded", async function () {
                                                         <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
                                                         <button class="btn-increase" type="button">+</button>
                                                     </div>
-                                                    <button class="btn-primary">Add to Cart</button>
+                                                    <button data-id="poh" class="btn-primary btn-add-to-cart">Add to Cart</button>
                                                     `;
                 }
             });
+
+            //****Mỗi lần render ra lại là phải cho nó lại chức năng bấm số lượng sản phẩm
+
+            // ----------------------------------------------------------------
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+            const decreaseButtons = document.querySelectorAll('.btn-decrease');
+            const increaseButtons = document.querySelectorAll('.btn-increase');
+            // ----------------------------------------------------------------
+            decreaseButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    let input = quantityInputs[index];
+                    let currentValue = parseInt(input.value);
+                    if (currentValue > 1) {
+                        input.value = currentValue - 1;
+                        updateButtonState(input, button);
+                    }
+                });
+            });
+
+            increaseButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    let input = quantityInputs[index];
+                    let currentValue = parseInt(input.value);
+                    input.value = currentValue + 1;
+                    updateButtonState(input, decreaseButtons[index]);
+                });
+            });
+
+            // Cập nhật trạng thái của các nút
+            function updateButtonState(input, decreaseButton) {
+                if (input.value <= 1) {
+                    decreaseButton.classList.add('disabled');
+                } else {
+                    decreaseButton.classList.remove('disabled');
+                }
+            }
+
+            // Kiểm tra lần đầu tiên khi tải trang
+            quantityInputs.forEach((input, index) => {
+                updateButtonState(input, decreaseButtons[index]);
+            });
+
+            // Ngăn chặn dấu mũi tên tăng giảm trong input type=number
+            quantityInputs.forEach((input) => {
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                        e.preventDefault();
+                    }
+                });
+            });
+
             // -------------------------------------------------------------------------------------------
         });
 
@@ -306,6 +370,15 @@ document.addEventListener("DOMContentLoaded", async function () {
                     //**Sau khi móc dữ liệu update đồ hết rồi thì quay lại cho cái ô kia về value là 1
                     //  để chuẩn bị cho những lần tiếp theo
                     event.target.previousElementSibling.children[1].value = "1";
+                    // --------------------------------------------------------
+                    //tính tiền và hiện ra màn hình
+                    let totalData1 = await store.getProductsCart();
+                    let totalMoney1 = totalPay(totalData1);
+                    //hiển thị lên ui
+                    ui.renderMoney(totalMoney1);
+                    //đếm số lượng sản phầm có trong cart rồi hiển thị lên ui
+                    let countCart1 = countCart(totalData1);
+                    ui.renderCountCart(countCart1);
                 }else{//trường hợp đã rồi rồi thì update quantity
                     let cartUpdate = listCart.find((item) => (item.diff == dataId));
                     //sau đó update phần tử đó
@@ -317,6 +390,16 @@ document.addEventListener("DOMContentLoaded", async function () {
                     //**Sau khi móc dữ liệu update đồ hết rồi thì quay lại cho cái ô kia về value là 1
                     //  để chuẩn bị cho những lần tiếp theo
                     event.target.previousElementSibling.children[1].value = "1";
+
+                    // --------------------------------------------------------
+                    //tính tiền và hiện ra màn hình
+                    let totalData2 = await store.getProductsCart();
+                    let totalMoney2 = totalPay(totalData2);
+                    //hiển thị lên ui
+                    ui.renderMoney(totalMoney2);
+                    //đếm số lượng sản phầm có trong cart rồi hiển thị lên ui
+                    let countCart2 = countCart(totalData2);
+                    ui.renderCountCart(countCart2);
                 };
 
                 let afterData = await store.getProductsCart();
@@ -328,9 +411,24 @@ document.addEventListener("DOMContentLoaded", async function () {
     let dataCartLast = await store.getProductsCart();
     ui.renderCarts(dataCartLast);
     // -----------------------------------------------------------------------------------
+    //khi ctrl r thì hiện lại số tiền
+    // let totalData3 = await store.getProductsCart();
+    let totalMoney3 = totalPay(dataCartLast);
+    //hiển thị lên ui
+    ui.renderMoney(totalMoney3);
+    //khi ctrl r thì đếm số lượng sản phẩm và hiển thị lên giỏ hàng
+    let countCartToTal = countCart(dataCartLast);
+    ui.renderCountCart(countCartToTal);
 });
 
-
+//Hàm đếm số lượng sản phẩm trong giỏ hàng
+const countCart = (dataCartLast) => {
+    let total = 0;
+    dataCartLast.forEach((cartItem, cartIndex) => {
+        total += Number.parseInt(cartItem.quantity);
+    });
+    return total + "";
+};
 
 
 // -------------------------------------------------------------------------------------------
@@ -590,6 +688,28 @@ class RenderUI {
         //dom tới và hiển thị lên ui
         document.querySelector(".cart-tab-body").innerHTML = htmlContent;
     };
+
+
+    //method render money
+    renderMoney = (money) => {
+        let htmlContent = `
+                <hr/>
+                <h1>Subtotal</h1>
+                <h2>$${money}</h2>
+                <hr/>`;
+        //dom tới và nhét vào hiển thị
+        document.querySelector(".cart-tab-subtotal").innerHTML = htmlContent;
+    };
+
+    //method render count 
+    renderCountCart = (countCart) => {
+        let htmlContent = `
+            <p style="color: aliceblue; margin: 0;">${countCart}</p>
+        `;
+        //dom tới và nhét nó vào
+        document.querySelector(".header-shop-right-buy").children[1].innerHTML = htmlContent;
+    };
+
 };
 
 
