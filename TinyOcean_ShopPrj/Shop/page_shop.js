@@ -295,7 +295,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 
                 if (checkDuplicate) {//nếu đúng thì thêm vào như không có gì xảy ra
                     //tìm trong products xem thằng nào có id = data-id của cái nút bấm
-                    let cartItem = products.find((product) => (product.id == dataId));
+                    let cartItem = products.find((product) => (product.diff == dataId));
                     //thêm một thuộc tính cho object cartItem đó chính là quantity(sl) rồi đã nhét vào mảng listCart
                     //phải lấy bằng cách nhìn từ button dính sự kiện
                     cartItem.quantity = event.target.previousElementSibling.children[1].value;
@@ -307,7 +307,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     //  để chuẩn bị cho những lần tiếp theo
                     event.target.previousElementSibling.children[1].value = "1";
                 }else{//trường hợp đã rồi rồi thì update quantity
-                    let cartUpdate = listCart.find((item) => (item.id == dataId));
+                    let cartUpdate = listCart.find((item) => (item.diff == dataId));
                     //sau đó update phần tử đó
                     let quantityUpdate = Number.parseInt(event.target.previousElementSibling.children[1].value) + Number.parseInt(cartUpdate.quantity) + "";
                     //**Nhờ store update giúp mình luôn
