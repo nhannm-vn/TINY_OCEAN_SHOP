@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                         <p>Sale 10%</p>
                                                        </div>`;
-                cardElement.children[1].innerHTML = `<h5 class="card-title">I'm a product</h5>
+                cardElement.children[1].innerHTML = `<h5 class="card-title">Oriental Plastic Pig</h5>
                                                     <p class="card-text"><del>$12.00</del> 10.80</p>
                                                     <div class="input-group">
                                                         <button class="btn-decrease" type="button">-</button>
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                                          <p>Sale 50%</p>
                                                        </div>`;
                 cardElement.children[1].innerHTML = `
-                                                <h5 class="card-title">I'm a product</h5>
+                                                <h5 class="card-title">Oriental Plastic Fish</h5>
                                                 <p class="card-text"><del>$18.00</del> $9.00</p>
                                                 <div class="input-group">
                                                     <button class="btn-decrease" type="button">-</button>

@@ -47,7 +47,7 @@ mà vì trong khoảng thời gian chờ đó thì đâu có gì đâu để dom
 */
 
 // chức năng tăng giảm khi mua sản phẩm
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
     // Khởi tạo các sản phẩm và render chúng
     const store = new Store();
     const ui = new RenderUI();
@@ -56,11 +56,69 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".loader").style.display = "none";
         // hiển thị cái nút load more
         document.querySelector(".btn-more").style.display = "block";
-        // ----------------------------------------------------------------
+
         //mình hiển thị 21 sản phẩm đầu trước. Rồi nếu bấm vào nút load more thì hiện tiếp
         //lấy cái mảng 21 sp thôi
         let productListFirst = products.slice(0, 21);
         ui.renderProducts(productListFirst);
+
+        //***Lưu ý phải có sản phẩm thì mới biến tấu được
+        // -------------------------------------------------------------------------------------------
+        // ----------------------------------------------------------------
+        //Vì thằng này render lại từ đầu nên mình cũng xài công nghệ lại
+        //****Thằng này mặc định reload là đã có rồi chứ không cần bấm nút gì hết mới có position đặc biệt
+        //và nó cũng là page all nhiều nhất nên khác mấy page kia
+        //***Lưu ý phải có sản phẩm thì mới biến tấu được
+        // -------------------------------------------------------------------------------------------
+        document.querySelectorAll(".product-card").forEach((cardElement, cardIndex) => {
+            if (cardIndex == 2) {
+                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                    <p>Best Seller</p>
+                                                    </div>`;
+            } else if (cardIndex == 3) {
+                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                    <p>New</p>
+                                                    </div>`;
+            } else if (cardIndex == 5) {
+                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                    <p>Sale 10%</p>
+                                                    </div>`;
+                cardElement.children[1].innerHTML = 
+                                                    `<h5 class="card-title">Oriental Plastic Pig</h5>
+                                                    <p class="card-text"><del>$12.00</del> 10.80</p>
+                                                    <div class="input-group">
+                                                        <button class="btn-decrease" type="button">-</button>
+                                                        <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
+                                                        <button class="btn-increase" type="button">+</button>
+                                                    </div>
+                                                    <button class="btn-primary">Add to Cart</button>`
+            } else if (cardIndex == 7) {
+                cardElement.children[0].innerHTML += ` <div style="background-color: red;" class="specicalPosition">
+                                                            <p>Sale 50%</p>
+                                                        </div>`;
+                cardElement.children[1].innerHTML = `
+                                                <h5 class="card-title">Oriental Plastic Fish</h5>
+                                                <p class="card-text"><del>$18.00</del> $9.00</p>
+                                                <div class="input-group">
+                                                    <button class="btn-decrease" type="button">-</button>
+                                                    <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
+                                                    <button class="btn-increase" type="button">+</button>
+                                                </div>
+                                                <button class="btn-primary">Add to Cart</button>
+                                                `;
+            } else if (cardIndex == 10) {
+                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>New</p>
+                                                        </div>`;
+            } else if (cardIndex == 15) {
+                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                            <p>Best Seller</p>
+                                                        </div>`;
+            }
+        });
+        
+        // -------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------
         // ----------------------------------------------------------------
         //khi bấm vào cá nút load more thì hiển thị thêm các sản phẩm ở dưới
         //đồng thời tắt luôn cái nút
@@ -74,6 +132,54 @@ document.addEventListener("DOMContentLoaded", function () {
             //***Lưu ý phải có sản phẩm thì mới biến tấu được
             // -------------------------------------------------------------------------------------------
             document.querySelectorAll(".product-card").forEach((cardElement, cardIndex) => {
+                if (cardIndex == 2) {
+                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>Best Seller</p>
+                                                        </div>`;
+                } else if (cardIndex == 3) {
+                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>New</p>
+                                                        </div>`;
+                } else if (cardIndex == 5) {
+                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                        <p>Sale 10%</p>
+                                                        </div>`;
+                    cardElement.children[1].innerHTML = 
+                                                    `<h5 class="card-title">Oriental Plastic Pig</h5>
+                                                    <p class="card-text"><del>$12.00</del> 10.80</p>
+                                                    <div class="input-group">
+                                                        <button class="btn-decrease" type="button">-</button>
+                                                        <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
+                                                        <button class="btn-increase" type="button">+</button>
+                                                    </div>
+                                                    <button class="btn-primary">Add to Cart</button>
+                                                    `;
+                } else if (cardIndex == 7) {
+                    cardElement.children[0].innerHTML += ` <div style="background-color: red;" class="specicalPosition">
+                                                                <p>Sale 50%</p>
+                                                            </div>`;
+                    cardElement.children[1].innerHTML = `
+                                                    <h5 class="card-title">Oriental Plastic Fish</h5>
+                                                    <p class="card-text"><del>$18.00</del> $9.00</p>
+                                                    <div class="input-group">
+                                                        <button class="btn-decrease" type="button">-</button>
+                                                        <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
+                                                        <button class="btn-increase" type="button">+</button>
+                                                    </div>
+                                                    <button class="btn-primary">Add to Cart</button>
+                                                    `;
+                } else if (cardIndex == 10) {
+                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                            <p>New</p>
+                                                            </div>`;
+                } else if (cardIndex == 15) {
+                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+                                                                <p>Best Seller</p>
+                                                            </div>`;
+                }
+            });
+
+            document.querySelectorAll(".product-card").forEach((cardElement, cardIndex) => {
                 if (cardIndex == 23) {
                     cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                         <p>Best Seller</p>
@@ -86,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                         <p>Sale 5%</p>
                                                        </div>`;
-                    cardElement.children[1].innerHTML = `<h5 class="card-title">I'm a product</h5>
+                    cardElement.children[1].innerHTML = `<h5 class="card-title">Practical Rubber Gloves</h5>
                                                     <p class="card-text"><del>$8.00</del> $7.60</p>
                                                     <div class="input-group">
                                                         <button class="btn-decrease" type="button">-</button>
@@ -98,59 +204,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
             // -------------------------------------------------------------------------------------------
-
-            //Vì thằng này render lại từ đầu nên mình cũng xài công nghệ lại
-            //***Lưu ý phải có sản phẩm thì mới biến tấu được
-            // -------------------------------------------------------------------------------------------
-            document.querySelectorAll(".product-card").forEach((cardElement, cardIndex) => {
-                if (cardIndex == 2) {
-                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
-                                                        <p>Best Seller</p>
-                                                       </div>`;
-                } else if (cardIndex == 3) {
-                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
-                                                        <p>New</p>
-                                                       </div>`;
-                } else if (cardIndex == 5) {
-                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
-                                                        <p>Sale 10%</p>
-                                                       </div>`;
-                    cardElement.children[1].innerHTML = `<h5 class="card-title">I'm a product</h5>
-                                                    <p class="card-text"><del>$12.00</del> 10.80</p>
-                                                    <div class="input-group">
-                                                        <button class="btn-decrease" type="button">-</button>
-                                                        <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
-                                                        <button class="btn-increase" type="button">+</button>
-                                                    </div>
-                                                    <button class="btn-primary">Add to Cart</button>
-                                                    `;
-                } else if (cardIndex == 7) {
-                    cardElement.children[0].innerHTML += ` <div style="background-color: red;" class="specicalPosition">
-                                                             <p>Sale 50%</p>
-                                                           </div>`;
-                    cardElement.children[1].innerHTML = `
-                                                    <h5 class="card-title">I'm a product</h5>
-                                                    <p class="card-text"><del>$18.00</del> $9.00</p>
-                                                    <div class="input-group">
-                                                        <button class="btn-decrease" type="button">-</button>
-                                                        <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
-                                                        <button class="btn-increase" type="button">+</button>
-                                                    </div>
-                                                    <button class="btn-primary">Add to Cart</button>
-                                                    `;
-                } else if (cardIndex == 10) {
-                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
-                                                            <p>New</p>
-                                                           </div>`;
-                } else if (cardIndex == 15) {
-                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
-                                                              <p>Best Seller</p>
-                                                           </div>`;
-                }
-            });
-            // -------------------------------------------------------------------------------------------
         });
 
+
+        // ----------------------------------------------------------------
         // ----------------------------------------------------------------
         let isLoading = false;
 
@@ -215,70 +272,27 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        //***Lưu ý phải có sản phẩm thì mới biến tấu được
-        // -------------------------------------------------------------------------------------------
-        document.querySelectorAll(".product-card").forEach((cardElement, cardIndex) => {
-            if (cardIndex == 2) {
-                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
-                                                        <p>Best Seller</p>
-                                                       </div>`;
-            } else if (cardIndex == 3) {
-                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
-                                                        <p>New</p>
-                                                       </div>`;
-            } else if (cardIndex == 5) {
-                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
-                                                        <p>Sale 10%</p>
-                                                       </div>`;
-                cardElement.children[1].innerHTML = `<h5 class="card-title">I'm a product</h5>
-                                                    <p class="card-text"><del>$12.00</del> 10.80</p>
-                                                    <div class="input-group">
-                                                        <button class="btn-decrease" type="button">-</button>
-                                                        <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
-                                                        <button class="btn-increase" type="button">+</button>
-                                                    </div>
-                                                    <button class="btn-primary">Add to Cart</button>
-                                                    `;
-            } else if (cardIndex == 7) {
-                cardElement.children[0].innerHTML += ` <div style="background-color: red;" class="specicalPosition">
-                                                         <p>Sale 50%</p>
-                                                       </div>`;
-                cardElement.children[1].innerHTML = `
-                                                <h5 class="card-title">I'm a product</h5>
-                                                <p class="card-text"><del>$18.00</del> $9.00</p>
-                                                <div class="input-group">
-                                                    <button class="btn-decrease" type="button">-</button>
-                                                    <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
-                                                    <button class="btn-increase" type="button">+</button>
-                                                </div>
-                                                <button class="btn-primary">Add to Cart</button>
-                                                `;
-            } else if (cardIndex == 10) {
-                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
-                                                        <p>New</p>
-                                                       </div>`;
-            } else if (cardIndex == 15) {
-                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
-                                                          <p>Best Seller</p>
-                                                       </div>`;
-            }
-        });
+
         // -----------------------------------------------------------------------------------
         // -----------------------------------------------------------------------------------
-        const listCart = [];
+        //***Vì mình có chơi với products nên mình phải nằm bên trong ảnh, nghĩa là ảnh lấy danh sách xong
+        //đưa mình thì mình mới xử lí tiếp được
+
         //Đầu tiên dom tới danh sách chứa các product trên ui, nếu bấm nhằm vào phần tử là cái nút
         //thì mình sẽ làm việc gì đó
-        document.querySelector(".products-container").addEventListener("click", (event) => {
+        document.querySelector(".products-container").addEventListener("click", async (event) => {
             //nếu sự kiện nổ ra ngay trúng cái nút add-to-cart thì làm gì đó
             //mình sẽ kiểm tra bằng classList
+            // alert(1);: dùng để test thử coi có dính sự kiện chưa
             if (event.target.classList.contains("btn-add-to-cart")) {
-                // alert(1);: dùng để test thử coi có dính sự kiện chưa
+                let listCart = await store.getProductsCart();
                 //lấy data-id của nó
-                let dataId = event.target.dataset.id;
-
+                let dataId = event.target.getAttribute("data-id");
                 //kiểm tra thử xem trong listCart đã có item trùng chưa
                 //nếu chưa có thì thêm mới hoàn toàn, nếu có rồi thì cộng dồn quantity
                 let checkDuplicate = listCart.every((item) => item.id != dataId);
+                console.log(checkDuplicate);
+                
                 if (checkDuplicate) {//nếu đúng thì thêm vào như không có gì xảy ra
                     //tìm trong products xem thằng nào có id = data-id của cái nút bấm
                     let cartItem = products.find((product) => (product.id == dataId));
@@ -286,8 +300,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     //phải lấy bằng cách nhìn từ button dính sự kiện
                     cartItem.quantity = event.target.previousElementSibling.children[1].value;
                     // console.log(event.target.previousElementSibling.children[1].value);
-                    //**nhét cartItem đó vào mảng chứa những thằng để hiển thị và làm việc bên cart
-                    listCart.push(cartItem);
+                    //**Nhét cart mới đó lên server luôn
+                    let newCart = await store.postProductCart(cartItem);
 
                     //**Sau khi móc dữ liệu update đồ hết rồi thì quay lại cho cái ô kia về value là 1
                     //  để chuẩn bị cho những lần tiếp theo
@@ -295,21 +309,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 }else{//trường hợp đã rồi rồi thì update quantity
                     let cartUpdate = listCart.find((item) => (item.id == dataId));
                     //sau đó update phần tử đó
-                    cartUpdate.quantity = Number.parseInt(event.target.previousElementSibling.children[1].value) + Number.parseInt(cartUpdate.quantity) + "";
+                    let quantityUpdate = Number.parseInt(event.target.previousElementSibling.children[1].value) + Number.parseInt(cartUpdate.quantity) + "";
+                    //**Nhờ store update giúp mình luôn
+                    let updateCart = await store.putProductCart(cartUpdate.id, {quantity: quantityUpdate});
+                    
+
                     //**Sau khi móc dữ liệu update đồ hết rồi thì quay lại cho cái ô kia về value là 1
                     //  để chuẩn bị cho những lần tiếp theo
                     event.target.previousElementSibling.children[1].value = "1";
                 };
 
-
-                //tạo instance của ui và nhờ hiển thị ra màn hình
-                let ui = new RenderUI();
-                ui.renderCarts(listCart);
+                let afterData = await store.getProductsCart();
+                ui.renderCarts(afterData);
             };
-        })
-
+        });
     });
+    //sau khi load xong hết rồi thì mình lấy danh sách xuống và hiện thị, mỗi khi ctrl hiển thị lại và không bị mất
+    let dataCartLast = await store.getProductsCart();
+    ui.renderCarts(dataCartLast);
+    // -----------------------------------------------------------------------------------
 });
+
+
+
 
 // -------------------------------------------------------------------------------------------
 //bắt sự kiện khi click vào icon buy thì hiện ra cái cart
@@ -388,8 +410,11 @@ document.querySelector(".cart-tab-end_1").addEventListener("click", (event) => {
 //--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
 
-// Giao tiếp với server
+// Giao tiếp với server mockup API
 const baseURL = "https://6703fdd1ab8a8f8927328adf.mockapi.io/tinyShop/products";
+
+// Giao tiếp với file json 
+const baseURLCart = "https://6703fdd1ab8a8f8927328adf.mockapi.io/tinyShop/productsCart";
 
 //tạo ra class chuyên đúc ra instance có method giao tiếp với server
 class Http {
@@ -457,6 +482,22 @@ class Store {
         return this.http.get(baseURL);
     };
 
+    //trả ra promise<product của cart>
+    //lấy luôn giá trị luôn chứ k quăng promise gì nữa hết
+    getProductsCart(){
+        return this.http.get(baseURLCart);
+    };
+
+    //thêm sản phẩm vào mảng cartList
+    postProductCart(body){
+        return this.http.post(baseURLCart, body);
+    };
+
+    //update sản phầm trong cartList
+    putProductCart(id, body){
+        return this.http.put(`${baseURLCart}/${id}`, body);
+    }
+
 }
 
 //class RenderUI chuyên đúc ra những instance có method render ra ui
@@ -491,6 +532,34 @@ class RenderUI {
         //-------------------
         lazyLoadProducts();
     };
+
+    //hàm renderCartsInDivCart(cart): nhận vào cart và hiển thị cộng dồn bên div cart
+    // renderCartsInDivCart({ id, name, price, cartImg, quantity }){
+    //     let htmlContent = 
+    //             `<div class="cart-item">
+    //                 <div class="cart-item-left">
+    //                     <img src=${cartImg}
+    //                         alt="File error">
+    //                 </div>
+    //                 <div class="cart-item-right">
+    //                     <p>${name}
+    //                     </p>
+    //                     <h4>
+    //                         $${price}
+    //                     </h4>
+    //                     <div class="cart-item-count">
+    //                         <p>${quantity}</p>
+    //                     </div>
+    //                 </div>
+    //                 <div class="cart-item-x">
+    //                     <button data-id=${id} class="cart-item-x-btn">
+    //                         <i class="fa-regular fa-circle-xmark"></i>
+    //                     </button>
+    //                 </div>
+    //             </div>`;
+    //     //dom tới và hiển thị cộng dồn trên ui
+    //     document.querySelector(".cart-tab-body").innerHTML += htmlContent;
+    // }
 
     //hàm renderCarts(cartList): nhận vào cartList và từ đó hiển thị ra màn hình
     renderCarts(cartList) {
