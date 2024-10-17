@@ -408,6 +408,7 @@ body {
     content: "";
     z-index: 10;
     transition: 0.5s inherit;
+    pointer-events: none; /* Bỏ qua sự kiện trên phần tử ::after */
 
 }
 
