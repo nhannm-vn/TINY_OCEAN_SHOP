@@ -573,7 +573,7 @@ body {
 
 /* bấm thì nó nhô ra tí */
 .btn-primary:active{
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .btn-primary::after{

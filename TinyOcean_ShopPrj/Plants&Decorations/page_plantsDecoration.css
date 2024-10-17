@@ -377,6 +377,7 @@ body {
     font-weight: bold;
 }
 
+/* -------------------------------------------- */
 .btn-primary {
     background-color: #000769;
     color: white;
@@ -385,7 +386,36 @@ body {
     padding: 10px 0;
     border: none;
     cursor: pointer;
+
+    transition: 0.25s;
+
+    position: relative;
 }
+
+/* bấm thì nó nhô ra tí */
+.btn-primary:active{
+    transform: scale(1.2);
+}
+
+.btn-primary::after{
+    position: absolute;
+    background-color: #00ffbf;
+    opacity: 0.4;
+    right: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    content: "";
+    z-index: 10;
+    transition: 0.4s;
+
+}
+
+.btn-primary:hover.btn-primary::after{
+    width: 100%;
+    left: 0;
+}
+/* -------------------------------------------- */
 
 .input-group {
     display: flex;
