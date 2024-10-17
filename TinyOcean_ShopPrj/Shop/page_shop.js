@@ -414,8 +414,26 @@ document.addEventListener("DOMContentLoaded", async function () {
                 let keyDiff = event.target.parentElement.getAttribute("data-id");
                 //lấy mảng danh sách để tìm ra thằng có diff giống để lấy id
                 let cartList = await store.getProductsCart();
-                 
-            }
+                //tìm ra thằng đó dựa vào keyDiff
+                let itemRemove = cartList.find((item) => (item.diff == keyDiff));
+                //tạo ra con confirm coi có xác nhận không
+                let isConfirmed = confirm(`Do you want to delete: ${itemRemove.name}?`);
+                if(isConfirmed){
+                    //**Nhờ store xóa dùm, hành động này sẽ mát thời gian đấy 
+                    //==> phải xài await cho nó đợi xíu
+                    let tmp = await store.deleteProductCart(itemRemove.id);
+                    //xóa khỏi ui / hoặc có thể render lại nhưng mà đợi lấy dữ liệu lâu quá nên xóa thẳng luôn
+                    event.target.parentElement.parentElement.parentElement.remove();
+                    //tính tiền và hiện ra màn hình
+                    let afterData = await store.getProductsCart();
+                    let moneyAfterDel = totalPay(afterData);
+                    //hiển thị lên ui
+                    ui.renderMoney(moneyAfterDel);
+                    //đếm số lượng sản phầm có trong cart rồi hiển thị lên ui
+                    let countCartAfterDel = countCart(afterData);
+                    ui.renderCountCart(countCartAfterDel);
+                };
+            };
         });
     });
     //sau khi load xong hết rồi thì mình lấy danh sách xuống và hiện thị, mỗi khi ctrl hiển thị lại và không bị mất
