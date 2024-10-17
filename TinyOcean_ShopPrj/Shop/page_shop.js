@@ -406,6 +406,17 @@ document.addEventListener("DOMContentLoaded", async function () {
                 ui.renderCarts(afterData);
             };
         });
+
+        //sau khi load xong nếu bấm vô dấu x thì xóa khỏi mảng và render ra lại
+        document.querySelector(".cart-tab-body").addEventListener("click", async (event) => {
+            if(event.target.parentElement.classList.contains("cart-item-x-btn")){
+                //lấy diff của nó nằm trong data-id
+                let keyDiff = event.target.parentElement.getAttribute("data-id");
+                //lấy mảng danh sách để tìm ra thằng có diff giống để lấy id
+                let cartList = await store.getProductsCart();
+                 
+            }
+        });
     });
     //sau khi load xong hết rồi thì mình lấy danh sách xuống và hiện thị, mỗi khi ctrl hiển thị lại và không bị mất
     let dataCartLast = await store.getProductsCart();
@@ -594,7 +605,12 @@ class Store {
     //update sản phầm trong cartList
     putProductCart(id, body){
         return this.http.put(`${baseURLCart}/${id}`, body);
-    }
+    };
+
+    //nhờ store xóa dùm cái cart đi
+    deleteProductCart(id){
+        return this.http.delete(`${baseURLCart}/${id}`);
+    };
 
 }
 
@@ -679,7 +695,7 @@ class RenderUI {
                         </div>
                     </div>
                     <div class="cart-item-x">
-                        <button data-id=${diff} class="cart-item-x-btn">
+                        <button type="button" data-id=${diff} class="cart-item-x-btn">
                             <i class="fa-regular fa-circle-xmark"></i>
                         </button>
                     </div>
