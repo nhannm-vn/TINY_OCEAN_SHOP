@@ -379,6 +379,28 @@ document.addEventListener("DOMContentLoaded", async function () {
                     //đếm số lượng sản phầm có trong cart rồi hiển thị lên ui
                     let countCart1 = countCart(totalData1);
                     ui.renderCountCart(countCart1);
+                    // --------------------------------------------------------------------------
+                    // --------------------------------------------------------------------------
+                    //LƯU Ý: khi bấm vào tăng sản phẩm, tính tiền đồ xong thì sẵn hiện ra lại cart cho người dùng ngta nhìn đi
+                    document.querySelector(".block-cart").style.display = "block";
+                    // đồng thời cho độ dài của cái tab tăng lên theo %
+                    let cartTab = document.querySelector(".cart-tab");
+                    let width = 0; //chiều rộng ban đầu
+                    const targetWidth = 25; // Chiều rộng mong muốn (25%)
+                    const step = 0.5; // Bước tăng (0.5%)
+                    // Thiết lập interval để tăng chiều rộng từng bước
+                    const interval = setInterval(() => {
+                        if (width < targetWidth) {
+                            //nó sẽ tăng lên dần dần
+                            width += step;// Tăng chiều rộng
+                            //cập nhật chiều rộng
+                            cartTab.style.width = width + "%";
+                        } else {//nếu vượt quá thì dừng lại nhé, **Lưu ý setInterVal muốn dừng thì phải hứng
+                            clearInterval(interval);
+                        }
+                    }, 4);//mỗi 4ms thì cứ tăng dần lên
+                    // --------------------------------------------------------------------------
+                    // --------------------------------------------------------------------------
                 }else{//trường hợp đã rồi rồi thì update quantity
                     let cartUpdate = listCart.find((item) => (item.diff == dataId));
                     //sau đó update phần tử đó
@@ -400,6 +422,28 @@ document.addEventListener("DOMContentLoaded", async function () {
                     //đếm số lượng sản phầm có trong cart rồi hiển thị lên ui
                     let countCart2 = countCart(totalData2);
                     ui.renderCountCart(countCart2);
+                    // --------------------------------------------------------------------------
+                    // --------------------------------------------------------------------------
+                    //LƯU Ý: khi bấm vào tăng sản phẩm, tính tiền đồ xong thì sẵn hiện ra lại cart cho người dùng ngta nhìn đi
+                    document.querySelector(".block-cart").style.display = "block";
+                    // đồng thời cho độ dài của cái tab tăng lên theo %
+                    let cartTab = document.querySelector(".cart-tab");
+                    let width = 0; //chiều rộng ban đầu
+                    const targetWidth = 25; // Chiều rộng mong muốn (25%)
+                    const step = 0.5; // Bước tăng (0.5%)
+                    // Thiết lập interval để tăng chiều rộng từng bước
+                    const interval = setInterval(() => {
+                        if (width < targetWidth) {
+                            //nó sẽ tăng lên dần dần
+                            width += step;// Tăng chiều rộng
+                            //cập nhật chiều rộng
+                            cartTab.style.width = width + "%";
+                        } else {//nếu vượt quá thì dừng lại nhé, **Lưu ý setInterVal muốn dừng thì phải hứng
+                            clearInterval(interval);
+                        }
+                    }, 4);//mỗi 4ms thì cứ tăng dần lên
+                    // --------------------------------------------------------------------------
+                    // --------------------------------------------------------------------------
                 };
 
                 let afterData = await store.getProductsCart();
@@ -448,6 +492,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     //khi ctrl r thì đếm số lượng sản phẩm và hiển thị lên giỏ hàng
     let countCartToTal = countCart(dataCartLast);
     ui.renderCountCart(countCartToTal);
+
+
 });
 
 //Hàm đếm số lượng sản phẩm trong giỏ hàng
@@ -459,6 +505,7 @@ const countCart = (dataCartLast) => {
     return total + "";
 };
 
+// -------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------
 //bắt sự kiện khi click vào icon buy thì hiện ra cái cart
