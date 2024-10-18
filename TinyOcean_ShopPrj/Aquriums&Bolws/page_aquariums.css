@@ -1,487 +1,482 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    font-size: 1.6rem;
-    transition: opacity 1s ease;
-    /* Hiệu ứng chuyển mờ trong 1.5 giây */
-    opacity: 1;
+  font-size: 1.6rem;
+  transition: opacity 1s ease;
+  /* Hiệu ứng chuyển mờ trong 1.5 giây */
+  opacity: 1;
 }
 
 /* container */
 .container {
-    /* border: 2px solid red; */
-    /* width: 132rem; */
-    max-width: initial;
-    height: 150rem;
-    padding: 0;
-    /* background-color: #fafafa; */
-    /* border: 2.5px solid red; */
+  /* border: 2px solid red; */
+  /* width: 132rem; */
+  max-width: initial;
+  height: 150rem;
+  padding: 0;
+  /* background-color: #fafafa; */
+  /* border: 2.5px solid red; */
 }
 
 /* main */
 .main {
-    /* border: 5px solid greenyellow; */
-    width: 95%;
-    margin: 5.5rem auto;
-    max-width: 1360px;
-    position: relative;
+  /* border: 5px solid greenyellow; */
+  width: 95%;
+  margin: 5.5rem auto;
+  max-width: 1360px;
+  position: relative;
 }
 
 /* ----------------------------- */
 /* header */
 .header-shop {
-    /* border: 2px solid darkmagenta; */
-    width: 100%;
-    background-color: rgb(0, 7, 105);
-    display: flex;
-    justify-content: space-between;
-
+  /* border: 2px solid darkmagenta; */
+  width: 100%;
+  background-color: rgb(0, 7, 105);
+  display: flex;
+  justify-content: space-between;
 }
 
 /* header-shop-left */
 .header-shop-left {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 3rem 0 3rem 5.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 3rem 0 3rem 5.5rem;
 }
 
 .header-shop-left p {
-    font-family: "Oswald", sans-serif;
-    font-weight: 500;
-    letter-spacing: normal;
-    color: rgb(255, 255, 255);
-    font-size: 2.2rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  letter-spacing: normal;
+  color: rgb(255, 255, 255);
+  font-size: 2.2rem;
 }
 
 .header-shop-left-fish img {
-    display: block;
-    width: 5rem;
+  display: block;
+  width: 5rem;
 }
 
 /* header-shop-middle */
 .header-shop-middle {
-    padding-top: 4.3rem;
-    padding-bottom: 2.5rem;
-    padding-right: auto;
-    padding-left: 25%;
+  padding-top: 4.3rem;
+  padding-bottom: 2.5rem;
+  padding-right: auto;
+  padding-left: 25%;
 }
 
 .header-shop-middle-nav {
-    list-style-type: none;
-    display: flex;
-    align-items: center;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
 }
 
 .header-shop-item {
-    margin-right: 5rem;
+  margin-right: 5rem;
 }
 
 .header-shop-link {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-family: "Roboto", sans-serif;
-    font-size: 1.6rem;
-    font-weight: 350;
-    transition: 0.4s;
-    display: block;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 350;
+  transition: 0.4s;
+  display: block;
 }
 
 .header-shop-link:hover {
-    color: rgb(252, 152, 35);
+  color: rgb(252, 152, 35);
 }
 
 /* phẩn tử khi đưa vào thì xuất hiển */
 .linksub-shop {
-    display: none;
-    text-align: center;
-    /* border: 2px solid chartreuse; */
-    width: 17rem;
-    height: 11rem;
-    position: absolute;
-    padding-top: 1.7rem;
-    padding-bottom: 0;
-    background-color: rgb(0, 7, 105);
-    /* combo dịch chuyển qua phân nữa so với nó cho đúng chỗ */
-    right: 50%;
-    transform: translateX(50%);
-    top: 100%;
-    z-index: 1;
+  display: none;
+  text-align: center;
+  /* border: 2px solid chartreuse; */
+  width: 17rem;
+  height: 11rem;
+  position: absolute;
+  padding-top: 1.7rem;
+  padding-bottom: 0;
+  background-color: rgb(0, 7, 105);
+  /* combo dịch chuyển qua phân nữa so với nó cho đúng chỗ */
+  right: 50%;
+  transform: translateX(50%);
+  top: 100%;
+  z-index: 1;
 }
 
 .linksub-shop a {
-    display: inline-block;
-    margin-bottom: 5px;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-family: "Roboto", sans-serif;
-    font-size: 1.4rem;
-    font-weight: 350;
-    transition: 0.4s;
+  display: inline-block;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 350;
+  transition: 0.4s;
 }
 
 .linksub-shop a:hover {
-    color: rgb(252, 152, 35);
+  color: rgb(252, 152, 35);
 }
 
 /* khi hover vào cái này thì cái kia bị cái gì */
 .item-hover-spec:hover .linksub-shop {
-    display: block;
+  display: block;
 }
-
 
 /* linksub-customer: phân tử ẩn cho link */
 .linksub-customer {
-    display: none;
-    text-align: center;
-    /* border: 2px solid chartreuse; */
-    width: 16rem;
-    height: 7.5rem;
-    position: absolute;
-    padding-top: 1.7rem;
-    padding-bottom: 0;
-    background-color: rgb(0, 7, 105);
-    /* combo dịch chuyển qua phân nữa so với nó cho đúng chỗ */
-    right: 50%;
-    transform: translateX(50%);
-    top: 100%;
-    z-index: 1000;
+  display: none;
+  text-align: center;
+  /* border: 2px solid chartreuse; */
+  width: 16rem;
+  height: 7.5rem;
+  position: absolute;
+  padding-top: 1.7rem;
+  padding-bottom: 0;
+  background-color: rgb(0, 7, 105);
+  /* combo dịch chuyển qua phân nữa so với nó cho đúng chỗ */
+  right: 50%;
+  transform: translateX(50%);
+  top: 100%;
+  z-index: 1000;
 }
 
 .linksub-customer a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-family: "Roboto", sans-serif;
-    font-size: 1.6rem;
-    font-weight: 350;
-    transition: 0.4s;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 350;
+  transition: 0.4s;
 }
 
 .linksub-customer a:hover {
-    color: rgb(252, 152, 35);
-
+  color: rgb(252, 152, 35);
 }
 
 /* khi hover vào cái này thì cái kia bị cái gì */
 .item-hover-spec:hover .linksub-customer {
-    display: block;
+  display: block;
 }
 
 /* ----------------------------- */
 /* Bấm ở trang nào thì nút trên header sẽ có màu đó */
 .actived {
-    color: rgb(252, 152, 35);
+  color: rgb(252, 152, 35);
 }
 
 /* -----------------------------*/
 /* header-shop-right */
 .header-shop-right {
-    display: flex;
-    padding-top: 4rem;
+  display: flex;
+  padding-top: 4rem;
 }
 
 .header-shop-right-login {
-    padding-right: 5rem;
-    padding-top: 0.6rem;
-
+  padding-right: 5rem;
+  padding-top: 0.6rem;
 }
 
 .header-shop-right-login a {
-    text-decoration: none;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-family: "Roboto", sans-serif;
-    font-size: 1.4rem;
-    font-weight: 350;
-    transition: 0.2s;
+  text-decoration: none;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 350;
+  transition: 0.2s;
 }
 
 .header-shop-right-login a:hover {
-    color: rgb(131, 131, 214);
+  color: rgb(131, 131, 214);
 }
 
 .header-shop-right-icon {
-    font-size: 1.8rem;
-    padding-right: 3rem;
+  font-size: 1.8rem;
+  padding-right: 3rem;
 }
 
 .header-shop-right-icon a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    padding-right: 1rem;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  padding-right: 1rem;
 }
 
 .header-shop-right-buy {
-    padding-right: 6rem;
+  padding-right: 6rem;
 }
 
 .header-shop-right-buy a {
-    color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 /* ---------------------------------------- */
 /* loader giúp hiển thị vòng quay khi đang chờ render */
 .loader {
-    height: 12rem;
-    width: 12rem;
-    border: 3rem solid #6b6e83;
-    border-radius: 50%;
-    border-top-color: #FC9823;
-    margin: 5rem auto;
-    /* hiệu ứng giúp nó quay */
-    animation: spin 0.5s infinite;
-    /* ban đầu thì hiện đi, sau khi lấy dữ liều xong thì tắt */
-    display: block;
+  height: 12rem;
+  width: 12rem;
+  border: 3rem solid #6b6e83;
+  border-radius: 50%;
+  border-top-color: #fc9823;
+  margin: 5rem auto;
+  /* hiệu ứng giúp nó quay */
+  animation: spin 0.5s infinite;
+  /* ban đầu thì hiện đi, sau khi lấy dữ liều xong thì tắt */
+  display: block;
 }
 
 @keyframes spin {
-    100% {
-        /* nó tự xoay quanh nó 360 độ */
-        transform: rotate(360deg); /* Chỉ xoay phần border */
-    }
+  100% {
+    /* nó tự xoay quanh nó 360 độ */
+    transform: rotate(360deg); /* Chỉ xoay phần border */
+  }
 }
 
 /* ------------------------------ */
 /* body */
 .products-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 4rem;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 
-    /*  */
+  /*  */
 }
 /* thử nghiệm */
 #load-more-trigger {
-    height: 1px; /* Phần tử nhỏ để làm dấu */
+  height: 1px; /* Phần tử nhỏ để làm dấu */
 }
-.product-card.show{
-    /* khi sự kiện diễn ra thêm cho nó hiện dần ra đồng thời đưa nó về chỗ cũ */
-    opacity: 1;
-    transform: translateY(0);
+.product-card.show {
+  /* khi sự kiện diễn ra thêm cho nó hiện dần ra đồng thời đưa nó về chỗ cũ */
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .product-card {
-    background-color: #ffffff;
-    width: 285.98px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
+  background-color: #ffffff;
+  width: 285.98px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
 
-    /* thử nghiệm giúp vật thể hiện lên nhẹ khi load trang*/
-    opacity: 0;
-    /* lúc đầu cho nó lệch xuống dưới một tí */
-    transform: translateY(7rem);
-    transition: opacity 2s ease, transform 2s ease;
+  /* thử nghiệm giúp vật thể hiện lên nhẹ khi load trang*/
+  opacity: 0;
+  /* lúc đầu cho nó lệch xuống dưới một tí */
+  transform: translateY(7rem);
+  transition: opacity 2s ease, transform 2s ease;
 }
 
 /* ------------------------------------------------------------------ */
-.product-card:hover .quickView{
-    /* đụng vào thì cho kích thước tăng lên đồng thời cho chữ có màu  */
-    height: 14%;
-    color: #000769;
+.product-card:hover .quickView {
+  /* đụng vào thì cho kích thước tăng lên đồng thời cho chữ có màu  */
+  height: 14%;
+  color: #000769;
 }
 
 /* quick view */
-.quickView{
-    position: absolute;
-    display: flex;
-    align-items: center;
-    margin: 0;
-    justify-content: center;
-    font-size: 1.6rem;
-    font-weight: 400;
-    z-index: 10;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(255, 255, 255);
-    text-align: center;
-    font-family: "Roboto", sans-serif;
+.quickView {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  z-index: 10;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: "Roboto", sans-serif;
 
-    /* lúc đầu cho vật thể không có chiều cao đồng thời cho không có màu*/
-    height: 0%;
-    color: transparent;
-    transition: 0.3s;
+  /* lúc đầu cho vật thể không có chiều cao đồng thời cho không có màu*/
+  height: 0%;
+  color: transparent;
+  transition: 0.3s;
 }
 
 /* ------------------------------------------------------------------ */
 /* khi đụng vào thì cái hình scale ra giúp cho nhìn như zoom ra */
-.card-img-top:hover{
-    /* đụng vào thì cho kích thước tăng lên đồng thời cho chữ có màu  */
-    display: block;
-    transform: scale(1.1);
-}
-
-.card-img-top{
-    /* nghĩa là khi có hiệu ứng diễn ra thì sẽ chuyển động nhẹ  */
-    transition: 0.3s;
-}
-
-/* mấy cái bestSeller hoặc new */
-.specicalPosition{
-    width: auto;
-    padding: 0 1rem;
-    height: 2.6rem;
-    background-color: #000769;
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    color: #ffffff;
-    text-align: center;
-    font-weight: 400;
-}
-
-.card-img-wrapper {
-    width: 285.98px;
-    height: 381px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+.card-img-top:hover {
+  /* đụng vào thì cho kích thước tăng lên đồng thời cho chữ có màu  */
+  display: block;
+  transform: scale(1.1);
 }
 
 .card-img-top {
-    width: auto;
-    height: 100%;
-    object-fit: cover;
+  /* nghĩa là khi có hiệu ứng diễn ra thì sẽ chuyển động nhẹ  */
+  transition: 0.3s;
+}
+
+/* mấy cái bestSeller hoặc new */
+.specicalPosition {
+  width: auto;
+  padding: 0 1rem;
+  height: 2.6rem;
+  background-color: #000769;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 400;
+}
+
+.card-img-wrapper {
+  width: 285.98px;
+  height: 381px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.card-img-top {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-body {
-    text-align: center;
-    padding: 16px;
+  text-align: center;
+  padding: 16px;
 }
 
 .card-title {
-    font-family: 'Raleway', sans-serif;
-    font-size: 15px;
-    color: #000769;
-    padding-bottom: 10px;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  color: #000769;
+  padding-bottom: 10px;
 }
 
 .card-text {
-    font-family: 'Helvetica', sans-serif;
-    font-size: 14px;
-    color: #000769;
-    vertical-align: baseline;
-    font-weight: bold;
+  font-family: "Helvetica", sans-serif;
+  font-size: 14px;
+  color: #000769;
+  vertical-align: baseline;
+  font-weight: bold;
 }
 
 /* -------------------------------------------- */
 .btn-primary {
-    background-color: #000769;
-    color: white;
-    width: 100%;
-    margin-top: 10px;
-    padding: 10px 0;
-    border: none;
-    cursor: pointer;
+  background-color: #000769;
+  color: white;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 0;
+  border: none;
+  cursor: pointer;
 
-    transition: 0.25s;
+  transition: 0.25s;
 
-    position: relative;
+  position: relative;
 }
 
 /* bấm thì nó nhô ra tí */
-.btn-primary:active{
-    transform: scale(1.2);
+.btn-primary:active {
+  transform: scale(1.2);
 }
 
-.btn-primary::after{
-    position: absolute;
-    background-color: #00ffbf;
-    opacity: 0.4;
-    right: 0;
-    top: 0;
-    width: 0%;
-    height: 100%;
-    content: "";
-    z-index: 10;
-    transition: 0.5s inherit;
-    pointer-events: none; /* Bỏ qua sự kiện trên phần tử ::after */
-
+.btn-primary::after {
+  position: absolute;
+  background-color: #00ffbf;
+  opacity: 0.4;
+  right: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  content: "";
+  z-index: 10;
+  transition: 0.4s;
+  pointer-events: none; /* Bỏ qua sự kiện trên phần tử ::after */
 }
 
-.btn-primary:hover.btn-primary::after{
-    width: 100%;
-    left: 0;
+.btn-primary:hover.btn-primary::after {
+  width: 100%;
+  left: 0;
 }
 /* -------------------------------------------- */
 
 .input-group {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 285.98px;
-    height: 37px;
-    border: 1px solid #000;
-    margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 285.98px;
+  height: 37px;
+  border: 1px solid #000;
+  margin-bottom: 15px;
 }
 
 .btn-decrease,
 .btn-increase {
-    width: 30px;
-    height: 100%;
-    border: none;
-    background-color: transparent;
-    font-size: 20px;
-    cursor: pointer;
+  width: 30px;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .quantity-input {
-    width: 200px;
-    text-align: center;
-    height: 100%;
-    border: none;
-    outline: none;
-    font-size: 15px;
+  width: 200px;
+  text-align: center;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 15px;
 }
 
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-input[type=number] {
-    -moz-appearance: textfield;
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .btn-decrease {
-    opacity: 1;
-    pointer-events: all;
-    transition: opacity 0.3s;
+  opacity: 1;
+  pointer-events: all;
+  transition: opacity 0.3s;
 }
 
 .btn-decrease.disabled {
-    opacity: 0.5;
-    pointer-events: none;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .shop-all {
-    text-align: center;
-    margin-top: 8rem;
-    margin-bottom: 8rem;
+  text-align: center;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
 }
 
 .shop-all h1 {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 600;
-    font-size: 5rem;
-    color: #FC9823;
-    line-height: 7.5rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-size: 5rem;
+  color: #fc9823;
+  line-height: 7.5rem;
 }
 
 /* nút bấm vào sẽ hiển thị thêm sản phẩm */
@@ -506,50 +501,48 @@ input[type=number] {
     background-color: #FC9823;
 } */
 
-
 /* ---------------------------------------- */
 /* end-shop */
 .end-shop {
-    border: 2px solid darkmagenta;
-    width: 100%;
-    background-color: rgb(0, 7, 105);
-    display: flex;
-    margin-top: 4rem;
-    height: 16rem;
-    justify-content: space-around;
-    padding: 0 28rem;
+  border: 2px solid darkmagenta;
+  width: 100%;
+  background-color: rgb(0, 7, 105);
+  display: flex;
+  margin-top: 4rem;
+  height: 16rem;
+  justify-content: space-around;
+  padding: 0 28rem;
 }
 
 .end-shop-follow {
-    padding: 3.5rem 0 3.5rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  padding: 3.5rem 0 3.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .end-shop-icon {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
 }
 
 .end-shop-icon a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    padding: 0.5rem;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  padding: 0.5rem;
 }
 
 /*  */
 .end-shop-content-1 {
-    color: rgb(255, 255, 255);
-    font-size: 1.8rem;
-    text-align: center;
-    padding: 3.5rem 0 3.5rem 0;
-
+  color: rgb(255, 255, 255);
+  font-size: 1.8rem;
+  text-align: center;
+  padding: 3.5rem 0 3.5rem 0;
 }
 
 .end-shop-content-2 {
-    color: rgb(255, 255, 255);
-    font-size: 1.8rem;
-    text-align: center;
-    padding: 3.5rem 0 3.5rem 0;
+  color: rgb(255, 255, 255);
+  font-size: 1.8rem;
+  text-align: center;
+  padding: 3.5rem 0 3.5rem 0;
 }
