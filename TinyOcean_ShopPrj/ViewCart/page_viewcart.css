@@ -218,36 +218,46 @@ body {
 
 /* ------------------------------ */
 /* ----------------------------- */
+.container {
+  border: 2px solid red;
+  max-width: 132rem;
+  height: auto;
+}
+
 .body-content {
-  /* border: 2px solid royalblue; */
-  margin: 9rem 14rem 0 14rem;
-  height: 150rem;
+  border: 2px solid chartreuse;
+  width: 75%;
+  margin: 14rem auto;
+  height: 60rem;
+  display: flex;
+  justify-content: space-between;
 }
 
-.body-content h1 {
-  font-family: "Oswald", sans-serif;
-  font-size: 5rem;
-  color: rgb(252, 152, 35);
-  margin-bottom: 7rem;
+.body-content-left {
+  border: 2px solid purple;
+  width: 62%;
 }
 
-/* body-content-item */
-.body-content-item {
-  margin-bottom: 7rem;
+.body-content-right {
+  border: 2px solid darkorange;
+  width: 34%;
 }
 
-.body-content-item h2 {
-  margin-bottom: 4rem;
+/* left */
+.left-title {
   color: rgb(0, 7, 105);
-  font-family: "Oswald", sans-serif;
-  font-size: 3rem;
+  font-size: 2.2rem;
+  font-family: "Poppins", sans-serif;
+  font-family: 700;
+  border: 1px solid rgba(79, 82, 131, 0.6);
+  padding: 2rem 0;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
 }
 
-.body-content-item p {
-  font-family: "Raleway", sans-serif;
-  color: rgb(0, 7, 105);
-  line-height: 3rem;
-  font-size: 1.4rem;
+.left-title p {
+  margin: 0;
 }
 
 /* ----------------------------- */
