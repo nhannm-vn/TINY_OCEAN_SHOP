@@ -228,36 +228,208 @@ body {
   border: 2px solid chartreuse;
   width: 75%;
   margin: 14rem auto;
-  height: 60rem;
+  height: auto;
   display: flex;
   justify-content: space-between;
 }
 
 .body-content-left {
-  border: 2px solid purple;
+  /* border: 2px solid purple; */
   width: 62%;
 }
 
 .body-content-right {
-  border: 2px solid darkorange;
+  /* border: 2px solid darkorange; */
   width: 34%;
 }
+
+/* right */
+.right-title {
+  color: rgb(0, 7, 105);
+  font-size: 2.2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  /* border: 1px solid rgba(79, 82, 131, 0.6); */
+  padding: 2rem 0;
+  /* border-top: transparent;
+  border-left: transparent;
+  border-right: transparent; */
+}
+
+.right-title p {
+  margin: 0;
+}
+
+.right-sub-total {
+  border: 1px solid rgb(101, 107, 187);
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  border-left: transparent;
+  border-right: transparent;
+  margin-bottom: 2rem;
+}
+
+.sub-total-left {
+  /* border: 1px solid brown; */
+  width: 70%;
+}
+.sub-total-left p {
+  color: rgb(0, 7, 105);
+  font-size: 2rem;
+}
+
+.sub-total-left a {
+  display: block;
+  color: rgb(0, 7, 105);
+  font-size: 2rem;
+}
+
+.sub-total-right p {
+  margin: 0;
+  font-size: 2rem;
+  color: rgb(0, 7, 105);
+}
+
+.sub-total-checkout {
+  /* border: 1px solid red; */
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sub-total-checkout p {
+  margin: 0;
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+  color: rgb(0, 7, 105);
+}
+
+.total-btn {
+  text-align: center;
+}
+
+.sub-total-btn {
+  margin: 0 auto;
+  width: 97%;
+  height: 5rem;
+  border: none;
+  background-color: rgb(0, 7, 105);
+  color: rgb(255, 255, 255);
+  font-family: "Poppins", sans-serif;
+}
+
+.sub-security {
+  margin-top: 2rem;
+  text-align: center;
+}
+.sub-security p {
+  color: rgb(0, 7, 105);
+}
+
+/* ------------------------------------------- */
 
 /* left */
 .left-title {
   color: rgb(0, 7, 105);
   font-size: 2.2rem;
   font-family: "Poppins", sans-serif;
-  font-family: 700;
-  border: 1px solid rgba(79, 82, 131, 0.6);
+  font-weight: 500;
+  /* border: 1px solid rgba(79, 82, 131, 0.6); */
   padding: 2rem 0;
+  /* border-top: transparent;
+  border-left: transparent;
+  border-right: transparent; */
+}
+
+.left-title p {
+  margin: 0;
+}
+
+.left-body {
+  border: 1px solid rgb(101, 107, 187);
+  padding: 2rem 0;
+  border-bottom: transparent;
+  border-left: transparent;
+  border-right: transparent;
+}
+
+.left-body-card {
+  border: 1px solid rgb(101, 107, 187);
+  height: auto;
+  display: flex;
+  padding: 2rem 0;
+  justify-content: space-between;
   border-top: transparent;
   border-left: transparent;
   border-right: transparent;
 }
 
-.left-title p {
+.card-img {
+  width: 15rem;
+}
+
+.card-img img {
+  display: block;
+}
+
+.card-details {
+  width: 20rem;
+  font-family: "Poppins", sans-serif;
+  color: rgb(0, 7, 105);
+}
+
+.card-quantity {
+  width: 7rem;
+  background-color: rgb(0, 7, 105);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.card-quantity p {
+  color: rgb(255, 255, 255);
   margin: 0;
+}
+
+.card-price {
+  width: 8rem;
+  display: flex;
+  justify-content: center;
+  margin-left: 4rem;
+}
+
+.card-price p {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: rgb(0, 7, 105);
+}
+
+.card-trash {
+  width: 10rem;
+  color: rgb(0, 7, 105);
+  display: flex;
+  justify-content: end;
+  margin-right: 1rem;
+}
+
+.left-promo-code {
+  margin-bottom: 2rem;
+}
+
+.left-promo-code a {
+  text-decoration: none;
+  color: rgb(0, 7, 105);
+  font-size: 2rem;
+}
+
+.left-addText a {
+  text-decoration: none;
+  text-decoration: none;
+  color: rgb(0, 7, 105);
+  font-size: 2rem;
 }
 
 /* ----------------------------- */
