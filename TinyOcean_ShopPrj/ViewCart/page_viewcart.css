@@ -219,13 +219,13 @@ body {
 /* ------------------------------ */
 /* ----------------------------- */
 .container {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   max-width: 132rem;
   height: auto;
 }
 
 .body-content {
-  border: 2px solid chartreuse;
+  /* border: 2px solid chartreuse; */
   width: 75%;
   margin: 14rem auto;
   height: auto;
@@ -413,6 +413,8 @@ body {
   display: flex;
   justify-content: end;
   margin-right: 1rem;
+  background-color: transparent;
+  border: none;
 }
 
 .left-promo-code {

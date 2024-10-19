@@ -1,22 +1,22 @@
 //--------------------------------------------------
 //**Giúp cho trang web chuyển mượt hơn
 window.transitionToPage = function (href) {
-    document.querySelector('body').style.opacity = 0
-    setTimeout(function () {
-        window.location.href = href
-    }, 1000)
+  document.querySelector("body").style.opacity = 0;
+  setTimeout(function () {
+    window.location.href = href;
+  }, 1000);
 };
 
-document.addEventListener('DOMContentLoaded', function (event) {
-    document.querySelector('body').style.opacity = 1
+document.addEventListener("DOMContentLoaded", function (event) {
+  document.querySelector("body").style.opacity = 1;
 });
 
 //-------------------------------------------------------------
 //**Hàm giúp biết đang đứng ở trang nào thì nút trang đó sáng lên
 document.querySelectorAll(".link-pop-up").forEach((link) => {
-    if (link.getAttribute("id") == "pop") {
-        link.classList.add("actived");
-    };
+  if (link.getAttribute("id") == "pop") {
+    link.classList.add("actived");
+  }
 });
 
 //*****Vì server load là sự kiện cuối cùng nên phải chuẩn bị hàm trên này trước
@@ -25,25 +25,26 @@ document.querySelectorAll(".link-pop-up").forEach((link) => {
 //hàm tính tiền các sản phẩm: nhận vào mảng các sản phẩm và tính tiền chúng
 //mỗi sản phẩm bằng số lượng * giá tiền
 const totalPay = (dataCartLast) => {
-    let total = 0;
-    dataCartLast.forEach((cartItem, cartIndex) => {
-        total += Number.parseInt(cartItem.quantity) * Number.parseInt(cartItem.price);
-    });
-    return total;
-}
+  let total = 0;
+  dataCartLast.forEach((cartItem, cartIndex) => {
+    total +=
+      Number.parseInt(cartItem.quantity) * Number.parseInt(cartItem.price);
+  });
+  return total;
+};
 
 // ------------------------------------------------------------
 // Hiệu ứng mờ dần cho sản phẩm khi xuất hiện trong viewport
 function lazyLoadProducts() {
-    document.querySelectorAll('.product-card').forEach(item => {
-        new IntersectionObserver((entries, observer) => {
-            if (entries[0].isIntersecting) {
-                item.classList.add('show');
-                observer.unobserve(item); // Ngừng theo dõi khi đã hiển thị
-            }
-        }).observe(item);
-    });
-};
+  document.querySelectorAll(".product-card").forEach((item) => {
+    new IntersectionObserver((entries, observer) => {
+      if (entries[0].isIntersecting) {
+        item.classList.add("show");
+        observer.unobserve(item); // Ngừng theo dõi khi đã hiển thị
+      }
+    }).observe(item);
+  });
+}
 
 // Gọi hàm lazyLoadProducts sau khi render sản phẩm
 // ------------------------------------------------------------
@@ -61,55 +62,56 @@ mà vì trong khoảng thời gian chờ đó thì đâu có gì đâu để dom
 
 // chức năng tăng giảm khi mua sản phẩm
 document.addEventListener("DOMContentLoaded", async function () {
-    // Khởi tạo các sản phẩm và render chúng
-    const store = new Store();
-    const ui = new RenderUI();
-    store.getProducts().then((products) => {
-        // sau khi lấy dữ liệu xong thì tắt cái loader đi
-        document.querySelector(".loader").style.display = "none";
-        // hiển thị cái nút load more
-        document.querySelector(".btn-more").style.display = "block";
+  // Khởi tạo các sản phẩm và render chúng
+  const store = new Store();
+  const ui = new RenderUI();
+  store.getProducts().then((products) => {
+    // sau khi lấy dữ liệu xong thì tắt cái loader đi
+    document.querySelector(".loader").style.display = "none";
+    // hiển thị cái nút load more
+    document.querySelector(".btn-more").style.display = "block";
 
-        //mình hiển thị 21 sản phẩm đầu trước. Rồi nếu bấm vào nút load more thì hiện tiếp
-        //lấy cái mảng 21 sp thôi
-        let productListFirst = products.slice(0, 21);
-        ui.renderProducts(productListFirst);
+    //mình hiển thị 21 sản phẩm đầu trước. Rồi nếu bấm vào nút load more thì hiện tiếp
+    //lấy cái mảng 21 sp thôi
+    let productListFirst = products.slice(0, 21);
+    ui.renderProducts(productListFirst);
 
-        //***Lưu ý phải có sản phẩm thì mới biến tấu được
-        // -------------------------------------------------------------------------------------------
-        // ----------------------------------------------------------------
-        //Vì thằng này render lại từ đầu nên mình cũng xài công nghệ lại
-        //****Thằng này mặc định reload là đã có rồi chứ không cần bấm nút gì hết mới có position đặc biệt
-        //và nó cũng là page all nhiều nhất nên khác mấy page kia
-        //***Lưu ý phải có sản phẩm thì mới biến tấu được
-        // -------------------------------------------------------------------------------------------
-        document.querySelectorAll(".product-card").forEach((cardElement, cardIndex) => {
-            if (cardIndex == 2) {
-                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+    //***Lưu ý phải có sản phẩm thì mới biến tấu được
+    // -------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------
+    //Vì thằng này render lại từ đầu nên mình cũng xài công nghệ lại
+    //****Thằng này mặc định reload là đã có rồi chứ không cần bấm nút gì hết mới có position đặc biệt
+    //và nó cũng là page all nhiều nhất nên khác mấy page kia
+    //***Lưu ý phải có sản phẩm thì mới biến tấu được
+    // -------------------------------------------------------------------------------------------
+    document
+      .querySelectorAll(".product-card")
+      .forEach((cardElement, cardIndex) => {
+        if (cardIndex == 2) {
+          cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                     <p>Best Seller</p>
                                                     </div>`;
-            } else if (cardIndex == 3) {
-                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+        } else if (cardIndex == 3) {
+          cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                     <p>New</p>
                                                     </div>`;
-            } else if (cardIndex == 5) {
-                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+        } else if (cardIndex == 5) {
+          cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                     <p>Sale 10%</p>
                                                     </div>`;
-                cardElement.children[1].innerHTML = 
-                                                    `<h5 class="card-title">Oriental Plastic Pig</h5>
+          cardElement.children[1].innerHTML = `<h5 class="card-title">Oriental Plastic Pig</h5>
                                                     <p class="card-text"><del>$12.00</del> 10.80</p>
                                                     <div class="input-group">
                                                         <button class="btn-decrease" type="button">-</button>
                                                         <input type="number" min="1" value="1" class="quantity-input" onkeydown="return false;">
                                                         <button class="btn-increase" type="button">+</button>
                                                     </div>
-                                                    <button data-id="f" class="btn-primary btn-add-to-cart">Add to Cart</button>`
-            } else if (cardIndex == 7) {
-                cardElement.children[0].innerHTML += ` <div style="background-color: red;" class="specicalPosition">
+                                                    <button data-id="f" class="btn-primary btn-add-to-cart">Add to Cart</button>`;
+        } else if (cardIndex == 7) {
+          cardElement.children[0].innerHTML += ` <div style="background-color: red;" class="specicalPosition">
                                                             <p>Sale 50%</p>
                                                         </div>`;
-                cardElement.children[1].innerHTML = `
+          cardElement.children[1].innerHTML = `
                                                 <h5 class="card-title">Oriental Plastic Fish</h5>
                                                 <p class="card-text"><del>$18.00</del> $9.00</p>
                                                 <div class="input-group">
@@ -119,46 +121,49 @@ document.addEventListener("DOMContentLoaded", async function () {
                                                 </div>
                                                 <button data-id="h" class="btn-primary btn-add-to-cart">Add to Cart</button>
                                                 `;
-            } else if (cardIndex == 10) {
-                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+        } else if (cardIndex == 10) {
+          cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                         <p>New</p>
                                                         </div>`;
-            } else if (cardIndex == 15) {
-                cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+        } else if (cardIndex == 15) {
+          cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                             <p>Best Seller</p>
                                                         </div>`;
-            }
-        });
-        
+        }
+      });
+
+    // -------------------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------
+    //khi bấm vào cá nút load more thì hiển thị thêm các sản phẩm ở dưới
+    //đồng thời tắt luôn cái nút
+    document
+      .querySelector("#button-more")
+      .addEventListener("click", (event) => {
+        event.preventDefault();
+        // tắt cái nút load more đi
+        document.querySelector(".btn-more").style.display = "none";
+        //**chúng ra cần hiện thị lại toàn bộ danh sách, chứ nếu chỉ hiển thị một đoạn dưới
+        //thì bên trên sẽ bị mất
+        ui.renderProducts(products);
+        //***Lưu ý phải có sản phẩm thì mới biến tấu được
         // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // ----------------------------------------------------------------
-        //khi bấm vào cá nút load more thì hiển thị thêm các sản phẩm ở dưới
-        //đồng thời tắt luôn cái nút
-        document.querySelector("#button-more").addEventListener("click", (event) => {
-            event.preventDefault();
-            // tắt cái nút load more đi
-            document.querySelector(".btn-more").style.display = "none";
-            //**chúng ra cần hiện thị lại toàn bộ danh sách, chứ nếu chỉ hiển thị một đoạn dưới
-            //thì bên trên sẽ bị mất
-            ui.renderProducts(products);
-            //***Lưu ý phải có sản phẩm thì mới biến tấu được
-            // -------------------------------------------------------------------------------------------
-            document.querySelectorAll(".product-card").forEach((cardElement, cardIndex) => {
-                if (cardIndex == 2) {
-                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+        document
+          .querySelectorAll(".product-card")
+          .forEach((cardElement, cardIndex) => {
+            if (cardIndex == 2) {
+              cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                         <p>Best Seller</p>
                                                         </div>`;
-                } else if (cardIndex == 3) {
-                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+            } else if (cardIndex == 3) {
+              cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                         <p>New</p>
                                                         </div>`;
-                } else if (cardIndex == 5) {
-                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+            } else if (cardIndex == 5) {
+              cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                         <p>Sale 10%</p>
                                                         </div>`;
-                    cardElement.children[1].innerHTML = 
-                                                    `<h5 class="card-title">Oriental Plastic Pig</h5>
+              cardElement.children[1].innerHTML = `<h5 class="card-title">Oriental Plastic Pig</h5>
                                                     <p class="card-text"><del>$12.00</del> 10.80</p>
                                                     <div class="input-group">
                                                         <button class="btn-decrease" type="button">-</button>
@@ -167,11 +172,11 @@ document.addEventListener("DOMContentLoaded", async function () {
                                                     </div>
                                                     <button data-id="f" class="btn-primary btn-add-to-cart">Add to Cart</button>
                                                     `;
-                } else if (cardIndex == 7) {
-                    cardElement.children[0].innerHTML += ` <div style="background-color: red;" class="specicalPosition">
+            } else if (cardIndex == 7) {
+              cardElement.children[0].innerHTML += ` <div style="background-color: red;" class="specicalPosition">
                                                                 <p>Sale 50%</p>
                                                             </div>`;
-                    cardElement.children[1].innerHTML = `
+              cardElement.children[1].innerHTML = `
                                                     <h5 class="card-title">Oriental Plastic Fish</h5>
                                                     <p class="card-text"><del>$18.00</del> $9.00</p>
                                                     <div class="input-group">
@@ -181,31 +186,33 @@ document.addEventListener("DOMContentLoaded", async function () {
                                                     </div>
                                                     <button data-id="h" class="btn-primary btn-add-to-cart">Add to Cart</button>
                                                     `;
-                } else if (cardIndex == 10) {
-                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+            } else if (cardIndex == 10) {
+              cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                             <p>New</p>
                                                             </div>`;
-                } else if (cardIndex == 15) {
-                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+            } else if (cardIndex == 15) {
+              cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                                 <p>Best Seller</p>
                                                             </div>`;
-                }
-            });
+            }
+          });
 
-            document.querySelectorAll(".product-card").forEach((cardElement, cardIndex) => {
-                if (cardIndex == 23) {
-                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+        document
+          .querySelectorAll(".product-card")
+          .forEach((cardElement, cardIndex) => {
+            if (cardIndex == 23) {
+              cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                         <p>Best Seller</p>
                                                        </div>`;
-                } else if (cardIndex == 25) {
-                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+            } else if (cardIndex == 25) {
+              cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                         <p>New</p>
                                                        </div>`;
-                } else if (cardIndex == 31) {
-                    cardElement.children[0].innerHTML += ` <div class="specicalPosition">
+            } else if (cardIndex == 31) {
+              cardElement.children[0].innerHTML += ` <div class="specicalPosition">
                                                         <p>Sale 5%</p>
                                                        </div>`;
-                    cardElement.children[1].innerHTML = `<h5 class="card-title">Practical Rubber Gloves</h5>
+              cardElement.children[1].innerHTML = `<h5 class="card-title">Practical Rubber Gloves</h5>
                                                     <p class="card-text"><del>$8.00</del> $7.60</p>
                                                     <div class="input-group">
                                                         <button class="btn-decrease" type="button">-</button>
@@ -214,302 +221,320 @@ document.addEventListener("DOMContentLoaded", async function () {
                                                     </div>
                                                     <button data-id="poh" class="btn-primary btn-add-to-cart">Add to Cart</button>
                                                     `;
-                }
-            });
-
-            //****Mỗi lần render ra lại là phải cho nó lại chức năng bấm số lượng sản phẩm
-
-            // ----------------------------------------------------------------
-            const quantityInputs = document.querySelectorAll('.quantity-input');
-            const decreaseButtons = document.querySelectorAll('.btn-decrease');
-            const increaseButtons = document.querySelectorAll('.btn-increase');
-            // ----------------------------------------------------------------
-            decreaseButtons.forEach((button, index) => {
-                button.addEventListener('click', () => {
-                    let input = quantityInputs[index];
-                    let currentValue = parseInt(input.value);
-                    if (currentValue > 1) {
-                        input.value = currentValue - 1;
-                        updateButtonState(input, button);
-                    }
-                });
-            });
-
-            increaseButtons.forEach((button, index) => {
-                button.addEventListener('click', () => {
-                    let input = quantityInputs[index];
-                    let currentValue = parseInt(input.value);
-                    input.value = currentValue + 1;
-                    updateButtonState(input, decreaseButtons[index]);
-                });
-            });
-
-            // Cập nhật trạng thái của các nút
-            function updateButtonState(input, decreaseButton) {
-                if (input.value <= 1) {
-                    decreaseButton.classList.add('disabled');
-                } else {
-                    decreaseButton.classList.remove('disabled');
-                }
             }
+          });
 
-            // Kiểm tra lần đầu tiên khi tải trang
-            quantityInputs.forEach((input, index) => {
-                updateButtonState(input, decreaseButtons[index]);
-            });
-
-            // Ngăn chặn dấu mũi tên tăng giảm trong input type=number
-            quantityInputs.forEach((input) => {
-                input.addEventListener('keydown', (e) => {
-                    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-                        e.preventDefault();
-                    }
-                });
-            });
-
-            // -------------------------------------------------------------------------------------------
-        });
-
+        //****Mỗi lần render ra lại là phải cho nó lại chức năng bấm số lượng sản phẩm
 
         // ----------------------------------------------------------------
-        // ----------------------------------------------------------------
-        let isLoading = false;
-
-        // Observer theo dõi khi 'load-more-trigger' vào viewport
-        let observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting && !isLoading) {
-                isLoading = true;
-                ui.renderProducts(productListFirst); // Hàm render sản phẩm của bạn
-                isLoading = false;
-            }
-        }, { threshold: 1.0 });
-
-        // Bắt đầu theo dõi phần tử trigger
-        // observer.observe(document.getElementById('load-more-trigger'));
-        ///// --------------------/////----------------------------------/////
-
-        // ----------------------------------------------------------------
-        const quantityInputs = document.querySelectorAll('.quantity-input');
-        const decreaseButtons = document.querySelectorAll('.btn-decrease');
-        const increaseButtons = document.querySelectorAll('.btn-increase');
+        const quantityInputs = document.querySelectorAll(".quantity-input");
+        const decreaseButtons = document.querySelectorAll(".btn-decrease");
+        const increaseButtons = document.querySelectorAll(".btn-increase");
         // ----------------------------------------------------------------
         decreaseButtons.forEach((button, index) => {
-            button.addEventListener('click', () => {
-                let input = quantityInputs[index];
-                let currentValue = parseInt(input.value);
-                if (currentValue > 1) {
-                    input.value = currentValue - 1;
-                    updateButtonState(input, button);
-                }
-            });
+          button.addEventListener("click", () => {
+            let input = quantityInputs[index];
+            let currentValue = parseInt(input.value);
+            if (currentValue > 1) {
+              input.value = currentValue - 1;
+              updateButtonState(input, button);
+            }
+          });
         });
 
         increaseButtons.forEach((button, index) => {
-            button.addEventListener('click', () => {
-                let input = quantityInputs[index];
-                let currentValue = parseInt(input.value);
-                input.value = currentValue + 1;
-                updateButtonState(input, decreaseButtons[index]);
-            });
+          button.addEventListener("click", () => {
+            let input = quantityInputs[index];
+            let currentValue = parseInt(input.value);
+            input.value = currentValue + 1;
+            updateButtonState(input, decreaseButtons[index]);
+          });
         });
 
         // Cập nhật trạng thái của các nút
         function updateButtonState(input, decreaseButton) {
-            if (input.value <= 1) {
-                decreaseButton.classList.add('disabled');
-            } else {
-                decreaseButton.classList.remove('disabled');
-            }
+          if (input.value <= 1) {
+            decreaseButton.classList.add("disabled");
+          } else {
+            decreaseButton.classList.remove("disabled");
+          }
         }
 
         // Kiểm tra lần đầu tiên khi tải trang
         quantityInputs.forEach((input, index) => {
-            updateButtonState(input, decreaseButtons[index]);
+          updateButtonState(input, decreaseButtons[index]);
         });
 
         // Ngăn chặn dấu mũi tên tăng giảm trong input type=number
         quantityInputs.forEach((input) => {
-            input.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-                    e.preventDefault();
-                }
-            });
+          input.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+              e.preventDefault();
+            }
+          });
         });
 
+        // -------------------------------------------------------------------------------------------
+      });
 
-        // -----------------------------------------------------------------------------------
-        // -----------------------------------------------------------------------------------
-        //***Vì mình có chơi với products nên mình phải nằm bên trong ảnh, nghĩa là ảnh lấy danh sách xong
-        //đưa mình thì mình mới xử lí tiếp được
+    // ----------------------------------------------------------------
+    // ----------------------------------------------------------------
+    let isLoading = false;
 
-        //Đầu tiên dom tới danh sách chứa các product trên ui, nếu bấm nhằm vào phần tử là cái nút
-        //thì mình sẽ làm việc gì đó
-        document.querySelector(".products-container").addEventListener("click", async (event) => {
-            //nếu sự kiện nổ ra ngay trúng cái nút add-to-cart thì làm gì đó
-            //mình sẽ kiểm tra bằng classList
-            // alert(1);: dùng để test thử coi có dính sự kiện chưa
-            if (event.target.classList.contains("btn-add-to-cart")) {
-                let listCart = await store.getProductsCart();
-                //lấy data-id của nó
-                let dataId = event.target.getAttribute("data-id");
-                //kiểm tra thử xem trong listCart đã có item trùng chưa
-                //nếu chưa có thì thêm mới hoàn toàn, nếu có rồi thì cộng dồn quantity
-                let checkDuplicate = listCart.every((item) => item.diff != dataId);
-                console.log(checkDuplicate);
-                
-                if (checkDuplicate) {//nếu đúng thì thêm vào như không có gì xảy ra
-                    //tìm trong products xem thằng nào có id = data-id của cái nút bấm
-                    let cartItem = products.find((product) => (product.diff == dataId));
-                    //thêm một thuộc tính cho object cartItem đó chính là quantity(sl) rồi đã nhét vào mảng listCart
-                    //phải lấy bằng cách nhìn từ button dính sự kiện
-                    cartItem.quantity = event.target.previousElementSibling.children[1].value;
-                    // console.log(event.target.previousElementSibling.children[1].value);
-                    //**Nhét cart mới đó lên server luôn
-                    let newCart = await store.postProductCart(cartItem);
+    // Observer theo dõi khi 'load-more-trigger' vào viewport
+    let observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !isLoading) {
+          isLoading = true;
+          ui.renderProducts(productListFirst); // Hàm render sản phẩm của bạn
+          isLoading = false;
+        }
+      },
+      { threshold: 1.0 }
+    );
 
-                    //**Sau khi móc dữ liệu update đồ hết rồi thì quay lại cho cái ô kia về value là 1
-                    //  để chuẩn bị cho những lần tiếp theo
-                    event.target.previousElementSibling.children[1].value = "1";
-                    // --------------------------------------------------------
-                    //tính tiền và hiện ra màn hình
-                    let totalData1 = await store.getProductsCart();
-                    let totalMoney1 = totalPay(totalData1);
-                    //hiển thị lên ui
-                    ui.renderMoney(totalMoney1);
-                    //đếm số lượng sản phầm có trong cart rồi hiển thị lên ui
-                    let countCart1 = countCart(totalData1);
-                    ui.renderCountCart(countCart1);
-                    // --------------------------------------------------------------------------
-                    // --------------------------------------------------------------------------
-                    //LƯU Ý: khi bấm vào tăng sản phẩm, tính tiền đồ xong thì sẵn hiện ra lại cart cho người dùng ngta nhìn đi
-                    document.querySelector(".block-cart").style.display = "block";
-                    // đồng thời cho độ dài của cái tab tăng lên theo %
-                    let cartTab = document.querySelector(".cart-tab");
-                    let width = 0; //chiều rộng ban đầu
-                    const targetWidth = 25; // Chiều rộng mong muốn (25%)
-                    const step = 0.5; // Bước tăng (0.5%)
-                    // Thiết lập interval để tăng chiều rộng từng bước
-                    const interval = setInterval(() => {
-                        if (width < targetWidth) {
-                            //nó sẽ tăng lên dần dần
-                            width += step;// Tăng chiều rộng
-                            //cập nhật chiều rộng
-                            cartTab.style.width = width + "%";
-                        } else {//nếu vượt quá thì dừng lại nhé, **Lưu ý setInterVal muốn dừng thì phải hứng
-                            clearInterval(interval);
-                        }
-                    }, 4);//mỗi 4ms thì cứ tăng dần lên
-                    // --------------------------------------------------------------------------
-                    // --------------------------------------------------------------------------
-                }else{//trường hợp đã rồi rồi thì update quantity
-                    let cartUpdate = listCart.find((item) => (item.diff == dataId));
-                    //sau đó update phần tử đó
-                    let quantityUpdate = Number.parseInt(event.target.previousElementSibling.children[1].value) + Number.parseInt(cartUpdate.quantity) + "";
-                    //**Nhờ store update giúp mình luôn
-                    let updateCart = await store.putProductCart(cartUpdate.id, {quantity: quantityUpdate});
-                    
+    // Bắt đầu theo dõi phần tử trigger
+    // observer.observe(document.getElementById('load-more-trigger'));
+    ///// --------------------/////----------------------------------/////
 
-                    //**Sau khi móc dữ liệu update đồ hết rồi thì quay lại cho cái ô kia về value là 1
-                    //  để chuẩn bị cho những lần tiếp theo
-                    event.target.previousElementSibling.children[1].value = "1";
-
-                    // --------------------------------------------------------
-                    //tính tiền và hiện ra màn hình
-                    let totalData2 = await store.getProductsCart();
-                    let totalMoney2 = totalPay(totalData2);
-                    //hiển thị lên ui
-                    ui.renderMoney(totalMoney2);
-                    //đếm số lượng sản phầm có trong cart rồi hiển thị lên ui
-                    let countCart2 = countCart(totalData2);
-                    ui.renderCountCart(countCart2);
-                    // --------------------------------------------------------------------------
-                    // --------------------------------------------------------------------------
-                    //LƯU Ý: khi bấm vào tăng sản phẩm, tính tiền đồ xong thì sẵn hiện ra lại cart cho người dùng ngta nhìn đi
-                    document.querySelector(".block-cart").style.display = "block";
-                    // đồng thời cho độ dài của cái tab tăng lên theo %
-                    let cartTab = document.querySelector(".cart-tab");
-                    let width = 0; //chiều rộng ban đầu
-                    const targetWidth = 25; // Chiều rộng mong muốn (25%)
-                    const step = 0.5; // Bước tăng (0.5%)
-                    // Thiết lập interval để tăng chiều rộng từng bước
-                    const interval = setInterval(() => {
-                        if (width < targetWidth) {
-                            //nó sẽ tăng lên dần dần
-                            width += step;// Tăng chiều rộng
-                            //cập nhật chiều rộng
-                            cartTab.style.width = width + "%";
-                        } else {//nếu vượt quá thì dừng lại nhé, **Lưu ý setInterVal muốn dừng thì phải hứng
-                            clearInterval(interval);
-                        }
-                    }, 4);//mỗi 4ms thì cứ tăng dần lên
-                    // --------------------------------------------------------------------------
-                    // --------------------------------------------------------------------------
-                };
-
-                let afterData = await store.getProductsCart();
-                ui.renderCarts(afterData);
-            };
-        });
-
-        //sau khi load xong nếu bấm vô dấu x thì xóa khỏi mảng và render ra lại
-        document.querySelector(".cart-tab-body").addEventListener("click", async (event) => {
-            if(event.target.parentElement.classList.contains("cart-item-x-btn")){
-                //lấy diff của nó nằm trong data-id
-                let keyDiff = event.target.parentElement.getAttribute("data-id");
-                //lấy mảng danh sách để tìm ra thằng có diff giống để lấy id
-                let cartList = await store.getProductsCart();
-                //tìm ra thằng đó dựa vào keyDiff
-                let itemRemove = cartList.find((item) => (item.diff == keyDiff));
-                //tạo ra con confirm coi có xác nhận không
-                let isConfirmed = confirm(`Do you want to delete: ${itemRemove.name}?`);
-                if(isConfirmed){
-                    //**Nhờ store xóa dùm, hành động này sẽ mát thời gian đấy 
-                    //==> phải xài await cho nó đợi xíu
-                    let tmp = await store.deleteProductCart(itemRemove.id);
-                    //xóa khỏi ui / hoặc có thể render lại nhưng mà đợi lấy dữ liệu lâu quá nên xóa thẳng luôn
-                    event.target.parentElement.parentElement.parentElement.remove();
-                    //tính tiền và hiện ra màn hình
-                    let afterData = await store.getProductsCart();
-                    let moneyAfterDel = totalPay(afterData);
-                    //hiển thị lên ui
-                    ui.renderMoney(moneyAfterDel);
-                    //đếm số lượng sản phầm có trong cart rồi hiển thị lên ui
-                    let countCartAfterDel = countCart(afterData);
-                    ui.renderCountCart(countCartAfterDel);
-                };
-            };
-        });
+    // ----------------------------------------------------------------
+    const quantityInputs = document.querySelectorAll(".quantity-input");
+    const decreaseButtons = document.querySelectorAll(".btn-decrease");
+    const increaseButtons = document.querySelectorAll(".btn-increase");
+    // ----------------------------------------------------------------
+    decreaseButtons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        let input = quantityInputs[index];
+        let currentValue = parseInt(input.value);
+        if (currentValue > 1) {
+          input.value = currentValue - 1;
+          updateButtonState(input, button);
+        }
+      });
     });
-    //sau khi load xong hết rồi thì mình lấy danh sách xuống và hiện thị, mỗi khi ctrl hiển thị lại và không bị mất
-    let dataCartLast = await store.getProductsCart();
-    ui.renderCarts(dataCartLast);
+
+    increaseButtons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        let input = quantityInputs[index];
+        let currentValue = parseInt(input.value);
+        input.value = currentValue + 1;
+        updateButtonState(input, decreaseButtons[index]);
+      });
+    });
+
+    // Cập nhật trạng thái của các nút
+    function updateButtonState(input, decreaseButton) {
+      if (input.value <= 1) {
+        decreaseButton.classList.add("disabled");
+      } else {
+        decreaseButton.classList.remove("disabled");
+      }
+    }
+
+    // Kiểm tra lần đầu tiên khi tải trang
+    quantityInputs.forEach((input, index) => {
+      updateButtonState(input, decreaseButtons[index]);
+    });
+
+    // Ngăn chặn dấu mũi tên tăng giảm trong input type=number
+    quantityInputs.forEach((input) => {
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+          e.preventDefault();
+        }
+      });
+    });
+
     // -----------------------------------------------------------------------------------
-    //khi ctrl r thì hiện lại số tiền
-    // let totalData3 = await store.getProductsCart();
-    let totalMoney3 = totalPay(dataCartLast);
-    //hiển thị lên ui
-    ui.renderMoney(totalMoney3);
-    //khi ctrl r thì đếm số lượng sản phẩm và hiển thị lên giỏ hàng
-    let countCartToTal = countCart(dataCartLast);
-    ui.renderCountCart(countCartToTal);
+    // -----------------------------------------------------------------------------------
+    //***Vì mình có chơi với products nên mình phải nằm bên trong ảnh, nghĩa là ảnh lấy danh sách xong
+    //đưa mình thì mình mới xử lí tiếp được
 
+    //Đầu tiên dom tới danh sách chứa các product trên ui, nếu bấm nhằm vào phần tử là cái nút
+    //thì mình sẽ làm việc gì đó
+    document
+      .querySelector(".products-container")
+      .addEventListener("click", async (event) => {
+        //nếu sự kiện nổ ra ngay trúng cái nút add-to-cart thì làm gì đó
+        //mình sẽ kiểm tra bằng classList
+        // alert(1);: dùng để test thử coi có dính sự kiện chưa
+        if (event.target.classList.contains("btn-add-to-cart")) {
+          let listCart = await store.getProductsCart();
+          //lấy data-id của nó
+          let dataId = event.target.getAttribute("data-id");
+          //kiểm tra thử xem trong listCart đã có item trùng chưa
+          //nếu chưa có thì thêm mới hoàn toàn, nếu có rồi thì cộng dồn quantity
+          let checkDuplicate = listCart.every((item) => item.diff != dataId);
+          console.log(checkDuplicate);
 
+          if (checkDuplicate) {
+            //nếu đúng thì thêm vào như không có gì xảy ra
+            //tìm trong products xem thằng nào có id = data-id của cái nút bấm
+            let cartItem = products.find((product) => product.diff == dataId);
+            //thêm một thuộc tính cho object cartItem đó chính là quantity(sl) rồi đã nhét vào mảng listCart
+            //phải lấy bằng cách nhìn từ button dính sự kiện
+            cartItem.quantity =
+              event.target.previousElementSibling.children[1].value;
+            // console.log(event.target.previousElementSibling.children[1].value);
+            //**Nhét cart mới đó lên server luôn
+            let newCart = await store.postProductCart(cartItem);
+
+            //**Sau khi móc dữ liệu update đồ hết rồi thì quay lại cho cái ô kia về value là 1
+            //  để chuẩn bị cho những lần tiếp theo
+            event.target.previousElementSibling.children[1].value = "1";
+            // --------------------------------------------------------
+            //tính tiền và hiện ra màn hình
+            let totalData1 = await store.getProductsCart();
+            let totalMoney1 = totalPay(totalData1);
+            //hiển thị lên ui
+            ui.renderMoney(totalMoney1);
+            //đếm số lượng sản phầm có trong cart rồi hiển thị lên ui
+            let countCart1 = countCart(totalData1);
+            ui.renderCountCart(countCart1);
+            // --------------------------------------------------------------------------
+            // --------------------------------------------------------------------------
+            //LƯU Ý: khi bấm vào tăng sản phẩm, tính tiền đồ xong thì sẵn hiện ra lại cart cho người dùng ngta nhìn đi
+            document.querySelector(".block-cart").style.display = "block";
+            // đồng thời cho độ dài của cái tab tăng lên theo %
+            let cartTab = document.querySelector(".cart-tab");
+            let width = 0; //chiều rộng ban đầu
+            const targetWidth = 25; // Chiều rộng mong muốn (25%)
+            const step = 0.5; // Bước tăng (0.5%)
+            // Thiết lập interval để tăng chiều rộng từng bước
+            const interval = setInterval(() => {
+              if (width < targetWidth) {
+                //nó sẽ tăng lên dần dần
+                width += step; // Tăng chiều rộng
+                //cập nhật chiều rộng
+                cartTab.style.width = width + "%";
+              } else {
+                //nếu vượt quá thì dừng lại nhé, **Lưu ý setInterVal muốn dừng thì phải hứng
+                clearInterval(interval);
+              }
+            }, 4); //mỗi 4ms thì cứ tăng dần lên
+            // --------------------------------------------------------------------------
+            // --------------------------------------------------------------------------
+          } else {
+            //trường hợp đã rồi rồi thì update quantity
+            let cartUpdate = listCart.find((item) => item.diff == dataId);
+            //sau đó update phần tử đó
+            let quantityUpdate =
+              Number.parseInt(
+                event.target.previousElementSibling.children[1].value
+              ) +
+              Number.parseInt(cartUpdate.quantity) +
+              "";
+            //**Nhờ store update giúp mình luôn
+            let updateCart = await store.putProductCart(cartUpdate.id, {
+              quantity: quantityUpdate,
+            });
+
+            //**Sau khi móc dữ liệu update đồ hết rồi thì quay lại cho cái ô kia về value là 1
+            //  để chuẩn bị cho những lần tiếp theo
+            event.target.previousElementSibling.children[1].value = "1";
+
+            // --------------------------------------------------------
+            //tính tiền và hiện ra màn hình
+            let totalData2 = await store.getProductsCart();
+            let totalMoney2 = totalPay(totalData2);
+            //hiển thị lên ui
+            ui.renderMoney(totalMoney2);
+            //đếm số lượng sản phầm có trong cart rồi hiển thị lên ui
+            let countCart2 = countCart(totalData2);
+            ui.renderCountCart(countCart2);
+            // --------------------------------------------------------------------------
+            // --------------------------------------------------------------------------
+            //LƯU Ý: khi bấm vào tăng sản phẩm, tính tiền đồ xong thì sẵn hiện ra lại cart cho người dùng ngta nhìn đi
+            document.querySelector(".block-cart").style.display = "block";
+            // đồng thời cho độ dài của cái tab tăng lên theo %
+            let cartTab = document.querySelector(".cart-tab");
+            let width = 0; //chiều rộng ban đầu
+            const targetWidth = 25; // Chiều rộng mong muốn (25%)
+            const step = 0.5; // Bước tăng (0.5%)
+            // Thiết lập interval để tăng chiều rộng từng bước
+            const interval = setInterval(() => {
+              if (width < targetWidth) {
+                //nó sẽ tăng lên dần dần
+                width += step; // Tăng chiều rộng
+                //cập nhật chiều rộng
+                cartTab.style.width = width + "%";
+              } else {
+                //nếu vượt quá thì dừng lại nhé, **Lưu ý setInterVal muốn dừng thì phải hứng
+                clearInterval(interval);
+              }
+            }, 4); //mỗi 4ms thì cứ tăng dần lên
+            // --------------------------------------------------------------------------
+            // --------------------------------------------------------------------------
+          }
+
+          let afterData = await store.getProductsCart();
+          ui.renderCarts(afterData);
+        }
+      });
+
+    //sau khi load xong nếu bấm vô dấu x thì xóa khỏi mảng và render ra lại
+    document
+      .querySelector(".cart-tab-body")
+      .addEventListener("click", async (event) => {
+        if (event.target.parentElement.classList.contains("cart-item-x-btn")) {
+          //lấy diff của nó nằm trong data-id
+          let keyDiff = event.target.parentElement.getAttribute("data-id");
+          //lấy mảng danh sách để tìm ra thằng có diff giống để lấy id
+          let cartList = await store.getProductsCart();
+          //tìm ra thằng đó dựa vào keyDiff
+          let itemRemove = cartList.find((item) => item.diff == keyDiff);
+          //tạo ra con confirm coi có xác nhận không
+          let isConfirmed = confirm(
+            `Do you want to delete: ${itemRemove.name}?`
+          );
+          if (isConfirmed) {
+            //**Nhờ store xóa dùm, hành động này sẽ mát thời gian đấy
+            //==> phải xài await cho nó đợi xíu
+            let tmp = await store.deleteProductCart(itemRemove.id);
+            //xóa khỏi ui / hoặc có thể render lại nhưng mà đợi lấy dữ liệu lâu quá nên xóa thẳng luôn
+            event.target.parentElement.parentElement.parentElement.remove();
+            //tính tiền và hiện ra màn hình
+            let afterData = await store.getProductsCart();
+            let moneyAfterDel = totalPay(afterData);
+            //hiển thị lên ui
+            ui.renderMoney(moneyAfterDel);
+            //đếm số lượng sản phầm có trong cart rồi hiển thị lên ui
+            let countCartAfterDel = countCart(afterData);
+            ui.renderCountCart(countCartAfterDel);
+          }
+        }
+      });
+  });
+  //sau khi load xong hết rồi thì mình lấy danh sách xuống và hiện thị, mỗi khi ctrl hiển thị lại và không bị mất
+  let dataCartLast = await store.getProductsCart();
+  ui.renderCarts(dataCartLast);
+  // -----------------------------------------------------------------------------------
+  //khi ctrl r thì hiện lại số tiền
+  // let totalData3 = await store.getProductsCart();
+  let totalMoney3 = totalPay(dataCartLast);
+  //hiển thị lên ui
+  ui.renderMoney(totalMoney3);
+  //khi ctrl r thì đếm số lượng sản phẩm và hiển thị lên giỏ hàng
+  let countCartToTal = countCart(dataCartLast);
+  ui.renderCountCart(countCartToTal);
 });
 
 //Hàm đếm số lượng sản phẩm trong giỏ hàng
 const countCart = (dataCartLast) => {
-    let total = 0;
-    dataCartLast.forEach((cartItem, cartIndex) => {
-        total += Number.parseInt(cartItem.quantity);
-    });
-    return total + "";
+  let total = 0;
+  dataCartLast.forEach((cartItem, cartIndex) => {
+    total += Number.parseInt(cartItem.quantity);
+  });
+  return total + "";
 };
 
 // -------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------
 //bắt sự kiện khi click vào icon buy thì hiện ra cái cart
-document.querySelector(".header-shop-right-buy").addEventListener("click", (event) => {
+document
+  .querySelector(".header-shop-right-buy")
+  .addEventListener("click", (event) => {
     document.querySelector(".block-cart").style.display = "block";
     // đồng thời cho độ dài của cái tab tăng lên theo %
     let cartTab = document.querySelector(".cart-tab");
@@ -518,68 +543,67 @@ document.querySelector(".header-shop-right-buy").addEventListener("click", (even
     const step = 0.5; // Bước tăng (0.5%)
     // Thiết lập interval để tăng chiều rộng từng bước
     const interval = setInterval(() => {
-        if (width < targetWidth) {
-            //nó sẽ tăng lên dần dần
-            width += step;// Tăng chiều rộng
-            //cập nhật chiều rộng
-            cartTab.style.width = width + "%";
-        } else {//nếu vượt quá thì dừng lại nhé, **Lưu ý setInterVal muốn dừng thì phải hứng
-            clearInterval(interval);
-        }
-    }, 4);//mỗi 4ms thì cứ tăng dần lên
-});
+      if (width < targetWidth) {
+        //nó sẽ tăng lên dần dần
+        width += step; // Tăng chiều rộng
+        //cập nhật chiều rộng
+        cartTab.style.width = width + "%";
+      } else {
+        //nếu vượt quá thì dừng lại nhé, **Lưu ý setInterVal muốn dừng thì phải hứng
+        clearInterval(interval);
+      }
+    }, 4); //mỗi 4ms thì cứ tăng dần lên
+  });
 
 //sự kiện bấm vào cái nút muỗi tên thì tắt hết và thu dần cái cart lại
-document.querySelector(".cart-tab-header-btn").addEventListener("click", (event) => {
+document
+  .querySelector(".cart-tab-header-btn")
+  .addEventListener("click", (event) => {
     //thu dần cái cart lại xong đó mới tắt thằng mờ
     let cartTab = document.querySelector(".cart-tab");
     let width = 25; // chiều rộng ban đầu
-    const targetWidth = 0;//chiều rộng mong muốn 0%
+    const targetWidth = 0; //chiều rộng mong muốn 0%
     const step = 0.5; //bước giảm 0.5%
     //thiết lập interval để cho nó giảm dần
     const interval = setInterval(() => {
-        if (width >= targetWidth) {
-            width -= step;
-            //cập nhật
-            cartTab.style.width = width + "%";
-        } else {
-            clearInterval(interval);
-        }
-    }, 4);//mỗi 4ms thì cứ giảm
+      if (width >= targetWidth) {
+        width -= step;
+        //cập nhật
+        cartTab.style.width = width + "%";
+      } else {
+        clearInterval(interval);
+      }
+    }, 4); //mỗi 4ms thì cứ giảm
 
     //sau khi giảm dần cái cart rồi thì tắt cái mờ đi
     setTimeout(() => {
-        document.querySelector(".block-cart").style.display = "none";
+      document.querySelector(".block-cart").style.display = "none";
     }, 1500);
-
-});
+  });
 
 //sự kiện bấm vào cái nút close trong cart thì thu dần cái cart và tắt luôn hiệu ứng
 document.querySelector(".cart-tab-end_1").addEventListener("click", (event) => {
-    //thu dần cái cart lại xong đó mới tắt thằng mờ
-    let cartTab = document.querySelector(".cart-tab");
-    let width = 25; // chiều rộng ban đầu
-    const targetWidth = 0;//chiều rộng mong muốn 0%
-    const step = 0.5; //bước giảm 0.5%
-    //thiết lập interval để cho nó giảm dần
-    const interval = setInterval(() => {
-        if (width >= targetWidth) {
-            width -= step;
-            //cập nhật
-            cartTab.style.width = width + "%";
-        } else {
-            clearInterval(interval);
-        }
-    }, 4);//mỗi 4ms thì cứ giảm
+  //thu dần cái cart lại xong đó mới tắt thằng mờ
+  let cartTab = document.querySelector(".cart-tab");
+  let width = 25; // chiều rộng ban đầu
+  const targetWidth = 0; //chiều rộng mong muốn 0%
+  const step = 0.5; //bước giảm 0.5%
+  //thiết lập interval để cho nó giảm dần
+  const interval = setInterval(() => {
+    if (width >= targetWidth) {
+      width -= step;
+      //cập nhật
+      cartTab.style.width = width + "%";
+    } else {
+      clearInterval(interval);
+    }
+  }, 4); //mỗi 4ms thì cứ giảm
 
-    //sau khi giảm dần cái cart rồi thì tắt cái mờ đi
-    setTimeout(() => {
-        document.querySelector(".block-cart").style.display = "none";
-    }, 1500);
-
+  //sau khi giảm dần cái cart rồi thì tắt cái mờ đi
+  setTimeout(() => {
+    document.querySelector(".block-cart").style.display = "none";
+  }, 1500);
 });
-
-
 
 //--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
@@ -587,52 +611,52 @@ document.querySelector(".cart-tab-end_1").addEventListener("click", (event) => {
 // Giao tiếp với server mockup API
 const baseURL = "https://6703fdd1ab8a8f8927328adf.mockapi.io/tinyShop/products";
 
-// Giao tiếp với file json 
-const baseURLCart = "https://6703fdd1ab8a8f8927328adf.mockapi.io/tinyShop/productsCart";
+// Giao tiếp với mockup api
+const baseURLCart =
+  "https://6703fdd1ab8a8f8927328adf.mockapi.io/tinyShop/productsCart";
 
 //tạo ra class chuyên đúc ra instance có method giao tiếp với server
 class Http {
-    //method send xài chung cho bộ api dùng để gửi request
-    //vì có những api cần đưa lên nội dung cho server nên cần {} mô tả
-    send(url, method, body) {
-        //trả ra fetch luôn nghĩa là trả ra promise, ai cầm thì tự xử lí
-        return fetch(url, {
-            method: method,
-            //định dạng dữ liệu truyền lên
-            headers: { "Content-Type": "application/json" },
-            //những gì truyền lên server thì bỏ vào body, có thì truyền k thì truyền null
-            //lưu ý fetch thì định dạng dữ liệu phải là json
-            body: body ? JSON.stringify(body) : null,
-        })
-            .then((response) => {
-                //kiểm tra coi gói hàng server trả về nguyên vẹn không
-                if (response.ok) {
-                    return response.json();//trả ra promise<data>
-                } else {
-                    throw new Error(response.statusText);
-                };
-            });//ai gọi send() sẽ nhận được cục promise<data> rồi muốn làm gì thì làm
-    };
+  //method send xài chung cho bộ api dùng để gửi request
+  //vì có những api cần đưa lên nội dung cho server nên cần {} mô tả
+  send(url, method, body) {
+    //trả ra fetch luôn nghĩa là trả ra promise, ai cầm thì tự xử lí
+    return fetch(url, {
+      method: method,
+      //định dạng dữ liệu truyền lên
+      headers: { "Content-Type": "application/json" },
+      //những gì truyền lên server thì bỏ vào body, có thì truyền k thì truyền null
+      //lưu ý fetch thì định dạng dữ liệu phải là json
+      body: body ? JSON.stringify(body) : null,
+    }).then((response) => {
+      //kiểm tra coi gói hàng server trả về nguyên vẹn không
+      if (response.ok) {
+        return response.json(); //trả ra promise<data>
+      } else {
+        throw new Error(response.statusText);
+      }
+    }); //ai gọi send() sẽ nhận được cục promise<data> rồi muốn làm gì thì làm
+  }
 
-    //bộ api
-    get(url) {
-        //ai gọi method này cũng trả ra promise<data> luôn
-        return this.send(url, "GET", null);
-    };
+  //bộ api
+  get(url) {
+    //ai gọi method này cũng trả ra promise<data> luôn
+    return this.send(url, "GET", null);
+  }
 
-    delete(url) {
-        return this.send(url, "DELETE", null);
-    };
-    //thêm item vào cuối mảng danh sách
-    post(url, body) {
-        return this.send(url, "POST", body);
-    };
+  delete(url) {
+    return this.send(url, "DELETE", null);
+  }
+  //thêm item vào cuối mảng danh sách
+  post(url, body) {
+    return this.send(url, "POST", body);
+  }
 
-    //xóa item và cập nhật
-    put(url, body) {
-        return this.send(url, "PUT", body);
-    };
-};
+  //xóa item và cập nhật
+  put(url, body) {
+    return this.send(url, "PUT", body);
+  }
+}
 
 //test thử
 //tạo ra instance của nó để xài
@@ -645,46 +669,46 @@ let http = new Http();
 //         console.log(data);
 //     });
 
-//class Store: chuyên đúc ra những instance lưu trữ dữ liệu từ server 
+//class Store: chuyên đúc ra những instance lưu trữ dữ liệu từ server
 class Store {
-    // lưu sẵn thuộc tính là instance Http để dễ lấy và xử lí dữ liệu
-    constructor() {
-        this.http = new Http();
-    };
-    //trả ra promise<products>
-    getProducts() {
-        return this.http.get(baseURL);
-    };
+  // lưu sẵn thuộc tính là instance Http để dễ lấy và xử lí dữ liệu
+  constructor() {
+    this.http = new Http();
+  }
+  //trả ra promise<products>
+  getProducts() {
+    return this.http.get(baseURL);
+  }
 
-    //trả ra promise<product của cart>
-    //lấy luôn giá trị luôn chứ k quăng promise gì nữa hết
-    getProductsCart(){
-        return this.http.get(baseURLCart);
-    };
+  //trả ra promise<product của cart>
+  //lấy luôn giá trị luôn chứ k quăng promise gì nữa hết
+  getProductsCart() {
+    return this.http.get(baseURLCart);
+  }
 
-    //thêm sản phẩm vào mảng cartList
-    postProductCart(body){
-        return this.http.post(baseURLCart, body);
-    };
+  //thêm sản phẩm vào mảng cartList
+  postProductCart(body) {
+    return this.http.post(baseURLCart, body);
+  }
 
-    //update sản phầm trong cartList
-    putProductCart(id, body){
-        return this.http.put(`${baseURLCart}/${id}`, body);
-    };
+  //update sản phầm trong cartList
+  putProductCart(id, body) {
+    return this.http.put(`${baseURLCart}/${id}`, body);
+  }
 
-    //nhờ store xóa dùm cái cart đi
-    deleteProductCart(id){
-        return this.http.delete(`${baseURLCart}/${id}`);
-    };
-
+  //nhờ store xóa dùm cái cart đi
+  deleteProductCart(id) {
+    return this.http.delete(`${baseURLCart}/${id}`);
+  }
 }
 
 //class RenderUI chuyên đúc ra những instance có method render ra ui
 class RenderUI {
-    renderProducts(products) {
-        //dồn tất cả bằng reduce sau đó hiển thị ra ui
-        let htmlContent = products.reduce((total, { id, name, price, img, diff }) => {
-            return total += `
+  renderProducts(products) {
+    //dồn tất cả bằng reduce sau đó hiển thị ra ui
+    let htmlContent = products.reduce(
+      (total, { id, name, price, img, diff }) => {
+        return (total += `
                     <div class="product-card">
                         <div class="card-img-wrapper">
                             <img src=${img}
@@ -702,49 +726,51 @@ class RenderUI {
                             <button data-id=${diff} class="btn-primary btn-add-to-cart">Add to Cart</button>
                         </div>
                     </div>
-                    `;
-        }, "");
-        //sau đó lấy tất cả hiển thị lên ui
-        document.querySelector(".products-container").innerHTML = htmlContent;
+                    `);
+      },
+      ""
+    );
+    //sau đó lấy tất cả hiển thị lên ui
+    document.querySelector(".products-container").innerHTML = htmlContent;
 
-        //thử nghiệm công nghệ
-        //-------------------
-        lazyLoadProducts();
-    };
+    //thử nghiệm công nghệ
+    //-------------------
+    lazyLoadProducts();
+  }
 
-    //hàm renderCartsInDivCart(cart): nhận vào cart và hiển thị cộng dồn bên div cart
-    // renderCartsInDivCart({ id, name, price, cartImg, quantity }){
-    //     let htmlContent = 
-    //             `<div class="cart-item">
-    //                 <div class="cart-item-left">
-    //                     <img src=${cartImg}
-    //                         alt="File error">
-    //                 </div>
-    //                 <div class="cart-item-right">
-    //                     <p>${name}
-    //                     </p>
-    //                     <h4>
-    //                         $${price}
-    //                     </h4>
-    //                     <div class="cart-item-count">
-    //                         <p>${quantity}</p>
-    //                     </div>
-    //                 </div>
-    //                 <div class="cart-item-x">
-    //                     <button data-id=${id} class="cart-item-x-btn">
-    //                         <i class="fa-regular fa-circle-xmark"></i>
-    //                     </button>
-    //                 </div>
-    //             </div>`;
-    //     //dom tới và hiển thị cộng dồn trên ui
-    //     document.querySelector(".cart-tab-body").innerHTML += htmlContent;
-    // }
+  //hàm renderCartsInDivCart(cart): nhận vào cart và hiển thị cộng dồn bên div cart
+  // renderCartsInDivCart({ id, name, price, cartImg, quantity }){
+  //     let htmlContent =
+  //             `<div class="cart-item">
+  //                 <div class="cart-item-left">
+  //                     <img src=${cartImg}
+  //                         alt="File error">
+  //                 </div>
+  //                 <div class="cart-item-right">
+  //                     <p>${name}
+  //                     </p>
+  //                     <h4>
+  //                         $${price}
+  //                     </h4>
+  //                     <div class="cart-item-count">
+  //                         <p>${quantity}</p>
+  //                     </div>
+  //                 </div>
+  //                 <div class="cart-item-x">
+  //                     <button data-id=${id} class="cart-item-x-btn">
+  //                         <i class="fa-regular fa-circle-xmark"></i>
+  //                     </button>
+  //                 </div>
+  //             </div>`;
+  //     //dom tới và hiển thị cộng dồn trên ui
+  //     document.querySelector(".cart-tab-body").innerHTML += htmlContent;
+  // }
 
-    //hàm renderCarts(cartList): nhận vào cartList và từ đó hiển thị ra màn hình
-    renderCarts(cartList) {
-        let htmlContent = cartList.reduce((total, { id, name, price, cartImg, quantity, diff }) => {
-            return total +=
-                `   <div class="cart-item">
+  //hàm renderCarts(cartList): nhận vào cartList và từ đó hiển thị ra màn hình
+  renderCarts(cartList) {
+    let htmlContent = cartList.reduce(
+      (total, { id, name, price, cartImg, quantity, diff }) => {
+        return (total += `   <div class="cart-item">
                     <div class="cart-item-left">
                         <img src=${cartImg}
                             alt="File error">
@@ -764,34 +790,32 @@ class RenderUI {
                             <i class="fa-regular fa-circle-xmark"></i>
                         </button>
                     </div>
-                </div>`
-        }, "");
-        //dom tới và hiển thị lên ui
-        document.querySelector(".cart-tab-body").innerHTML = htmlContent;
-    };
+                </div>`);
+      },
+      ""
+    );
+    //dom tới và hiển thị lên ui
+    document.querySelector(".cart-tab-body").innerHTML = htmlContent;
+  }
 
-
-    //method render money
-    renderMoney = (money) => {
-        let htmlContent = `
+  //method render money
+  renderMoney = (money) => {
+    let htmlContent = `
                 <hr/>
                 <h1>Subtotal</h1>
                 <h2>$${money}</h2>
                 <hr/>`;
-        //dom tới và nhét vào hiển thị
-        document.querySelector(".cart-tab-subtotal").innerHTML = htmlContent;
-    };
+    //dom tới và nhét vào hiển thị
+    document.querySelector(".cart-tab-subtotal").innerHTML = htmlContent;
+  };
 
-    //method render count 
-    renderCountCart = (countCart) => {
-        let htmlContent = `
+  //method render count
+  renderCountCart = (countCart) => {
+    let htmlContent = `
             <p style="color: aliceblue; margin: 0;">${countCart}</p>
         `;
-        //dom tới và nhét nó vào
-        document.querySelector(".header-shop-right-buy").children[1].innerHTML = htmlContent;
-    };
-
-};
-
-
-
+    //dom tới và nhét nó vào
+    document.querySelector(".header-shop-right-buy").children[1].innerHTML =
+      htmlContent;
+  };
+}
