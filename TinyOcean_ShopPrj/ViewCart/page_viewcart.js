@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       //kiểm tra xem có bấm đúng cái thùng không
       if (event.target.classList.contains("trash-click")) {
         let isConfirmed = confirm(
-          `Do you want delete product: ${event.target.parentElement.parentElement.children[1].children[0].textContent}?`
+          `Do you want delete product: ${event.target.parentElement.parentElement.children[1].children[0].textContent}`
         );
         if (isConfirmed) {
           //lấy diff
@@ -66,6 +66,21 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
 });
+//-------------------------------------------------------------------------------
+//sự kiện khi bấm nhập mã code để giảm giá thì hãy hiện ra
+document.querySelector(".promo-show").addEventListener("click", (event) => {
+  event.preventDefault();
+  //nếu chưa hiển thị thì bấm vào là hiển thị liền
+  if (event.target.parentElement.nextElementSibling.style.display != "block") {
+    document.querySelector(".promo-code").style.display = "block";
+    document.querySelector(".promo-code-inp").value = "";
+  } else {
+    document.querySelector(".promo-code").style.display = "none";
+  }
+});
+
+//-------------------------------------------------------------------------------
+//sự kiện khi bấm vào ô xin feedback thì hãy hiện ra
 
 //--------------------------------------------------------------------------------
 //*hàm tính tiền từng sản phẩm kèm theo số lượng

@@ -427,6 +427,50 @@ body {
   font-size: 2rem;
 }
 
+.promo-code {
+  margin: 2rem 0;
+  display: flex;
+  /* ưu tiên display dưới để có thể bắt sự kiện js bên kia */
+  display: none;
+}
+
+.promo-code input {
+  width: 27rem;
+  height: 4.5rem;
+  padding: 1rem 2rem;
+  color: rgb(0, 7, 105);
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  border: 1px solid rgb(0, 7, 105);
+}
+.promo-code input::placeholder {
+  color: rgb(0, 7, 105);
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.promo-code input:focus {
+  box-shadow: none;
+  outline: none;
+  outline-offset: none;
+}
+
+.promo-code button {
+  width: 10rem;
+  height: 4.5rem;
+  background-color: rgb(252, 152, 35);
+  color: rgb(0, 7, 105);
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  border: 1px solid rgb(0, 7, 105);
+  transition: 0.1s ease-in-out;
+}
+
+.promo-code button:active {
+  transform: scale(1.2);
+}
+
 .left-addText a {
   text-decoration: none;
   text-decoration: none;
