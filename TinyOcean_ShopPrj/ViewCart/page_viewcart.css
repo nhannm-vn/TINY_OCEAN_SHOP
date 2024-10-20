@@ -471,11 +471,39 @@ body {
   transform: scale(1.2);
 }
 
+/* --------------------------------- */
+
 .left-addText a {
   text-decoration: none;
   text-decoration: none;
   color: rgb(0, 7, 105);
   font-size: 2rem;
+}
+
+.addTextFeedBack {
+  margin: 2rem auto;
+  display: none;
+}
+
+.addTextFeedBack textarea {
+  width: 35rem;
+  height: 10rem;
+  padding: 1rem 1rem;
+  box-shadow: none;
+  border: 1px solid rgb(0, 7, 105);
+  min-height: 10rem;
+  max-height: 12rem;
+}
+
+.addTextFeedBack textarea:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.addTextFeedBack textarea::placeholder {
+  color: rgb(0, 7, 105);
+  font-weight: 200;
+  font-family: "Poppins", sans-serif;
 }
 
 /* ----------------------------- */

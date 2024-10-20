@@ -81,7 +81,16 @@ document.querySelector(".promo-show").addEventListener("click", (event) => {
 
 //-------------------------------------------------------------------------------
 //sự kiện khi bấm vào ô xin feedback thì hãy hiện ra
-
+document.querySelector(".show-addText").addEventListener("click", (event) => {
+  event.preventDefault();
+  //nếu chưa hiển thị thì bấm vào là hiển thị liền
+  if (event.target.parentElement.nextElementSibling.style.display != "block") {
+    document.querySelector(".addTextFeedBack").style.display = "block";
+    document.querySelector(".addTextFeedBack-inp").value = "";
+  } else {
+    document.querySelector(".addTextFeedBack").style.display = "none";
+  }
+});
 //--------------------------------------------------------------------------------
 //*hàm tính tiền từng sản phẩm kèm theo số lượng
 const caculationEachProduct = (price, quantity) => {
