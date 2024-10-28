@@ -65,7 +65,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
       }
     });
+  // ---------------------------------------------------------------------------
 });
+
 //-------------------------------------------------------------------------------
 //sự kiện khi bấm nhập mã code để giảm giá thì hãy hiện ra
 document.querySelector(".promo-show").addEventListener("click", (event) => {
@@ -90,6 +92,20 @@ document.querySelector(".show-addText").addEventListener("click", (event) => {
   } else {
     document.querySelector(".addTextFeedBack").style.display = "none";
   }
+});
+
+//*sự kiện khi bấm vào nút checkout thì hiện lên bảng chọn địa chỉ
+document.querySelector(".sub-total-btn").addEventListener("click", (event) => {
+  //khi bấm thì cho cái bảng chọn địa chỉ hiện lên lại
+  setTimeout(() => {
+    document.querySelector(".check_out_block").style.display = "block";
+  }, 1000);
+});
+//*Sự kiện khi bấm vào nền ngoài thì tắt bảng chọn địa chỉ
+document.querySelector(".check_out_sub").addEventListener("click", (event) => {
+  setTimeout(() => {
+    document.querySelector(".check_out_block").style.display = "none";
+  }, 1000);
 });
 //--------------------------------------------------------------------------------
 //*hàm tính tiền từng sản phẩm kèm theo số lượng
@@ -122,6 +138,7 @@ const findIdByDiff = (diff, cartList) => {
     return item.diff == diff;
   }).id;
 };
+
 //--------------------------------------------------------------------------------
 
 // Giao tiếp với server mockup API

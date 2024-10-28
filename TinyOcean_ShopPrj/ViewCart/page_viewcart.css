@@ -25,11 +25,13 @@ body {
   /* fixed: giúp cho nó đứng yên khi scroll mấy cái khác */
   position: fixed;
   z-index: 10;
+  display: none;
+  transition: 0.4 ease-in-out;
 }
 
 .check_out_sub {
   background-color: #6b6e83;
-  opacity: 0.4;
+  opacity: 0.6;
   height: 100%;
   width: 100%;
 }
@@ -44,6 +46,7 @@ body {
   transform: translate(-50%, -50%);
   z-index: 11;
   opacity: 1;
+  border-radius: 1rem;
 }
 
 .check_out_main h1 {
@@ -55,7 +58,7 @@ body {
 }
 
 .view_address {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 85%;
   width: 97%;
   margin: 0 auto;
@@ -91,6 +94,34 @@ body {
   font-size: 1.8rem;
 }
 /*  */
+.address {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.address input {
+  height: 4rem;
+  font-size: 1.8rem;
+}
+
+/* btn-order */
+.btn-order {
+  border-radius: 0.5rem;
+  font-family: "Roboto", sans-serif;
+  width: 7.5rem;
+  height: 3.5rem;
+  background-color: rgb(0, 7, 105);
+  color: #ffffff;
+  transition: 0.2s ease-in-out;
+}
+
+.btn-order:hover {
+  transform: scale(1.1);
+}
+
+#information_address {
+  font-family: "Roboto", sans-serif;
+}
 
 /* ---------------------------------------------------- */
 
@@ -393,6 +424,10 @@ body {
   background-color: rgb(0, 7, 105);
   color: rgb(255, 255, 255);
   font-family: "Poppins", sans-serif;
+  transition: 0.2s ease-in-out;
+}
+.sub-total-btn:active {
+  transform: scale(1.1);
 }
 
 .sub-security {
