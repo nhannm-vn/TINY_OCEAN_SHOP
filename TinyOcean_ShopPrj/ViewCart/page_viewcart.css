@@ -18,6 +18,82 @@ body {
   opacity: 1;
 }
 
+/* check_out */
+.check_out_block {
+  width: 100%;
+  height: 100%;
+  /* fixed: giúp cho nó đứng yên khi scroll mấy cái khác */
+  position: fixed;
+  z-index: 10;
+}
+
+.check_out_sub {
+  background-color: #6b6e83;
+  opacity: 0.4;
+  height: 100%;
+  width: 100%;
+}
+
+.check_out_main {
+  height: 50rem;
+  width: 80rem;
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  opacity: 1;
+}
+
+.check_out_main h1 {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 3rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+}
+
+.view_address {
+  border: 1px solid red;
+  height: 85%;
+  width: 97%;
+  margin: 0 auto;
+}
+/*  */
+.province {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.province select {
+  height: 4rem;
+  font-size: 1.8rem;
+}
+/*  */
+.district {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.district select {
+  height: 4rem;
+  font-size: 1.8rem;
+}
+/*  */
+.ward {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.ward select {
+  height: 4rem;
+  font-size: 1.8rem;
+}
+/*  */
+
+/* ---------------------------------------------------- */
+
 /* container */
 .container {
   /* border: 2px solid red; */
