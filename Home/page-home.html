@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Home</title>
+    <!-- link boostrap -->
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- link css -->
+    <link rel="stylesheet" href="./page-home.css">
+</head>
+
+<body>
+    <!-- code here -->
+    <!-- header -->
+    <header>
+        <!-- header -->
+        <div class="header-shop">
+            <div class="header-shop-left">
+                <div class="header-shop-left-fish">
+                    <img src="./icon-fish-header.png">
+                </div>
+                <p style="position: absolute; margin-left: 5rem;">TINY OCEAN</p>
+            </div>
+            <div class="header-shop-middle">
+                <ul class="header-shop-middle-nav">
+                    <li class="header-shop-item">
+                        <a id="pop" class="header-shop-link link-pop-up" href="../Home/page-home.html"
+                            onclick="event.preventDefault(); transitionToPage('../Home/page-home.html')">Home</a>
+                    </li>
+                    <li class="header-shop-item item-hover-spec" style="position: relative;">
+                        <a class="header-shop-link link-pop-up" href="../Shop/page_shop.html"
+                            onclick="event.preventDefault(); transitionToPage('../Shop/page_shop.html')">Shop</a>
+                        <div class="linksub-shop">
+                            <a class="link-pop-up" href="../Aquriums&Bolws/page_aquariums.html"
+                                onclick="event.preventDefault(); transitionToPage('../Aquriums&Bolws/page_aquariums.html')">Aquariums
+                                &
+                                Fish Bolws</a><br />
+                            <a class="link-pop-up" href="../Aquriums&Equipment/page_aquariumsEquipment.html"
+                                onclick="event.preventDefault(); transitionToPage('../Aquriums&Equipment/page_aquariumsEquipment.html')">Aquarium
+                                & Equipment</a>
+                            <a class="link-pop-up" href="../Plants&Decorations/page_plantsDecoration.html"
+                                onclick="event.preventDefault(); transitionToPage('../Plants&Decorations/page_plantsDecoration.html')">Plants
+                                &
+                                Decorations</a>
+                        </div>
+                    </li>
+                    <li class="header-shop-item">
+                        <a class="header-shop-link link-pop-up" href="../About/about_page.html"
+                            onclick="event.preventDefault(); transitionToPage('../About/about_page.html')">About</a>
+                    </li>
+                    <li class="header-shop-item item-hover-spec" style="position: relative;">
+                        <a style="width: 12rem; text-align: center;" class="header-shop-link link-pop-up"
+                            href="../CustomerCare/customerCare.html"
+                            onclick="event.preventDefault(); transitionToPage('../CustomerCare/customerCare.html')">Customer
+                            Care</a>
+                        <div class="linksub-customer">
+                            <a class="link-pop-up" href="../FAQ/faq_page.html"
+                                onclick="event.preventDefault(); transitionToPage('../FAQ/faq_page.html')">FAQ</a><br />
+                            <a class="link-pop-up" href="../Shipping/shipping.html"
+                                onclick="event.preventDefault(); transitionToPage('../Shipping/shipping.html')">Shipping
+                                &
+                                Returns</a>
+                        </div>
+                    </li>
+                    <li class="header-shop-item">
+                        <a class="header-shop-link link-pop-up" href="../Contact/contact_page.html"
+                            onclick="event.preventDefault(); transitionToPage('../Contact/contact_page.html')">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="header-shop-right">
+                <div class="header-shop-right-login">
+                    <a style="display: flex; flex-wrap: nowrap; width: 8rem; text-align: center;" href="#">
+                        <i style="color: rgb(255, 255, 255);" class="fa-regular fa-user"></i> &#8194;
+                        <span>Log In</span>
+                    </a>
+                </div>
+                <div style="width: 15rem;" class="header-shop-right-icon">
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+                <div class="header-shop-right-buy" style="position: relative;">
+                    <a href="#">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <div style="width: 2.2rem; height: 2.2rem; position: absolute; z-index: 5; background-color: red; border-radius: 50%;
+                    display: flex; justify-content: center; align-items: center; top: 0; left: 2rem;">
+                        <p style="color: aliceblue; margin: 0;">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- container -->
+    <div class="container">
+        <div class="main">
+            <video class="response-video" autoplay loop muted playsinline>
+                <source
+                    src="https://video.wixstatic.com/video/ea71bb_d4280c9435874086b9f2ff73d96b2b16/1080p/mp4/file.mp4"
+                    type="video/mp4">
+            </video>
+            <!-- title -->
+            <div class="title-in-video">
+                <h1>
+                    WELCOME TO <br />
+                    YOUR PRIVATE REEF
+                </h1>
+                <p>
+                    Everything You Need for Your Aquarium
+                </p>
+                <div class="manage-button">
+                    <button class="button-start"
+                        onclick="event.preventDefault(); transitionToPage('../Shop/page_shop.html')">Start
+                        Shopping</button>
+                </div>
+            </div>
+        </div>
+        <!-- 3 cái hình nè-->
+        <div class="flex-container">
+            <div class="flex-box">
+                <img src="https://static.wixstatic.com/media/ea71bb_05a6a57da574403ca693f002a922b506~mv2_d_2326_2437_s_2.jpg/v1/fill/w_383,h_650,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/ea71bb_05a6a57da574403ca693f002a922b506~mv2_d_2326_2437_s_2.jpg"
+                    alt="Aquariums & Fish Bowls">
+                <div class="overlay-text">
+                    <h2>AQUARIUMS & FISH BOWLS</h2>
+                </div>
+            </div>
+            <div class="flex-box">
+                <img src="https://static.wixstatic.com/media/ea71bb_e1843477b4274f7e983d6f512d664740~mv2_d_2109_1935_s_2.jpg/v1/fill/w_384,h_650,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/ea71bb_e1843477b4274f7e983d6f512d664740~mv2_d_2109_1935_s_2.jpg"
+                    alt="Aquarium Equipment">
+                <div class="overlay-text">
+                    <h2>AQUARIUM EQUIPMENT</h2>
+                </div>
+            </div>
+            <div class="flex-box">
+                <img src="https://static.wixstatic.com/media/ea71bb_929ed199846f4702869772fba5674a55~mv2_d_2807_2985_s_4_2.jpg/v1/fill/w_384,h_650,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/ea71bb_929ed199846f4702869772fba5674a55~mv2_d_2807_2985_s_4_2.jpg"
+                    alt="Plants & Decorations">
+                <div class="overlay-text">
+                    <h2>PLANTS & DECORATIONS</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- đoạn văn với cái nút nè  -->
+        <div class="section-text">
+            <h2>TINY OCEAN</h2>
+            <p>Your one-stop-shop for all things aquarium</p>
+            <p class="description">
+                I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or
+                double-click
+                me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like
+                on your
+                page. I'm a great place for you to tell a story and let your users know a little more about you. This is
+                a great
+                space to write long text about your company and your services. You can use this space to go into a
+                little more
+                detail about your company.
+            </p>
+            <button class="read-more-btn"
+                onclick="event.preventDefault(); transitionToPage('../About/about_page.html')">Read More</button>
+        </div>
+
+
+        <!-- end -->
+        <footer>
+            <!-- end -->
+            <div class="end-shop">
+                <div class="end-shop-follow">
+                    <p style="color: rgb(255, 255, 255); font-size: 1.8rem;">Follow</p>
+                    <div class="end-shop-icon">
+                        <a href="#">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="end-shop-content-1">
+                    <p>Contact</p>
+                    <p>info@my-domain.com</p>
+                    <p>123-456-7890</p>
+                </div>
+                <div class="end-shop-content-2">
+                    <p>Address</p>
+                    <p>500 Terry Francine Street</p>
+                    <p>San Francisco, CA 94158</p>
+                </div>
+            </div>
+        </footer>
+        <!-- js -->
+        <script src="./page-home.js"></script>
+</body>
+
+</html>

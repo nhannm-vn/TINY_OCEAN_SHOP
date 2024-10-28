@@ -1,0 +1,475 @@
+/* reset css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /* 10px */
+    font-size: 62.5%;
+}
+
+body {
+    /* cho mặc định là 16px cho dễ chơi */
+    font-size: 1.6rem;
+    transition: opacity 1s ease;
+    /* Hiệu ứng chuyển mờ trong 1.5 giây */
+    opacity: 1;
+}
+
+/* container */
+.container {
+    /* border: 2px solid red; */
+    /* width: 132rem; */
+    max-width: initial;
+    height: 140rem;
+    padding: 0;
+    /* background-color: #fafafa; */
+    /* border: 2.5px solid red; */
+}
+
+/* main */
+.main {
+    /* border: 5px solid greenyellow; */
+    width: 95%;
+    margin: 5.5rem auto;
+    max-width: 1360px;
+    position: relative;
+}
+
+/* ----------------------------- */
+/* header */
+.header-shop {
+    /* border: 2px solid darkmagenta; */
+    width: 100%;
+    background-color: rgb(0, 7, 105);
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/* header-shop-left */
+.header-shop-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 3rem 0 3rem 5.5rem;
+}
+
+.header-shop-left p {
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+    letter-spacing: normal;
+    color: rgb(255, 255, 255);
+    font-size: 2.2rem;
+}
+
+.header-shop-left-fish img {
+    display: block;
+    width: 5rem;
+}
+
+/* header-shop-middle */
+.header-shop-middle {
+    padding-top: 4.3rem;
+    padding-bottom: 2.5rem;
+    padding-right: auto;
+    padding-left: 25%;
+}
+
+.header-shop-middle-nav {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.header-shop-item {
+    margin-right: 5rem;
+}
+
+.header-shop-link {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: "Roboto", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 350;
+    transition: 0.4s;
+    display: block;
+}
+
+.header-shop-link:hover {
+    color: rgb(252, 152, 35);
+}
+
+/* -------------------------------------- */
+/* phẩn tử khi đưa vào thì xuất hiển */
+.linksub-shop {
+    display: none;
+    text-align: center;
+    /* border: 2px solid chartreuse; */
+    width: 17rem;
+    height: 11rem;
+    position: absolute;
+    padding-top: 1.7rem;
+    padding-bottom: 0;
+    background-color: rgb(0, 7, 105);
+    /* combo dịch chuyển qua phân nữa so với nó cho đúng chỗ */
+    right: 50%;
+    transform: translateX(50%);
+    top: 100%;
+    z-index: 1;
+}
+
+.linksub-shop a {
+    display: inline-block;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: "Roboto", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 350;
+    transition: 0.4s;
+}
+
+.linksub-shop a:hover {
+    color: rgb(252, 152, 35);
+}
+
+/* khi hover vào cái này thì cái kia bị cái gì */
+.item-hover-spec:hover .linksub-shop {
+    display: block;
+}
+
+/* linksub-customer: phân tử ẩn cho link */
+.linksub-customer {
+    display: none;
+    text-align: center;
+    /* border: 2px solid chartreuse; */
+    width: 16rem;
+    height: 7.5rem;
+    position: absolute;
+    padding-top: 1.7rem;
+    padding-bottom: 0;
+    background-color: rgb(0, 7, 105);
+    /* combo dịch chuyển qua phân nữa so với nó cho đúng chỗ */
+    right: 50%;
+    transform: translateX(50%);
+    top: 100%;
+    z-index: 1000;
+}
+
+.linksub-customer a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: "Roboto", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 350;
+    transition: 0.4s;
+}
+
+.linksub-customer a:hover {
+    color: rgb(252, 152, 35);
+
+}
+
+/* khi hover vào cái này thì cái kia bị cái gì */
+.item-hover-spec:hover .linksub-customer {
+    display: block;
+}
+
+/* ----------------------------- */
+/* Bấm ở trang nào thì nút trên header sẽ có màu đó */
+.actived {
+    color: rgb(252, 152, 35);
+}
+
+/* -----------------------------*/
+/* header-shop-right */
+.header-shop-right {
+    display: flex;
+    padding-top: 4rem;
+}
+
+.header-shop-right-login {
+    padding-right: 5rem;
+    padding-top: 0.6rem;
+
+}
+
+.header-shop-right-login a {
+    text-decoration: none;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: "Roboto", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 350;
+    transition: 0.2s;
+}
+
+.header-shop-right-login a:hover {
+    color: rgb(131, 131, 214);
+}
+
+.header-shop-right-icon {
+    font-size: 1.8rem;
+    padding-right: 3rem;
+}
+
+.header-shop-right-icon a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding-right: 1rem;
+}
+
+.header-shop-right-buy {
+    padding-right: 6rem;
+}
+
+.header-shop-right-buy a {
+    color: rgb(255, 255, 255);
+}
+
+/* ----------------------------- */
+/* video */
+.response-video {
+    width: 100%;
+    /* Video sẽ chiếm toàn bộ chiều rộng của div chứa */
+    height: auto;
+    /* Tự động điều chỉnh chiều cao để giữ nguyên tỷ lệ khung */
+    display: block;
+    /* Loại bỏ khoảng trắng không mong muốn xung quanh */
+}
+
+/* title-in-video */
+.title-in-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title-in-video h1 {
+    color: rgb(255, 255, 255);
+    font-family: "Oswald", sans-serif;
+    text-align: center;
+    font-size: 7rem;
+}
+
+.title-in-video p {
+    color: rgb(255, 255, 255);
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 420;
+    margin-top: 3rem;
+}
+
+/* button */
+.manage-button {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.button-start {
+    width: 14.5rem;
+    height: 4.6rem;
+    color: rgb(0, 7, 105);
+    background-color: rgb(248, 147, 32);
+    border: none;
+    transition: .3s ease-in-out;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, .9);
+
+}
+
+.button-start:hover {
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+}
+
+/* ----------------------------- */
+/* end-shop */
+.end-shop {
+    border: 2px solid darkmagenta;
+    width: 100%;
+    background-color: rgb(0, 7, 105);
+    display: flex;
+    margin-top: 3rem;
+    height: 16rem;
+    justify-content: space-around;
+    padding: 0 28rem;
+}
+
+.end-shop-follow {
+    padding: 3.5rem 0 3.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.end-shop-icon {
+    font-size: 1.8rem;
+}
+
+.end-shop-icon a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 0.5rem;
+}
+
+/*  */
+.end-shop-content-1 {
+    color: rgb(255, 255, 255);
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 3.5rem 0 3.5rem 0;
+
+}
+
+.end-shop-content-2 {
+    color: rgb(255, 255, 255);
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 3.5rem 0 3.5rem 0;
+}
+
+
+/* phần hình dới văn dới cái button nè  */
+
+/* container styling chỉ dành cho phần chứa 3 hình */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* Để khi màn hình hẹp, các hình sẽ tự xuống hàng */
+    margin-top: 3rem;
+    max-width: 1360px;
+    ;
+    /* Giới hạn chiều rộng tổng của container */
+    margin-left: auto;
+    margin-right: auto;
+    gap: 2rem;
+    /* Tạo khoảng cách giữa các hình */
+}
+
+/* Cấu trúc hình với phần chữ */
+.flex-box {
+    position: relative;
+    flex: 1;
+    /* Cho phép các hình co giãn chiếm toàn bộ không gian có sẵn */
+    min-width: 300px;
+    /* Đảm bảo các hình không quá nhỏ */
+    overflow: hidden;
+}
+
+.flex-box img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    /* Giữ tỉ lệ ảnh và cắt bỏ phần dư */
+}
+
+/* Điều chỉnh cho các màn hình nhỏ hơn */
+@media (max-width: 1024px) {
+    .flex-container {
+        padding: 0 1rem;
+    }
+
+    .flex-box {
+        flex: 0 1 calc(50% - 1rem);
+        /* Hiển thị 2 hình trên một hàng ở màn hình vừa */
+    }
+}
+
+@media (max-width: 768px) {
+    .flex-box {
+        flex: 0 1 100%;
+        /* Một hình mỗi hàng khi màn hình rất nhỏ */
+        min-width: 100%;
+        /* Đảm bảo ảnh chiếm toàn bộ chiều ngang màn hình */
+    }
+}
+
+
+
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    /* Màu chữ là trắng để hiện rõ */
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    opacity: 0;
+    /* Bắt đầu mờ */
+    z-index: 1;
+    /* Đảm bảo chữ ở lớp trên */
+    transition: opacity 2s ease-in-out;
+    /* Hiệu ứng chuyển mượt */
+
+}
+
+.overlay-text h2 {
+    font-size: 3rem;
+}
+
+/* Định dạng đoạn văn bản và nút dưới 3 hình nè */
+.section-text {
+    text-align: center;
+    margin-top: 3rem;
+    opacity: 0;
+    /* Bắt đầu mờ */
+    animation: fadeInText 2s forwards;
+    max-width: 800px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5rem;
+    transition: opacity 2s ease-in-out;
+    /* Hiệu ứng chuyển mượt */
+
+}
+
+.section-text h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4.5rem;
+    color: #ff902b;
+    margin-bottom: 1.5rem;
+}
+
+.section-text p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    color: #333;
+    line-height: 1.8;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.section-text .description {
+    font-size: 1.4rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 100%;
+    margin: 2rem auto;
+}
+
+.read-more-btn {
+    background-color: #ff902b;
+    color: rgb(0, 7, 105);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 2rem;
+}
+
+.read-more-btn:hover {
+    color: #f5efef;
+    background-color: rgb(84, 121, 197);
+}
